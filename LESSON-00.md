@@ -45,9 +45,9 @@
 1. Откройте официальный сайт: **https://git-scm.com/install/windows**.
 2. Скачайте установщик **Git for Windows** для своей архитектуры (обычно x64). Не скачивайте его со случайных сайтов.
 3. Запустите загруженный `.exe` и пройдите мастер установки.
-4. На большинстве экранов оставьте настройки по умолчанию. Обратите внимание на две настройки:
+4. На большинстве экранов оставьте настройки по умолчанию. Обратите внимание на следующие настройки:
    - **Adjusting your PATH environment:** выберите или оставьте **Git from the command line and also from 3rd-party software**, чтобы `git` был доступен из PowerShell и другим программам.
-   - **Credential helper:** выберите или оставьте **Git Credential Manager** — он поможет войти в GitHub через браузер вместо ручного ввода токена.
+   - **Credential helper:** выберите или оставьте **Git Credential Manager** — он поможет войти в GitHub через браузер вместо ручного ввода токена. [Что такое Credential Helper и где он хранит данные?](supplements/git/credential-helper.md)
    - **Choose the default behavior of `git pull`:** пока оставьте **Merge**. О том, чем он отличается от Rebase и Fast-forward only, рассказываем в [дополнительном материале про `git pull`](supplements/git/pull-merge-vs-rebase.md).
 5. Завершите установку. Если PowerShell был открыт, **закройте его и откройте заново**.
 

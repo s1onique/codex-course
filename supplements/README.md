@@ -4,6 +4,7 @@
 
 ## Git и GitHub
 
+- [Что такое Credential Helper и зачем нужен Git Credential Manager?](git/credential-helper.md) — вход в GitHub через браузер, хранение токенов и безопасность на Windows 10.
 - [Как работают `git pull --no-rebase`, `git pull --rebase` и `git pull --ff-only`](git/pull-merge-vs-rebase.md) — выбор **Merge**, **Rebase** или **Fast-forward only** в установщике Git for Windows.
 
 Вернуться к [программе курса](../COURSE-OUTLINE.md).
