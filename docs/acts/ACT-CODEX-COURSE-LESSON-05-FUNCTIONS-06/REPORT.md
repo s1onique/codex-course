@@ -523,4 +523,3 @@ SOCKET_FAIL: PermissionError [Errno 1] Operation not permitted
 | Push / PR | не выполнялись |
 | Проверок пройдено | 185 / 185 |
 | Следующий ACT | `ACT-CODEX-COURSE-LESSON-06-DATA-STRUCTURES-07` — массивы и объекты на том же проекте, затем движение к трекеру задач. В этом ACT Урок 06 **не реализовывался** |
-
