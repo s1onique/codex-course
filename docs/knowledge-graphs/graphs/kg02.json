@@ -1,0 +1,978 @@
+{
+  "schema_version": "1.0",
+  "graph_id": "KG02",
+  "title": "Свойства кода",
+  "language": "ru",
+  "status": "draft_three_sheets_transcribed",
+  "source_image": "sources/kg02-properties.jpg",
+  "nodes": [
+    {
+      "id": "kg02_root",
+      "label": "Код",
+      "kind": "root",
+      "provenance": {
+        "sheet": "KG02",
+        "evidence": "handwriting",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "kg02_network",
+      "label": "Сетевое взаимодействие",
+      "kind": "topic",
+      "provenance": {
+        "sheet": "KG02",
+        "evidence": "handwriting",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "kg02_server",
+      "label": "Сервер",
+      "kind": "concept",
+      "provenance": {
+        "sheet": "KG02",
+        "evidence": "handwriting",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "kg02_client",
+      "label": "Клиент",
+      "kind": "concept",
+      "provenance": {
+        "sheet": "KG02",
+        "evidence": "handwriting",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "kg02_rest",
+      "label": "REST",
+      "kind": "example",
+      "provenance": {
+        "sheet": "KG02",
+        "evidence": "handwriting",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "kg02_http",
+      "label": "HTTP",
+      "kind": "example",
+      "provenance": {
+        "sheet": "KG02",
+        "evidence": "handwriting",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "kg02_grpc",
+      "label": "gRPC",
+      "kind": "example",
+      "provenance": {
+        "sheet": "KG02",
+        "evidence": "handwriting",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "kg02_soap",
+      "label": "SOAP",
+      "kind": "example",
+      "provenance": {
+        "sheet": "KG02",
+        "evidence": "handwriting",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "kg02_turing",
+      "label": "Тьюринг-полнота",
+      "kind": "topic",
+      "provenance": {
+        "sheet": "KG02",
+        "evidence": "handwriting",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "kg02_complete",
+      "label": "Тьюринг-полные",
+      "kind": "concept",
+      "provenance": {
+        "sheet": "KG02",
+        "evidence": "handwriting",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "kg02_incomplete",
+      "label": "Тьюринг-неполные",
+      "kind": "concept",
+      "provenance": {
+        "sheet": "KG02",
+        "evidence": "handwriting",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "kg02_formats",
+      "label": "Форматы данных",
+      "kind": "topic",
+      "provenance": {
+        "sheet": "KG02",
+        "evidence": "handwriting",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "kg02_json",
+      "label": "JSON",
+      "kind": "example",
+      "provenance": {
+        "sheet": "KG02",
+        "evidence": "handwriting",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "kg02_xml",
+      "label": "XML",
+      "kind": "example",
+      "provenance": {
+        "sheet": "KG02",
+        "evidence": "handwriting",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "kg02_representation",
+      "label": "Представления кода",
+      "kind": "topic",
+      "provenance": {
+        "sheet": "KG02",
+        "evidence": "handwriting",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "kg02_ast",
+      "label": "AST (абстрактное синтаксическое дерево)",
+      "kind": "concept",
+      "provenance": {
+        "sheet": "KG02",
+        "evidence": "handwriting",
+        "confidence": "high"
+      },
+      "raw_label": "AST (абстр синтакс. дерево)"
+    },
+    {
+      "id": "kg02_ir",
+      "label": "IR (промежуточное представление)",
+      "kind": "concept",
+      "provenance": {
+        "sheet": "KG02",
+        "evidence": "handwriting",
+        "confidence": "high"
+      },
+      "raw_label": "IR intermediate representation — инструкции для превращения в машинный код",
+      "review_note": "Уточнение: IR — промежуточное представление; не следует отождествлять его с машинным кодом."
+    },
+    {
+      "id": "kg02_assembler",
+      "label": "Assembler / ассемблер",
+      "kind": "example",
+      "provenance": {
+        "sheet": "KG02",
+        "evidence": "handwriting",
+        "confidence": "medium"
+      },
+      "review_note": "Написано возле IR; точное отношение неочевидно."
+    },
+    {
+      "id": "kg02_composition",
+      "label": "Из чего состоит код?",
+      "kind": "question",
+      "provenance": {
+        "sheet": "KG02",
+        "evidence": "handwriting",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "kg02_modules",
+      "label": "Модули",
+      "kind": "concept",
+      "provenance": {
+        "sheet": "KG02",
+        "evidence": "handwriting",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "kg02_libraries",
+      "label": "Библиотеки",
+      "kind": "concept",
+      "provenance": {
+        "sheet": "KG02",
+        "evidence": "handwriting",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "kg02_functions",
+      "label": "Функции",
+      "kind": "concept",
+      "provenance": {
+        "sheet": "KG02",
+        "evidence": "handwriting",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "kg02_classes",
+      "label": "Классы",
+      "kind": "concept",
+      "provenance": {
+        "sheet": "KG02",
+        "evidence": "handwriting",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "kg02_interfaces",
+      "label": "Интерфейсы",
+      "kind": "concept",
+      "provenance": {
+        "sheet": "KG02",
+        "evidence": "handwriting",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "kg02_execution",
+      "label": "Как исполняется код?",
+      "kind": "question",
+      "provenance": {
+        "sheet": "KG02",
+        "evidence": "handwriting",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "kg02_interpreted",
+      "label": "Интерпретатором",
+      "kind": "concept",
+      "provenance": {
+        "sheet": "KG02",
+        "evidence": "handwriting",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "kg02_native",
+      "label": "Непосредственно процессором из машинного представления",
+      "kind": "concept",
+      "provenance": {
+        "sheet": "KG02",
+        "evidence": "handwriting",
+        "confidence": "high"
+      },
+      "raw_label": "непоср. на процессоре из машинного представления"
+    },
+    {
+      "id": "kg02_virtual_machine",
+      "label": "На виртуальной машине",
+      "kind": "concept",
+      "provenance": {
+        "sheet": "KG02",
+        "evidence": "handwriting",
+        "confidence": "high"
+      },
+      "raw_label": "используя вирт. машины"
+    },
+    {
+      "id": "kg02_abstractions",
+      "label": "Какими абстракциями оперирует код?",
+      "kind": "question",
+      "provenance": {
+        "sheet": "KG02",
+        "evidence": "handwriting",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "kg02_variables",
+      "label": "Переменные",
+      "kind": "concept",
+      "provenance": {
+        "sheet": "KG02",
+        "evidence": "handwriting",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "kg02_constants",
+      "label": "Константы",
+      "kind": "concept",
+      "provenance": {
+        "sheet": "KG02",
+        "evidence": "handwriting",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "kg02_operators",
+      "label": "Операторы",
+      "kind": "concept",
+      "provenance": {
+        "sheet": "KG02",
+        "evidence": "handwriting",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "kg02_functions_abstract",
+      "label": "Функции",
+      "kind": "concept",
+      "provenance": {
+        "sheet": "KG02",
+        "evidence": "handwriting",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "kg02_loops",
+      "label": "Циклы",
+      "kind": "concept",
+      "provenance": {
+        "sheet": "KG02",
+        "evidence": "handwriting",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "kg02_branches",
+      "label": "Ветвления",
+      "kind": "concept",
+      "provenance": {
+        "sheet": "KG02",
+        "evidence": "handwriting",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "kg02_higher_order",
+      "label": "Функции высшего порядка",
+      "kind": "concept",
+      "provenance": {
+        "sheet": "KG02",
+        "evidence": "handwriting",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "kg02_external",
+      "label": "Как код взаимодействует с внешней средой?",
+      "kind": "question",
+      "provenance": {
+        "sheet": "KG02",
+        "evidence": "handwriting",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "kg02_envvars",
+      "label": "Переменные окружения",
+      "kind": "concept",
+      "provenance": {
+        "sheet": "KG02",
+        "evidence": "handwriting",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "kg02_config",
+      "label": "Конфигурационные файлы (YAML, JSON, INI, TOML)",
+      "kind": "concept",
+      "provenance": {
+        "sheet": "KG02",
+        "evidence": "handwriting",
+        "confidence": "medium"
+      },
+      "raw_label": "конфигурационные файлы yaml, json, ini-файл, xml/toml"
+    },
+    {
+      "id": "kg02_lib_calls",
+      "label": "Вызовы библиотек и функций",
+      "kind": "concept",
+      "provenance": {
+        "sheet": "KG02",
+        "evidence": "handwriting",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "kg02_subprocess",
+      "label": "Вызовы внешних программ",
+      "kind": "concept",
+      "provenance": {
+        "sheet": "KG02",
+        "evidence": "handwriting",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "kg02_paradigms",
+      "label": "Парадигмы программирования",
+      "kind": "topic",
+      "provenance": {
+        "sheet": "KG02",
+        "evidence": "handwriting",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "kg02_imperative",
+      "label": "Императивная (процедурная)",
+      "kind": "concept",
+      "provenance": {
+        "sheet": "KG02",
+        "evidence": "handwriting",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "kg02_oop",
+      "label": "Объектно-ориентированная",
+      "kind": "concept",
+      "provenance": {
+        "sheet": "KG02",
+        "evidence": "handwriting",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "kg02_declarative",
+      "label": "Декларативная",
+      "kind": "concept",
+      "provenance": {
+        "sheet": "KG02",
+        "evidence": "handwriting",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "kg02_functional",
+      "label": "Функциональная",
+      "kind": "concept",
+      "provenance": {
+        "sheet": "KG02",
+        "evidence": "handwriting",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "kg02_concurrent",
+      "label": "Конкурентное программирование",
+      "kind": "concept",
+      "provenance": {
+        "sheet": "KG02",
+        "evidence": "handwriting",
+        "confidence": "high"
+      },
+      "review_note": "Конкурентность — отдельная ось проектирования, не взаимоисключающая парадигма."
+    },
+    {
+      "id": "kg02_memory",
+      "label": "Модель управления памятью",
+      "kind": "topic",
+      "provenance": {
+        "sheet": "KG02",
+        "evidence": "handwriting",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "kg02_manual",
+      "label": "Ручная",
+      "kind": "concept",
+      "provenance": {
+        "sheet": "KG02",
+        "evidence": "handwriting",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "kg02_gc",
+      "label": "Со сборщиком мусора",
+      "kind": "concept",
+      "provenance": {
+        "sheet": "KG02",
+        "evidence": "handwriting",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "kg02_typing",
+      "label": "Типизация",
+      "kind": "topic",
+      "provenance": {
+        "sheet": "KG02",
+        "evidence": "handwriting",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "kg02_static",
+      "label": "Статическая",
+      "kind": "concept",
+      "provenance": {
+        "sheet": "KG02",
+        "evidence": "handwriting",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "kg02_dynamic",
+      "label": "Динамическая",
+      "kind": "concept",
+      "provenance": {
+        "sheet": "KG02",
+        "evidence": "handwriting",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "kg02_strong",
+      "label": "Строгая",
+      "kind": "concept",
+      "provenance": {
+        "sheet": "KG02",
+        "evidence": "handwriting",
+        "confidence": "medium"
+      },
+      "review_note": "Возможно речь о строгой/нестрогой типизации, но терминологию нужно уточнить."
+    },
+    {
+      "id": "kg02_weak",
+      "label": "Нестрогая",
+      "kind": "concept",
+      "provenance": {
+        "sheet": "KG02",
+        "evidence": "handwriting",
+        "confidence": "medium"
+      },
+      "review_note": "Термин неоднозначен; не смешивать weak typing и lazy evaluation."
+    },
+    {
+      "id": "kg02_algebraic",
+      "label": "Языки с алгебраическими типами данных",
+      "kind": "concept",
+      "provenance": {
+        "sheet": "KG02",
+        "evidence": "handwriting",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "kg02_framework",
+      "label": "Framework",
+      "kind": "unlinked_term",
+      "provenance": {
+        "sheet": "KG02",
+        "evidence": "handwriting",
+        "confidence": "high"
+      },
+      "review_note": "Слово написано отдельно, видимой стрелки к центральному узлу нет."
+    }
+  ],
+  "edges": [
+    {
+      "from": "kg02_root",
+      "to": "kg02_network",
+      "relation": "has_branch",
+      "origin": "handwriting",
+      "confidence": "high"
+    },
+    {
+      "from": "kg02_network",
+      "to": "kg02_server",
+      "relation": "has_branch",
+      "origin": "handwriting",
+      "confidence": "high"
+    },
+    {
+      "from": "kg02_network",
+      "to": "kg02_client",
+      "relation": "has_branch",
+      "origin": "handwriting",
+      "confidence": "high"
+    },
+    {
+      "from": "kg02_network",
+      "to": "kg02_rest",
+      "relation": "has_example",
+      "origin": "handwriting",
+      "confidence": "high"
+    },
+    {
+      "from": "kg02_network",
+      "to": "kg02_http",
+      "relation": "has_example",
+      "origin": "handwriting",
+      "confidence": "high"
+    },
+    {
+      "from": "kg02_network",
+      "to": "kg02_grpc",
+      "relation": "has_example",
+      "origin": "handwriting",
+      "confidence": "high"
+    },
+    {
+      "from": "kg02_network",
+      "to": "kg02_soap",
+      "relation": "has_example",
+      "origin": "handwriting",
+      "confidence": "high"
+    },
+    {
+      "from": "kg02_root",
+      "to": "kg02_turing",
+      "relation": "has_branch",
+      "origin": "handwriting",
+      "confidence": "high"
+    },
+    {
+      "from": "kg02_turing",
+      "to": "kg02_complete",
+      "relation": "has_branch",
+      "origin": "handwriting",
+      "confidence": "high"
+    },
+    {
+      "from": "kg02_turing",
+      "to": "kg02_incomplete",
+      "relation": "has_branch",
+      "origin": "handwriting",
+      "confidence": "high"
+    },
+    {
+      "from": "kg02_root",
+      "to": "kg02_formats",
+      "relation": "has_branch",
+      "origin": "handwriting",
+      "confidence": "high"
+    },
+    {
+      "from": "kg02_formats",
+      "to": "kg02_json",
+      "relation": "has_example",
+      "origin": "handwriting",
+      "confidence": "high"
+    },
+    {
+      "from": "kg02_formats",
+      "to": "kg02_xml",
+      "relation": "has_example",
+      "origin": "handwriting",
+      "confidence": "high"
+    },
+    {
+      "from": "kg02_root",
+      "to": "kg02_representation",
+      "relation": "has_branch",
+      "origin": "handwriting",
+      "confidence": "high"
+    },
+    {
+      "from": "kg02_representation",
+      "to": "kg02_ast",
+      "relation": "has_branch",
+      "origin": "handwriting",
+      "confidence": "high"
+    },
+    {
+      "from": "kg02_representation",
+      "to": "kg02_ir",
+      "relation": "has_branch",
+      "origin": "handwriting",
+      "confidence": "high"
+    },
+    {
+      "from": "kg02_representation",
+      "to": "kg02_assembler",
+      "relation": "has_example",
+      "origin": "handwriting",
+      "confidence": "medium"
+    },
+    {
+      "from": "kg02_root",
+      "to": "kg02_composition",
+      "relation": "has_branch",
+      "origin": "handwriting",
+      "confidence": "high"
+    },
+    {
+      "from": "kg02_composition",
+      "to": "kg02_modules",
+      "relation": "has_branch",
+      "origin": "handwriting",
+      "confidence": "high"
+    },
+    {
+      "from": "kg02_composition",
+      "to": "kg02_libraries",
+      "relation": "has_branch",
+      "origin": "handwriting",
+      "confidence": "high"
+    },
+    {
+      "from": "kg02_composition",
+      "to": "kg02_functions",
+      "relation": "has_branch",
+      "origin": "handwriting",
+      "confidence": "high"
+    },
+    {
+      "from": "kg02_composition",
+      "to": "kg02_classes",
+      "relation": "has_branch",
+      "origin": "handwriting",
+      "confidence": "high"
+    },
+    {
+      "from": "kg02_composition",
+      "to": "kg02_interfaces",
+      "relation": "has_branch",
+      "origin": "handwriting",
+      "confidence": "high"
+    },
+    {
+      "from": "kg02_root",
+      "to": "kg02_execution",
+      "relation": "has_branch",
+      "origin": "handwriting",
+      "confidence": "high"
+    },
+    {
+      "from": "kg02_execution",
+      "to": "kg02_interpreted",
+      "relation": "has_branch",
+      "origin": "handwriting",
+      "confidence": "high"
+    },
+    {
+      "from": "kg02_execution",
+      "to": "kg02_native",
+      "relation": "has_branch",
+      "origin": "handwriting",
+      "confidence": "high"
+    },
+    {
+      "from": "kg02_execution",
+      "to": "kg02_virtual_machine",
+      "relation": "has_branch",
+      "origin": "handwriting",
+      "confidence": "high"
+    },
+    {
+      "from": "kg02_root",
+      "to": "kg02_abstractions",
+      "relation": "has_branch",
+      "origin": "handwriting",
+      "confidence": "high"
+    },
+    {
+      "from": "kg02_abstractions",
+      "to": "kg02_variables",
+      "relation": "has_branch",
+      "origin": "handwriting",
+      "confidence": "high"
+    },
+    {
+      "from": "kg02_abstractions",
+      "to": "kg02_constants",
+      "relation": "has_branch",
+      "origin": "handwriting",
+      "confidence": "high"
+    },
+    {
+      "from": "kg02_abstractions",
+      "to": "kg02_operators",
+      "relation": "has_branch",
+      "origin": "handwriting",
+      "confidence": "high"
+    },
+    {
+      "from": "kg02_abstractions",
+      "to": "kg02_functions_abstract",
+      "relation": "has_branch",
+      "origin": "handwriting",
+      "confidence": "high"
+    },
+    {
+      "from": "kg02_abstractions",
+      "to": "kg02_loops",
+      "relation": "has_branch",
+      "origin": "handwriting",
+      "confidence": "high"
+    },
+    {
+      "from": "kg02_abstractions",
+      "to": "kg02_branches",
+      "relation": "has_branch",
+      "origin": "handwriting",
+      "confidence": "high"
+    },
+    {
+      "from": "kg02_abstractions",
+      "to": "kg02_higher_order",
+      "relation": "has_branch",
+      "origin": "handwriting",
+      "confidence": "high"
+    },
+    {
+      "from": "kg02_root",
+      "to": "kg02_external",
+      "relation": "has_branch",
+      "origin": "handwriting",
+      "confidence": "high"
+    },
+    {
+      "from": "kg02_external",
+      "to": "kg02_envvars",
+      "relation": "has_branch",
+      "origin": "handwriting",
+      "confidence": "high"
+    },
+    {
+      "from": "kg02_external",
+      "to": "kg02_config",
+      "relation": "has_branch",
+      "origin": "handwriting",
+      "confidence": "medium"
+    },
+    {
+      "from": "kg02_external",
+      "to": "kg02_lib_calls",
+      "relation": "has_branch",
+      "origin": "handwriting",
+      "confidence": "high"
+    },
+    {
+      "from": "kg02_external",
+      "to": "kg02_subprocess",
+      "relation": "has_branch",
+      "origin": "handwriting",
+      "confidence": "high"
+    },
+    {
+      "from": "kg02_root",
+      "to": "kg02_paradigms",
+      "relation": "has_branch",
+      "origin": "handwriting",
+      "confidence": "high"
+    },
+    {
+      "from": "kg02_paradigms",
+      "to": "kg02_imperative",
+      "relation": "has_branch",
+      "origin": "handwriting",
+      "confidence": "high"
+    },
+    {
+      "from": "kg02_paradigms",
+      "to": "kg02_oop",
+      "relation": "has_branch",
+      "origin": "handwriting",
+      "confidence": "high"
+    },
+    {
+      "from": "kg02_paradigms",
+      "to": "kg02_declarative",
+      "relation": "has_branch",
+      "origin": "handwriting",
+      "confidence": "high"
+    },
+    {
+      "from": "kg02_paradigms",
+      "to": "kg02_functional",
+      "relation": "has_branch",
+      "origin": "handwriting",
+      "confidence": "high"
+    },
+    {
+      "from": "kg02_paradigms",
+      "to": "kg02_concurrent",
+      "relation": "has_branch",
+      "origin": "handwriting",
+      "confidence": "high"
+    },
+    {
+      "from": "kg02_root",
+      "to": "kg02_memory",
+      "relation": "has_branch",
+      "origin": "handwriting",
+      "confidence": "high"
+    },
+    {
+      "from": "kg02_memory",
+      "to": "kg02_manual",
+      "relation": "has_branch",
+      "origin": "handwriting",
+      "confidence": "high"
+    },
+    {
+      "from": "kg02_memory",
+      "to": "kg02_gc",
+      "relation": "has_branch",
+      "origin": "handwriting",
+      "confidence": "high"
+    },
+    {
+      "from": "kg02_root",
+      "to": "kg02_typing",
+      "relation": "has_branch",
+      "origin": "handwriting",
+      "confidence": "high"
+    },
+    {
+      "from": "kg02_typing",
+      "to": "kg02_static",
+      "relation": "has_branch",
+      "origin": "handwriting",
+      "confidence": "high"
+    },
+    {
+      "from": "kg02_typing",
+      "to": "kg02_dynamic",
+      "relation": "has_branch",
+      "origin": "handwriting",
+      "confidence": "high"
+    },
+    {
+      "from": "kg02_typing",
+      "to": "kg02_strong",
+      "relation": "has_branch",
+      "origin": "handwriting",
+      "confidence": "medium"
+    },
+    {
+      "from": "kg02_typing",
+      "to": "kg02_weak",
+      "relation": "has_branch",
+      "origin": "handwriting",
+      "confidence": "medium"
+    },
+    {
+      "from": "kg02_typing",
+      "to": "kg02_algebraic",
+      "relation": "has_branch",
+      "origin": "handwriting",
+      "confidence": "high"
+    }
+  ]
+}

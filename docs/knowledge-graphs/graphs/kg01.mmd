@@ -1,0 +1,70 @@
+flowchart LR
+  kg01_root["Код"]
+  kg01_where_run["Где запускают код?"]
+  kg01_local["У разработчика"]
+  kg01_isolated["В изолированном окружении (Docker)"]
+  kg01_orchestrated["Под управлением оркестратора (Kubernetes)"]
+  kg01_remote["На сервере в интернете"]
+  kg01_state_storage["Хранение состояния"]
+  kg01_files["В файлах"]
+  kg01_cache["В кэше (Redis)"]
+  kg01_rdbms["В реляционной СУБД (PostgreSQL, MySQL)"]
+  kg01_nosql["В NoSQL БД (MongoDB)"]
+  kg01_where_store_code["Где хранят код?"]
+  kg01_git["Git"]
+  kg01_gitlab["GitLab"]
+  kg01_editor["Чем писать код?"]
+  kg01_vim["Vim"]
+  kg01_vscode["VS Code"]
+  kg01_idea["IDEA"]
+  kg01_how_launch["Как запускать код?"]
+  kg01_how_test["Как тестировать код?"]
+  kg01_test_arch["Как тестировать на разных архитектурах устройств?"]
+  kg01_test_correctness["Как проверить корректность тестов?"]
+  kg01_test_coverage["Как проверить полноту тестирования? (code coverage)"]
+  kg01_test_env["Как проверить в разных окружениях (БД, нагрузка)?"]
+  kg01_test_security["Как проверить безопасность?"]
+  kg01_structure["Как структурировать код?"]
+  kg01_split_files["Как разбить по файлам?"]
+  kg01_split_modules["Как разбить по модулям?"]
+  kg01_document["Как документировать код?"]
+  kg01_inline_docs["Как документировать код внутри, писать комментарии?"]
+  kg01_external_docs["Как организовать внешнюю документацию и её проверку на корректность?"]
+  kg01_artifact["Как получить отчуждаемый артефакт?"]
+  kg01_pipeline["Pipeline (GitLab)"]
+  kg01_repro_build["Как обеспечить повторяемую сборку?"]
+  kg01_interop["Как обмениваться с другими программами?"]
+  kg01_root --> kg01_where_run
+  kg01_where_run --> kg01_local
+  kg01_where_run --> kg01_isolated
+  kg01_where_run --> kg01_orchestrated
+  kg01_where_run --> kg01_remote
+  kg01_root --> kg01_state_storage
+  kg01_state_storage --> kg01_files
+  kg01_state_storage --> kg01_cache
+  kg01_state_storage --> kg01_rdbms
+  kg01_state_storage --> kg01_nosql
+  kg01_root --> kg01_where_store_code
+  kg01_where_store_code --> kg01_git
+  kg01_where_store_code --> kg01_gitlab
+  kg01_root --> kg01_editor
+  kg01_editor --> kg01_vim
+  kg01_editor --> kg01_vscode
+  kg01_editor --> kg01_idea
+  kg01_root --> kg01_how_launch
+  kg01_root --> kg01_how_test
+  kg01_how_test --> kg01_test_arch
+  kg01_how_test --> kg01_test_correctness
+  kg01_how_test --> kg01_test_coverage
+  kg01_how_test --> kg01_test_env
+  kg01_how_test --> kg01_test_security
+  kg01_root --> kg01_structure
+  kg01_structure --> kg01_split_files
+  kg01_structure --> kg01_split_modules
+  kg01_root --> kg01_document
+  kg01_document --> kg01_inline_docs
+  kg01_document --> kg01_external_docs
+  kg01_root --> kg01_artifact
+  kg01_artifact --> kg01_pipeline
+  kg01_artifact --> kg01_repro_build
+  kg01_root --> kg01_interop

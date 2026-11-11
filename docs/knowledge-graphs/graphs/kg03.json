@@ -1,0 +1,524 @@
+{
+  "schema_version": "1.0",
+  "graph_id": "KG03",
+  "title": "Приложение",
+  "language": "ru",
+  "status": "draft_three_sheets_transcribed",
+  "source_image": "sources/kg03-application.jpg",
+  "source_original": "sources/kg03-application-original.jpg",
+  "nodes": [
+    {
+      "id": "kg03_root",
+      "label": "Приложение",
+      "kind": "root",
+      "provenance": {
+        "sheet": "KG03",
+        "evidence": "handwriting",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "kg03_diagnostics",
+      "label": "Диагностика",
+      "kind": "topic",
+      "provenance": {
+        "sheet": "KG03",
+        "evidence": "handwriting",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "kg03_logging",
+      "label": "Логирование",
+      "kind": "concept",
+      "provenance": {
+        "sheet": "KG03",
+        "evidence": "handwriting",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "kg03_profiling",
+      "label": "Профилирование",
+      "kind": "concept",
+      "provenance": {
+        "sheet": "KG03",
+        "evidence": "handwriting",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "kg03_debugging",
+      "label": "Отладка",
+      "kind": "concept",
+      "provenance": {
+        "sheet": "KG03",
+        "evidence": "handwriting",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "kg03_loki",
+      "label": "Loki",
+      "kind": "example",
+      "provenance": {
+        "sheet": "KG03",
+        "evidence": "handwriting",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "kg03_kibana",
+      "label": "Kibana",
+      "kind": "example",
+      "provenance": {
+        "sheet": "KG03",
+        "evidence": "handwriting",
+        "confidence": "high"
+      },
+      "raw_label": "Kibana (elk)",
+      "review_note": "ELK — обозначение стека; Kibana — отдельный компонент."
+    },
+    {
+      "id": "kg03_elasticsearch",
+      "label": "Elasticsearch",
+      "kind": "example",
+      "provenance": {
+        "sheet": "KG03",
+        "evidence": "handwriting",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "kg03_ebpf",
+      "label": "eBPF",
+      "kind": "example",
+      "provenance": {
+        "sheet": "KG03",
+        "evidence": "handwriting",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "kg03_flamegraphs",
+      "label": "Flame graphs",
+      "kind": "example",
+      "provenance": {
+        "sheet": "KG03",
+        "evidence": "handwriting",
+        "confidence": "high"
+      },
+      "raw_label": "flameGraphs"
+    },
+    {
+      "id": "kg03_recovery",
+      "label": "Восстановление после сбоев",
+      "kind": "topic",
+      "provenance": {
+        "sheet": "KG03",
+        "evidence": "handwriting",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "kg03_fail_fast",
+      "label": "Fail-fast / restart",
+      "kind": "concept",
+      "provenance": {
+        "sheet": "KG03",
+        "evidence": "handwriting",
+        "confidence": "high"
+      },
+      "raw_label": "fail fast (restart)",
+      "review_note": "Fail-fast и restart — разные механизмы; на листе сгруппированы, не доказана их эквивалентность."
+    },
+    {
+      "id": "kg03_backoff",
+      "label": "Exponential backoff",
+      "kind": "concept",
+      "provenance": {
+        "sheet": "KG03",
+        "evidence": "handwriting",
+        "confidence": "high"
+      },
+      "raw_label": "exponential backoff"
+    },
+    {
+      "id": "kg03_identity",
+      "label": "Аутентификация и авторизация",
+      "kind": "topic",
+      "provenance": {
+        "sheet": "KG03",
+        "evidence": "handwriting",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "kg03_keycloak",
+      "label": "Keycloak",
+      "kind": "example",
+      "provenance": {
+        "sheet": "KG03",
+        "evidence": "handwriting",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "kg03_adfs",
+      "label": "AD FS",
+      "kind": "example",
+      "provenance": {
+        "sheet": "KG03",
+        "evidence": "handwriting",
+        "confidence": "high"
+      },
+      "raw_label": "ADFS"
+    },
+    {
+      "id": "kg03_credentials",
+      "label": "Учётные данные",
+      "kind": "example",
+      "provenance": {
+        "sheet": "KG03",
+        "evidence": "handwriting",
+        "confidence": "medium"
+      },
+      "raw_label": "креды",
+      "review_note": "Чтение «креды» вероятное; разговорное от credentials. Уточнить по автору."
+    },
+    {
+      "id": "kg03_security_events",
+      "label": "События безопасности",
+      "kind": "topic",
+      "provenance": {
+        "sheet": "KG03",
+        "evidence": "handwriting",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "kg03_audit_logs",
+      "label": "Аудит-логи",
+      "kind": "concept",
+      "provenance": {
+        "sheet": "KG03",
+        "evidence": "handwriting",
+        "confidence": "high"
+      },
+      "raw_label": "аудит-логи"
+    },
+    {
+      "id": "kg03_external_interaction",
+      "label": "Взаимодействие с внешним миром",
+      "kind": "topic",
+      "provenance": {
+        "sheet": "KG03",
+        "evidence": "handwriting",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "kg03_synchronous",
+      "label": "Синхронное",
+      "kind": "concept",
+      "provenance": {
+        "sheet": "KG03",
+        "evidence": "handwriting",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "kg03_asynchronous",
+      "label": "Асинхронное",
+      "kind": "concept",
+      "provenance": {
+        "sheet": "KG03",
+        "evidence": "handwriting",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "kg03_rabbitmq",
+      "label": "RabbitMQ",
+      "kind": "example",
+      "provenance": {
+        "sheet": "KG03",
+        "evidence": "handwriting",
+        "confidence": "high"
+      },
+      "raw_label": "rabbit"
+    },
+    {
+      "id": "kg03_kafka",
+      "label": "Kafka",
+      "kind": "example",
+      "provenance": {
+        "sheet": "KG03",
+        "evidence": "handwriting",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "kg03_state_storage",
+      "label": "Хранение состояния",
+      "kind": "topic",
+      "provenance": {
+        "sheet": "KG03",
+        "evidence": "handwriting",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "kg03_files",
+      "label": "В файлах",
+      "kind": "concept",
+      "provenance": {
+        "sheet": "KG03",
+        "evidence": "handwriting",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "kg03_cache",
+      "label": "В кэше (Redis)",
+      "kind": "concept",
+      "provenance": {
+        "sheet": "KG03",
+        "evidence": "handwriting",
+        "confidence": "high"
+      },
+      "raw_label": "в кэше redis"
+    },
+    {
+      "id": "kg03_rdbms",
+      "label": "В реляционной СУБД (PostgreSQL, MySQL, MariaDB)",
+      "kind": "concept",
+      "provenance": {
+        "sheet": "KG03",
+        "evidence": "handwriting",
+        "confidence": "high"
+      },
+      "raw_label": "в РСУБД Postgress, MySQL, MariaDB",
+      "review_note": "На листе написано «Postgress» или сокращённое «Postgres»; нормализовано в PostgreSQL."
+    },
+    {
+      "id": "kg03_nosql",
+      "label": "В NoSQL БД (MongoDB, Cassandra)",
+      "kind": "concept",
+      "provenance": {
+        "sheet": "KG03",
+        "evidence": "handwriting",
+        "confidence": "high"
+      },
+      "raw_label": "в noSQL БД mongo DB, Cassandra"
+    }
+  ],
+  "edges": [
+    {
+      "from": "kg03_root",
+      "to": "kg03_diagnostics",
+      "relation": "has_branch",
+      "origin": "handwriting",
+      "confidence": "high"
+    },
+    {
+      "from": "kg03_diagnostics",
+      "to": "kg03_logging",
+      "relation": "has_branch",
+      "origin": "handwriting",
+      "confidence": "high"
+    },
+    {
+      "from": "kg03_diagnostics",
+      "to": "kg03_profiling",
+      "relation": "has_branch",
+      "origin": "handwriting",
+      "confidence": "high"
+    },
+    {
+      "from": "kg03_diagnostics",
+      "to": "kg03_debugging",
+      "relation": "has_branch",
+      "origin": "handwriting",
+      "confidence": "high"
+    },
+    {
+      "from": "kg03_logging",
+      "to": "kg03_loki",
+      "relation": "annotates",
+      "origin": "pedagogical_inference",
+      "confidence": "medium",
+      "note": "Текст расположен рядом с веткой, но отдельной стрелки на фотографии не видно."
+    },
+    {
+      "from": "kg03_logging",
+      "to": "kg03_kibana",
+      "relation": "annotates",
+      "origin": "pedagogical_inference",
+      "confidence": "medium",
+      "note": "Текст расположен рядом с веткой, но отдельной стрелки на фотографии не видно."
+    },
+    {
+      "from": "kg03_logging",
+      "to": "kg03_elasticsearch",
+      "relation": "annotates",
+      "origin": "pedagogical_inference",
+      "confidence": "medium",
+      "note": "Текст расположен рядом с веткой, но отдельной стрелки на фотографии не видно."
+    },
+    {
+      "from": "kg03_profiling",
+      "to": "kg03_ebpf",
+      "relation": "annotates",
+      "origin": "pedagogical_inference",
+      "confidence": "medium",
+      "note": "Текст расположен рядом с веткой, но отдельной стрелки на фотографии не видно."
+    },
+    {
+      "from": "kg03_profiling",
+      "to": "kg03_flamegraphs",
+      "relation": "annotates",
+      "origin": "pedagogical_inference",
+      "confidence": "medium",
+      "note": "Текст расположен рядом с веткой, но отдельной стрелки на фотографии не видно."
+    },
+    {
+      "from": "kg03_root",
+      "to": "kg03_recovery",
+      "relation": "has_branch",
+      "origin": "handwriting",
+      "confidence": "high"
+    },
+    {
+      "from": "kg03_recovery",
+      "to": "kg03_fail_fast",
+      "relation": "has_branch",
+      "origin": "handwriting",
+      "confidence": "high"
+    },
+    {
+      "from": "kg03_recovery",
+      "to": "kg03_backoff",
+      "relation": "has_branch",
+      "origin": "handwriting",
+      "confidence": "high"
+    },
+    {
+      "from": "kg03_root",
+      "to": "kg03_identity",
+      "relation": "has_branch",
+      "origin": "handwriting",
+      "confidence": "high"
+    },
+    {
+      "from": "kg03_identity",
+      "to": "kg03_keycloak",
+      "relation": "annotates",
+      "origin": "pedagogical_inference",
+      "confidence": "medium",
+      "note": "Текст расположен рядом с веткой, но отдельной стрелки на фотографии не видно."
+    },
+    {
+      "from": "kg03_identity",
+      "to": "kg03_adfs",
+      "relation": "annotates",
+      "origin": "pedagogical_inference",
+      "confidence": "medium",
+      "note": "Текст расположен рядом с веткой, но отдельной стрелки на фотографии не видно."
+    },
+    {
+      "from": "kg03_identity",
+      "to": "kg03_credentials",
+      "relation": "annotates",
+      "origin": "pedagogical_inference",
+      "confidence": "medium",
+      "note": "Текст расположен рядом с веткой, но отдельной стрелки на фотографии не видно."
+    },
+    {
+      "from": "kg03_root",
+      "to": "kg03_security_events",
+      "relation": "has_branch",
+      "origin": "handwriting",
+      "confidence": "high"
+    },
+    {
+      "from": "kg03_security_events",
+      "to": "kg03_audit_logs",
+      "relation": "has_branch",
+      "origin": "handwriting",
+      "confidence": "high"
+    },
+    {
+      "from": "kg03_root",
+      "to": "kg03_external_interaction",
+      "relation": "has_branch",
+      "origin": "handwriting",
+      "confidence": "high"
+    },
+    {
+      "from": "kg03_external_interaction",
+      "to": "kg03_synchronous",
+      "relation": "has_branch",
+      "origin": "handwriting",
+      "confidence": "high"
+    },
+    {
+      "from": "kg03_external_interaction",
+      "to": "kg03_asynchronous",
+      "relation": "has_branch",
+      "origin": "handwriting",
+      "confidence": "high"
+    },
+    {
+      "from": "kg03_asynchronous",
+      "to": "kg03_rabbitmq",
+      "relation": "annotates",
+      "origin": "pedagogical_inference",
+      "confidence": "medium",
+      "note": "Текст расположен рядом с веткой, но отдельной стрелки на фотографии не видно."
+    },
+    {
+      "from": "kg03_asynchronous",
+      "to": "kg03_kafka",
+      "relation": "annotates",
+      "origin": "pedagogical_inference",
+      "confidence": "medium",
+      "note": "Текст расположен рядом с веткой, но отдельной стрелки на фотографии не видно."
+    },
+    {
+      "from": "kg03_root",
+      "to": "kg03_state_storage",
+      "relation": "has_branch",
+      "origin": "handwriting",
+      "confidence": "high"
+    },
+    {
+      "from": "kg03_state_storage",
+      "to": "kg03_files",
+      "relation": "has_branch",
+      "origin": "handwriting",
+      "confidence": "high"
+    },
+    {
+      "from": "kg03_state_storage",
+      "to": "kg03_cache",
+      "relation": "has_branch",
+      "origin": "handwriting",
+      "confidence": "high"
+    },
+    {
+      "from": "kg03_state_storage",
+      "to": "kg03_rdbms",
+      "relation": "has_branch",
+      "origin": "handwriting",
+      "confidence": "high"
+    },
+    {
+      "from": "kg03_state_storage",
+      "to": "kg03_nosql",
+      "relation": "has_branch",
+      "origin": "handwriting",
+      "confidence": "high"
+    }
+  ]
+}

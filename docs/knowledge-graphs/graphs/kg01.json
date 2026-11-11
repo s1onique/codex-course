@@ -1,0 +1,615 @@
+{
+  "schema_version": "1.0",
+  "graph_id": "KG01",
+  "title": "Действия с кодом",
+  "language": "ru",
+  "status": "draft_three_sheets_transcribed",
+  "source_image": "sources/kg01-actions.jpg",
+  "nodes": [
+    {
+      "id": "kg01_root",
+      "label": "Код",
+      "kind": "root",
+      "provenance": {
+        "sheet": "KG01",
+        "evidence": "handwriting",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "kg01_where_run",
+      "label": "Где запускают код?",
+      "kind": "question",
+      "provenance": {
+        "sheet": "KG01",
+        "evidence": "handwriting",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "kg01_local",
+      "label": "У разработчика",
+      "kind": "concept",
+      "provenance": {
+        "sheet": "KG01",
+        "evidence": "handwriting",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "kg01_isolated",
+      "label": "В изолированном окружении (Docker)",
+      "kind": "concept",
+      "provenance": {
+        "sheet": "KG01",
+        "evidence": "handwriting",
+        "confidence": "high"
+      },
+      "raw_label": "в изолированном окружении; docker"
+    },
+    {
+      "id": "kg01_orchestrated",
+      "label": "Под управлением оркестратора (Kubernetes)",
+      "kind": "concept",
+      "provenance": {
+        "sheet": "KG01",
+        "evidence": "handwriting",
+        "confidence": "high"
+      },
+      "raw_label": "под управлением оркестратора; Kubernetes, service mesh",
+      "review_note": "Service mesh находится рядом с Kubernetes, но не равнозначен оркестратору."
+    },
+    {
+      "id": "kg01_remote",
+      "label": "На сервере в интернете",
+      "kind": "concept",
+      "provenance": {
+        "sheet": "KG01",
+        "evidence": "handwriting",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "kg01_state_storage",
+      "label": "Хранение состояния",
+      "kind": "topic",
+      "provenance": {
+        "sheet": "KG01",
+        "evidence": "handwriting",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "kg01_files",
+      "label": "В файлах",
+      "kind": "concept",
+      "provenance": {
+        "sheet": "KG01",
+        "evidence": "handwriting",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "kg01_cache",
+      "label": "В кэше (Redis)",
+      "kind": "concept",
+      "provenance": {
+        "sheet": "KG01",
+        "evidence": "handwriting",
+        "confidence": "high"
+      },
+      "raw_label": "в кэше; redis"
+    },
+    {
+      "id": "kg01_rdbms",
+      "label": "В реляционной СУБД (PostgreSQL, MySQL)",
+      "kind": "concept",
+      "provenance": {
+        "sheet": "KG01",
+        "evidence": "handwriting",
+        "confidence": "high"
+      },
+      "raw_label": "в РСУБД; PostgreSQL, MySQL"
+    },
+    {
+      "id": "kg01_nosql",
+      "label": "В NoSQL БД (MongoDB)",
+      "kind": "concept",
+      "provenance": {
+        "sheet": "KG01",
+        "evidence": "handwriting",
+        "confidence": "high"
+      },
+      "raw_label": "в noSQL БД; mongoDB"
+    },
+    {
+      "id": "kg01_where_store_code",
+      "label": "Где хранят код?",
+      "kind": "question",
+      "provenance": {
+        "sheet": "KG01",
+        "evidence": "handwriting",
+        "confidence": "medium"
+      }
+    },
+    {
+      "id": "kg01_git",
+      "label": "Git",
+      "kind": "example",
+      "provenance": {
+        "sheet": "KG01",
+        "evidence": "handwriting",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "kg01_gitlab",
+      "label": "GitLab",
+      "kind": "example",
+      "provenance": {
+        "sheet": "KG01",
+        "evidence": "handwriting",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "kg01_editor",
+      "label": "Чем писать код?",
+      "kind": "question",
+      "provenance": {
+        "sheet": "KG01",
+        "evidence": "handwriting",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "kg01_vim",
+      "label": "Vim",
+      "kind": "example",
+      "provenance": {
+        "sheet": "KG01",
+        "evidence": "handwriting",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "kg01_vscode",
+      "label": "VS Code",
+      "kind": "example",
+      "provenance": {
+        "sheet": "KG01",
+        "evidence": "handwriting",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "kg01_idea",
+      "label": "IDEA",
+      "kind": "example",
+      "provenance": {
+        "sheet": "KG01",
+        "evidence": "handwriting",
+        "confidence": "high"
+      },
+      "review_note": "Скорее всего имеется в виду IntelliJ IDEA."
+    },
+    {
+      "id": "kg01_how_launch",
+      "label": "Как запускать код?",
+      "kind": "question",
+      "provenance": {
+        "sheet": "KG01",
+        "evidence": "handwriting",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "kg01_how_test",
+      "label": "Как тестировать код?",
+      "kind": "question",
+      "provenance": {
+        "sheet": "KG01",
+        "evidence": "handwriting",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "kg01_test_arch",
+      "label": "Как тестировать на разных архитектурах устройств?",
+      "kind": "concept",
+      "provenance": {
+        "sheet": "KG01",
+        "evidence": "handwriting",
+        "confidence": "high"
+      },
+      "raw_label": "как т-ть на разных архитектурах устройств?"
+    },
+    {
+      "id": "kg01_test_correctness",
+      "label": "Как проверить корректность тестов?",
+      "kind": "concept",
+      "provenance": {
+        "sheet": "KG01",
+        "evidence": "handwriting",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "kg01_test_coverage",
+      "label": "Как проверить полноту тестирования? (code coverage)",
+      "kind": "concept",
+      "provenance": {
+        "sheet": "KG01",
+        "evidence": "handwriting",
+        "confidence": "high"
+      },
+      "raw_label": "как проверить полноту тестирования?; code coverage",
+      "review_note": "Покрытие кода не является доказательством полноты тестирования."
+    },
+    {
+      "id": "kg01_test_env",
+      "label": "Как проверить в разных окружениях (БД, нагрузка)?",
+      "kind": "concept",
+      "provenance": {
+        "sheet": "KG01",
+        "evidence": "handwriting",
+        "confidence": "high"
+      },
+      "raw_label": "как проверить в разных окружениях (разные БД, нагрузка)"
+    },
+    {
+      "id": "kg01_test_security",
+      "label": "Как проверить безопасность?",
+      "kind": "concept",
+      "provenance": {
+        "sheet": "KG01",
+        "evidence": "handwriting",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "kg01_structure",
+      "label": "Как структурировать код?",
+      "kind": "question",
+      "provenance": {
+        "sheet": "KG01",
+        "evidence": "handwriting",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "kg01_split_files",
+      "label": "Как разбить по файлам?",
+      "kind": "concept",
+      "provenance": {
+        "sheet": "KG01",
+        "evidence": "handwriting",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "kg01_split_modules",
+      "label": "Как разбить по модулям?",
+      "kind": "concept",
+      "provenance": {
+        "sheet": "KG01",
+        "evidence": "handwriting",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "kg01_document",
+      "label": "Как документировать код?",
+      "kind": "question",
+      "provenance": {
+        "sheet": "KG01",
+        "evidence": "handwriting",
+        "confidence": "high"
+      }
+    },
+    {
+      "id": "kg01_inline_docs",
+      "label": "Как документировать код внутри, писать комментарии?",
+      "kind": "concept",
+      "provenance": {
+        "sheet": "KG01",
+        "evidence": "handwriting",
+        "confidence": "medium"
+      },
+      "raw_label": "как док-ть код внутри, писать коммент-ии?"
+    },
+    {
+      "id": "kg01_external_docs",
+      "label": "Как организовать внешнюю документацию и её проверку на корректность?",
+      "kind": "concept",
+      "provenance": {
+        "sheet": "KG01",
+        "evidence": "handwriting",
+        "confidence": "medium"
+      },
+      "raw_label": "как орг-ть внеш. док-тацию и её проверку на корректность?"
+    },
+    {
+      "id": "kg01_artifact",
+      "label": "Как получить отчуждаемый артефакт?",
+      "kind": "question",
+      "provenance": {
+        "sheet": "KG01",
+        "evidence": "handwriting",
+        "confidence": "medium"
+      }
+    },
+    {
+      "id": "kg01_pipeline",
+      "label": "Pipeline (GitLab)",
+      "kind": "concept",
+      "provenance": {
+        "sheet": "KG01",
+        "evidence": "handwriting",
+        "confidence": "high"
+      },
+      "raw_label": "pipeline; gitlab"
+    },
+    {
+      "id": "kg01_repro_build",
+      "label": "Как обеспечить повторяемую сборку?",
+      "kind": "concept",
+      "provenance": {
+        "sheet": "KG01",
+        "evidence": "handwriting",
+        "confidence": "high"
+      },
+      "raw_label": "как обеспечить повторяемую сборку?"
+    },
+    {
+      "id": "kg01_interop",
+      "label": "Как обмениваться с другими программами?",
+      "kind": "question",
+      "provenance": {
+        "sheet": "KG01",
+        "evidence": "handwriting",
+        "confidence": "high"
+      }
+    }
+  ],
+  "edges": [
+    {
+      "from": "kg01_root",
+      "to": "kg01_where_run",
+      "relation": "has_branch",
+      "origin": "handwriting",
+      "confidence": "high"
+    },
+    {
+      "from": "kg01_where_run",
+      "to": "kg01_local",
+      "relation": "has_branch",
+      "origin": "handwriting",
+      "confidence": "high"
+    },
+    {
+      "from": "kg01_where_run",
+      "to": "kg01_isolated",
+      "relation": "has_branch",
+      "origin": "handwriting",
+      "confidence": "high"
+    },
+    {
+      "from": "kg01_where_run",
+      "to": "kg01_orchestrated",
+      "relation": "has_branch",
+      "origin": "handwriting",
+      "confidence": "high"
+    },
+    {
+      "from": "kg01_where_run",
+      "to": "kg01_remote",
+      "relation": "has_branch",
+      "origin": "handwriting",
+      "confidence": "high"
+    },
+    {
+      "from": "kg01_root",
+      "to": "kg01_state_storage",
+      "relation": "has_branch",
+      "origin": "handwriting",
+      "confidence": "high"
+    },
+    {
+      "from": "kg01_state_storage",
+      "to": "kg01_files",
+      "relation": "has_branch",
+      "origin": "handwriting",
+      "confidence": "high"
+    },
+    {
+      "from": "kg01_state_storage",
+      "to": "kg01_cache",
+      "relation": "has_branch",
+      "origin": "handwriting",
+      "confidence": "high"
+    },
+    {
+      "from": "kg01_state_storage",
+      "to": "kg01_rdbms",
+      "relation": "has_branch",
+      "origin": "handwriting",
+      "confidence": "high"
+    },
+    {
+      "from": "kg01_state_storage",
+      "to": "kg01_nosql",
+      "relation": "has_branch",
+      "origin": "handwriting",
+      "confidence": "high"
+    },
+    {
+      "from": "kg01_root",
+      "to": "kg01_where_store_code",
+      "relation": "has_branch",
+      "origin": "handwriting",
+      "confidence": "high"
+    },
+    {
+      "from": "kg01_where_store_code",
+      "to": "kg01_git",
+      "relation": "has_example",
+      "origin": "handwriting",
+      "confidence": "high"
+    },
+    {
+      "from": "kg01_where_store_code",
+      "to": "kg01_gitlab",
+      "relation": "has_example",
+      "origin": "handwriting",
+      "confidence": "high"
+    },
+    {
+      "from": "kg01_root",
+      "to": "kg01_editor",
+      "relation": "has_branch",
+      "origin": "handwriting",
+      "confidence": "high"
+    },
+    {
+      "from": "kg01_editor",
+      "to": "kg01_vim",
+      "relation": "has_example",
+      "origin": "handwriting",
+      "confidence": "high"
+    },
+    {
+      "from": "kg01_editor",
+      "to": "kg01_vscode",
+      "relation": "has_example",
+      "origin": "handwriting",
+      "confidence": "high"
+    },
+    {
+      "from": "kg01_editor",
+      "to": "kg01_idea",
+      "relation": "has_example",
+      "origin": "handwriting",
+      "confidence": "high"
+    },
+    {
+      "from": "kg01_root",
+      "to": "kg01_how_launch",
+      "relation": "has_branch",
+      "origin": "handwriting",
+      "confidence": "high"
+    },
+    {
+      "from": "kg01_root",
+      "to": "kg01_how_test",
+      "relation": "has_branch",
+      "origin": "handwriting",
+      "confidence": "high"
+    },
+    {
+      "from": "kg01_how_test",
+      "to": "kg01_test_arch",
+      "relation": "has_branch",
+      "origin": "handwriting",
+      "confidence": "high"
+    },
+    {
+      "from": "kg01_how_test",
+      "to": "kg01_test_correctness",
+      "relation": "has_branch",
+      "origin": "handwriting",
+      "confidence": "high"
+    },
+    {
+      "from": "kg01_how_test",
+      "to": "kg01_test_coverage",
+      "relation": "has_branch",
+      "origin": "handwriting",
+      "confidence": "high"
+    },
+    {
+      "from": "kg01_how_test",
+      "to": "kg01_test_env",
+      "relation": "has_branch",
+      "origin": "handwriting",
+      "confidence": "high"
+    },
+    {
+      "from": "kg01_how_test",
+      "to": "kg01_test_security",
+      "relation": "has_branch",
+      "origin": "handwriting",
+      "confidence": "high"
+    },
+    {
+      "from": "kg01_root",
+      "to": "kg01_structure",
+      "relation": "has_branch",
+      "origin": "handwriting",
+      "confidence": "high"
+    },
+    {
+      "from": "kg01_structure",
+      "to": "kg01_split_files",
+      "relation": "has_branch",
+      "origin": "handwriting",
+      "confidence": "high"
+    },
+    {
+      "from": "kg01_structure",
+      "to": "kg01_split_modules",
+      "relation": "has_branch",
+      "origin": "handwriting",
+      "confidence": "high"
+    },
+    {
+      "from": "kg01_root",
+      "to": "kg01_document",
+      "relation": "has_branch",
+      "origin": "handwriting",
+      "confidence": "high"
+    },
+    {
+      "from": "kg01_document",
+      "to": "kg01_inline_docs",
+      "relation": "has_branch",
+      "origin": "handwriting",
+      "confidence": "medium"
+    },
+    {
+      "from": "kg01_document",
+      "to": "kg01_external_docs",
+      "relation": "has_branch",
+      "origin": "handwriting",
+      "confidence": "medium"
+    },
+    {
+      "from": "kg01_root",
+      "to": "kg01_artifact",
+      "relation": "has_branch",
+      "origin": "handwriting",
+      "confidence": "high"
+    },
+    {
+      "from": "kg01_artifact",
+      "to": "kg01_pipeline",
+      "relation": "has_branch",
+      "origin": "handwriting",
+      "confidence": "high"
+    },
+    {
+      "from": "kg01_artifact",
+      "to": "kg01_repro_build",
+      "relation": "has_branch",
+      "origin": "handwriting",
+      "confidence": "high"
+    },
+    {
+      "from": "kg01_root",
+      "to": "kg01_interop",
+      "relation": "has_branch",
+      "origin": "handwriting",
+      "confidence": "high"
+    }
+  ]
+}
