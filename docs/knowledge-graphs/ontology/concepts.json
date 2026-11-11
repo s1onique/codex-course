@@ -1,0 +1,3595 @@
+{
+  "schema_version": "1.0",
+  "artifact": "canonical_concept_registry",
+  "status": "draft_pending_author_review",
+  "generator": "scripts/build_registry.py",
+  "sources": {
+    "sheets": [
+      {
+        "graph_id": "KG01",
+        "title": "Действия с кодом",
+        "source_image": "sources/kg01-actions.jpg",
+        "source_original": null,
+        "node_count": 35,
+        "edge_count": 34
+      },
+      {
+        "graph_id": "KG02",
+        "title": "Свойства кода",
+        "source_image": "sources/kg02-properties.jpg",
+        "source_original": null,
+        "node_count": 57,
+        "edge_count": 55
+      },
+      {
+        "graph_id": "KG03",
+        "title": "Приложение",
+        "source_image": "sources/kg03-application.jpg",
+        "source_original": "sources/kg03-application-original.jpg",
+        "node_count": 29,
+        "edge_count": 28
+      }
+    ]
+  },
+  "policy": {
+    "evidence_layers": {
+      "handwriting": "Строка или стрелка реально присутствует на фотографии листа.",
+      "interpretation": "Наша интерпретация: чтение, нормализация, слияние, статус.",
+      "pedagogical_proposal": "Предложение для курса: не факт и не рукопись."
+    },
+    "no_destructive_merge": "Каждое handwritten-вхождение сохранено. Слияние только там, где оно явно перечислено в MERGES; неоднозначные понятия остаются отдельными.",
+    "identity": "concept_id детерминированно выводится из нормализованной подписи; для слитых групп идентификатор зафиксирован явно."
+  },
+  "counts": {
+    "occurrence_count": 121,
+    "concept_count": 116,
+    "merged_concept_count": 5,
+    "single_occurrence_concept_count": 111
+  },
+  "concepts": [
+    {
+      "concept_id": "concept_ad_fs",
+      "canonical_label": "AD FS",
+      "normalized_label": "ad fs",
+      "kind": "example",
+      "occurrence_ids": [
+        "kg03_adfs"
+      ],
+      "sheets": [
+        "KG03"
+      ],
+      "merge_kind": "single_occurrence",
+      "merge_confidence": null,
+      "merge_rationale": null,
+      "source_alignments": []
+    },
+    {
+      "concept_id": "concept_asinhronnoe",
+      "canonical_label": "Асинхронное",
+      "normalized_label": "асинхронное",
+      "kind": "concept",
+      "occurrence_ids": [
+        "kg03_asynchronous"
+      ],
+      "sheets": [
+        "KG03"
+      ],
+      "merge_kind": "single_occurrence",
+      "merge_confidence": null,
+      "merge_rationale": null,
+      "source_alignments": []
+    },
+    {
+      "concept_id": "concept_assembler_assembler",
+      "canonical_label": "Assembler / ассемблер",
+      "normalized_label": "assembler / ассемблер",
+      "kind": "example",
+      "occurrence_ids": [
+        "kg02_assembler"
+      ],
+      "sheets": [
+        "KG02"
+      ],
+      "merge_kind": "single_occurrence",
+      "merge_confidence": null,
+      "merge_rationale": null,
+      "source_alignments": []
+    },
+    {
+      "concept_id": "concept_ast_abstraktnoe_sintaksicheskoe_derevo",
+      "canonical_label": "AST (абстрактное синтаксическое дерево)",
+      "normalized_label": "ast (абстрактное синтаксическое дерево)",
+      "kind": "concept",
+      "occurrence_ids": [
+        "kg02_ast"
+      ],
+      "sheets": [
+        "KG02"
+      ],
+      "merge_kind": "single_occurrence",
+      "merge_confidence": null,
+      "merge_rationale": null,
+      "source_alignments": []
+    },
+    {
+      "concept_id": "concept_audit_logi",
+      "canonical_label": "Аудит-логи",
+      "normalized_label": "аудит-логи",
+      "kind": "concept",
+      "occurrence_ids": [
+        "kg03_audit_logs"
+      ],
+      "sheets": [
+        "KG03"
+      ],
+      "merge_kind": "single_occurrence",
+      "merge_confidence": null,
+      "merge_rationale": null,
+      "source_alignments": []
+    },
+    {
+      "concept_id": "concept_autentifikaciya_i_avtorizaciya",
+      "canonical_label": "Аутентификация и авторизация",
+      "normalized_label": "аутентификация и авторизация",
+      "kind": "topic",
+      "occurrence_ids": [
+        "kg03_identity"
+      ],
+      "sheets": [
+        "KG03"
+      ],
+      "merge_kind": "single_occurrence",
+      "merge_confidence": null,
+      "merge_rationale": null,
+      "source_alignments": []
+    },
+    {
+      "concept_id": "concept_biblioteki",
+      "canonical_label": "Библиотеки",
+      "normalized_label": "библиотеки",
+      "kind": "concept",
+      "occurrence_ids": [
+        "kg02_libraries"
+      ],
+      "sheets": [
+        "KG02"
+      ],
+      "merge_kind": "single_occurrence",
+      "merge_confidence": null,
+      "merge_rationale": null,
+      "source_alignments": []
+    },
+    {
+      "concept_id": "concept_chem_pisat_kod",
+      "canonical_label": "Чем писать код?",
+      "normalized_label": "чем писать код?",
+      "kind": "question",
+      "occurrence_ids": [
+        "kg01_editor"
+      ],
+      "sheets": [
+        "KG01"
+      ],
+      "merge_kind": "single_occurrence",
+      "merge_confidence": null,
+      "merge_rationale": null,
+      "source_alignments": []
+    },
+    {
+      "concept_id": "concept_cikly",
+      "canonical_label": "Циклы",
+      "normalized_label": "циклы",
+      "kind": "concept",
+      "occurrence_ids": [
+        "kg02_loops"
+      ],
+      "sheets": [
+        "KG02"
+      ],
+      "merge_kind": "single_occurrence",
+      "merge_confidence": null,
+      "merge_rationale": null,
+      "source_alignments": []
+    },
+    {
+      "concept_id": "concept_deklarativnaya",
+      "canonical_label": "Декларативная",
+      "normalized_label": "декларативная",
+      "kind": "concept",
+      "occurrence_ids": [
+        "kg02_declarative"
+      ],
+      "sheets": [
+        "KG02"
+      ],
+      "merge_kind": "single_occurrence",
+      "merge_confidence": null,
+      "merge_rationale": null,
+      "source_alignments": []
+    },
+    {
+      "concept_id": "concept_diagnostika",
+      "canonical_label": "Диагностика",
+      "normalized_label": "диагностика",
+      "kind": "topic",
+      "occurrence_ids": [
+        "kg03_diagnostics"
+      ],
+      "sheets": [
+        "KG03"
+      ],
+      "merge_kind": "single_occurrence",
+      "merge_confidence": null,
+      "merge_rationale": null,
+      "source_alignments": []
+    },
+    {
+      "concept_id": "concept_dinamicheskaya",
+      "canonical_label": "Динамическая",
+      "normalized_label": "динамическая",
+      "kind": "concept",
+      "occurrence_ids": [
+        "kg02_dynamic"
+      ],
+      "sheets": [
+        "KG02"
+      ],
+      "merge_kind": "single_occurrence",
+      "merge_confidence": null,
+      "merge_rationale": null,
+      "source_alignments": []
+    },
+    {
+      "concept_id": "concept_ebpf",
+      "canonical_label": "eBPF",
+      "normalized_label": "ebpf",
+      "kind": "example",
+      "occurrence_ids": [
+        "kg03_ebpf"
+      ],
+      "sheets": [
+        "KG03"
+      ],
+      "merge_kind": "single_occurrence",
+      "merge_confidence": null,
+      "merge_rationale": null,
+      "source_alignments": []
+    },
+    {
+      "concept_id": "concept_elasticsearch",
+      "canonical_label": "Elasticsearch",
+      "normalized_label": "elasticsearch",
+      "kind": "example",
+      "occurrence_ids": [
+        "kg03_elasticsearch"
+      ],
+      "sheets": [
+        "KG03"
+      ],
+      "merge_kind": "single_occurrence",
+      "merge_confidence": null,
+      "merge_rationale": null,
+      "source_alignments": []
+    },
+    {
+      "concept_id": "concept_exponential_backoff",
+      "canonical_label": "Exponential backoff",
+      "normalized_label": "exponential backoff",
+      "kind": "concept",
+      "occurrence_ids": [
+        "kg03_backoff"
+      ],
+      "sheets": [
+        "KG03"
+      ],
+      "merge_kind": "single_occurrence",
+      "merge_confidence": null,
+      "merge_rationale": null,
+      "source_alignments": []
+    },
+    {
+      "concept_id": "concept_fail_fast_restart",
+      "canonical_label": "Fail-fast / restart",
+      "normalized_label": "fail-fast / restart",
+      "kind": "concept",
+      "occurrence_ids": [
+        "kg03_fail_fast"
+      ],
+      "sheets": [
+        "KG03"
+      ],
+      "merge_kind": "single_occurrence",
+      "merge_confidence": null,
+      "merge_rationale": null,
+      "source_alignments": []
+    },
+    {
+      "concept_id": "concept_flame_graphs",
+      "canonical_label": "Flame graphs",
+      "normalized_label": "flame graphs",
+      "kind": "example",
+      "occurrence_ids": [
+        "kg03_flamegraphs"
+      ],
+      "sheets": [
+        "KG03"
+      ],
+      "merge_kind": "single_occurrence",
+      "merge_confidence": null,
+      "merge_rationale": null,
+      "source_alignments": []
+    },
+    {
+      "concept_id": "concept_formaty_dannyh",
+      "canonical_label": "Форматы данных",
+      "normalized_label": "форматы данных",
+      "kind": "topic",
+      "occurrence_ids": [
+        "kg02_formats"
+      ],
+      "sheets": [
+        "KG02"
+      ],
+      "merge_kind": "single_occurrence",
+      "merge_confidence": null,
+      "merge_rationale": null,
+      "source_alignments": []
+    },
+    {
+      "concept_id": "concept_framework",
+      "canonical_label": "Framework",
+      "normalized_label": "framework",
+      "kind": "unlinked_term",
+      "occurrence_ids": [
+        "kg02_framework"
+      ],
+      "sheets": [
+        "KG02"
+      ],
+      "merge_kind": "single_occurrence",
+      "merge_confidence": null,
+      "merge_rationale": null,
+      "source_alignments": []
+    },
+    {
+      "concept_id": "concept_funkcii",
+      "canonical_label": "Функции",
+      "normalized_label": "функции",
+      "kind": "concept",
+      "occurrence_ids": [
+        "kg02_functions"
+      ],
+      "sheets": [
+        "KG02"
+      ],
+      "merge_kind": "single_occurrence",
+      "merge_confidence": null,
+      "merge_rationale": null,
+      "source_alignments": []
+    },
+    {
+      "concept_id": "concept_funkcii__kg02_functions_abstract",
+      "canonical_label": "Функции",
+      "normalized_label": "функции",
+      "kind": "concept",
+      "occurrence_ids": [
+        "kg02_functions_abstract"
+      ],
+      "sheets": [
+        "KG02"
+      ],
+      "merge_kind": "single_occurrence",
+      "merge_confidence": null,
+      "merge_rationale": null,
+      "source_alignments": []
+    },
+    {
+      "concept_id": "concept_funkcii_vysshego_poryadka",
+      "canonical_label": "Функции высшего порядка",
+      "normalized_label": "функции высшего порядка",
+      "kind": "concept",
+      "occurrence_ids": [
+        "kg02_higher_order"
+      ],
+      "sheets": [
+        "KG02"
+      ],
+      "merge_kind": "single_occurrence",
+      "merge_confidence": null,
+      "merge_rationale": null,
+      "source_alignments": []
+    },
+    {
+      "concept_id": "concept_funkcionalnaya",
+      "canonical_label": "Функциональная",
+      "normalized_label": "функциональная",
+      "kind": "concept",
+      "occurrence_ids": [
+        "kg02_functional"
+      ],
+      "sheets": [
+        "KG02"
+      ],
+      "merge_kind": "single_occurrence",
+      "merge_confidence": null,
+      "merge_rationale": null,
+      "source_alignments": []
+    },
+    {
+      "concept_id": "concept_gde_hranyat_kod",
+      "canonical_label": "Где хранят код?",
+      "normalized_label": "где хранят код?",
+      "kind": "question",
+      "occurrence_ids": [
+        "kg01_where_store_code"
+      ],
+      "sheets": [
+        "KG01"
+      ],
+      "merge_kind": "single_occurrence",
+      "merge_confidence": null,
+      "merge_rationale": null,
+      "source_alignments": []
+    },
+    {
+      "concept_id": "concept_gde_zapuskayut_kod",
+      "canonical_label": "Где запускают код?",
+      "normalized_label": "где запускают код?",
+      "kind": "question",
+      "occurrence_ids": [
+        "kg01_where_run"
+      ],
+      "sheets": [
+        "KG01"
+      ],
+      "merge_kind": "single_occurrence",
+      "merge_confidence": null,
+      "merge_rationale": null,
+      "source_alignments": []
+    },
+    {
+      "concept_id": "concept_git",
+      "canonical_label": "Git",
+      "normalized_label": "git",
+      "kind": "example",
+      "occurrence_ids": [
+        "kg01_git"
+      ],
+      "sheets": [
+        "KG01"
+      ],
+      "merge_kind": "single_occurrence",
+      "merge_confidence": null,
+      "merge_rationale": null,
+      "source_alignments": []
+    },
+    {
+      "concept_id": "concept_gitlab",
+      "canonical_label": "GitLab",
+      "normalized_label": "gitlab",
+      "kind": "example",
+      "occurrence_ids": [
+        "kg01_gitlab"
+      ],
+      "sheets": [
+        "KG01"
+      ],
+      "merge_kind": "single_occurrence",
+      "merge_confidence": null,
+      "merge_rationale": null,
+      "source_alignments": []
+    },
+    {
+      "concept_id": "concept_grpc",
+      "canonical_label": "gRPC",
+      "normalized_label": "grpc",
+      "kind": "example",
+      "occurrence_ids": [
+        "kg02_grpc"
+      ],
+      "sheets": [
+        "KG02"
+      ],
+      "merge_kind": "single_occurrence",
+      "merge_confidence": null,
+      "merge_rationale": null,
+      "source_alignments": []
+    },
+    {
+      "concept_id": "concept_http",
+      "canonical_label": "HTTP",
+      "normalized_label": "http",
+      "kind": "example",
+      "occurrence_ids": [
+        "kg02_http"
+      ],
+      "sheets": [
+        "KG02"
+      ],
+      "merge_kind": "single_occurrence",
+      "merge_confidence": null,
+      "merge_rationale": null,
+      "source_alignments": []
+    },
+    {
+      "concept_id": "concept_idea",
+      "canonical_label": "IDEA",
+      "normalized_label": "idea",
+      "kind": "example",
+      "occurrence_ids": [
+        "kg01_idea"
+      ],
+      "sheets": [
+        "KG01"
+      ],
+      "merge_kind": "single_occurrence",
+      "merge_confidence": null,
+      "merge_rationale": null,
+      "source_alignments": []
+    },
+    {
+      "concept_id": "concept_imperativnaya_procedurnaya",
+      "canonical_label": "Императивная (процедурная)",
+      "normalized_label": "императивная (процедурная)",
+      "kind": "concept",
+      "occurrence_ids": [
+        "kg02_imperative"
+      ],
+      "sheets": [
+        "KG02"
+      ],
+      "merge_kind": "single_occurrence",
+      "merge_confidence": null,
+      "merge_rationale": null,
+      "source_alignments": []
+    },
+    {
+      "concept_id": "concept_interfejsy",
+      "canonical_label": "Интерфейсы",
+      "normalized_label": "интерфейсы",
+      "kind": "concept",
+      "occurrence_ids": [
+        "kg02_interfaces"
+      ],
+      "sheets": [
+        "KG02"
+      ],
+      "merge_kind": "single_occurrence",
+      "merge_confidence": null,
+      "merge_rationale": null,
+      "source_alignments": []
+    },
+    {
+      "concept_id": "concept_interpretatorom",
+      "canonical_label": "Интерпретатором",
+      "normalized_label": "интерпретатором",
+      "kind": "concept",
+      "occurrence_ids": [
+        "kg02_interpreted"
+      ],
+      "sheets": [
+        "KG02"
+      ],
+      "merge_kind": "single_occurrence",
+      "merge_confidence": null,
+      "merge_rationale": null,
+      "source_alignments": []
+    },
+    {
+      "concept_id": "concept_ir_promezhutochnoe_predstavlenie",
+      "canonical_label": "IR (промежуточное представление)",
+      "normalized_label": "ir (промежуточное представление)",
+      "kind": "concept",
+      "occurrence_ids": [
+        "kg02_ir"
+      ],
+      "sheets": [
+        "KG02"
+      ],
+      "merge_kind": "single_occurrence",
+      "merge_confidence": null,
+      "merge_rationale": null,
+      "source_alignments": []
+    },
+    {
+      "concept_id": "concept_iz_chego_sostoit_kod",
+      "canonical_label": "Из чего состоит код?",
+      "normalized_label": "из чего состоит код?",
+      "kind": "question",
+      "occurrence_ids": [
+        "kg02_composition"
+      ],
+      "sheets": [
+        "KG02"
+      ],
+      "merge_kind": "single_occurrence",
+      "merge_confidence": null,
+      "merge_rationale": null,
+      "source_alignments": []
+    },
+    {
+      "concept_id": "concept_json",
+      "canonical_label": "JSON",
+      "normalized_label": "json",
+      "kind": "example",
+      "occurrence_ids": [
+        "kg02_json"
+      ],
+      "sheets": [
+        "KG02"
+      ],
+      "merge_kind": "single_occurrence",
+      "merge_confidence": null,
+      "merge_rationale": null,
+      "source_alignments": []
+    },
+    {
+      "concept_id": "concept_kafka",
+      "canonical_label": "Kafka",
+      "normalized_label": "kafka",
+      "kind": "example",
+      "occurrence_ids": [
+        "kg03_kafka"
+      ],
+      "sheets": [
+        "KG03"
+      ],
+      "merge_kind": "single_occurrence",
+      "merge_confidence": null,
+      "merge_rationale": null,
+      "source_alignments": []
+    },
+    {
+      "concept_id": "concept_kak_dokumentirovat_kod",
+      "canonical_label": "Как документировать код?",
+      "normalized_label": "как документировать код?",
+      "kind": "question",
+      "occurrence_ids": [
+        "kg01_document"
+      ],
+      "sheets": [
+        "KG01"
+      ],
+      "merge_kind": "single_occurrence",
+      "merge_confidence": null,
+      "merge_rationale": null,
+      "source_alignments": []
+    },
+    {
+      "concept_id": "concept_kak_dokumentirovat_kod_vnutri_pisat_kommentarii",
+      "canonical_label": "Как документировать код внутри, писать комментарии?",
+      "normalized_label": "как документировать код внутри, писать комментарии?",
+      "kind": "concept",
+      "occurrence_ids": [
+        "kg01_inline_docs"
+      ],
+      "sheets": [
+        "KG01"
+      ],
+      "merge_kind": "single_occurrence",
+      "merge_confidence": null,
+      "merge_rationale": null,
+      "source_alignments": []
+    },
+    {
+      "concept_id": "concept_kak_ispolnyaetsya_kod",
+      "canonical_label": "Как исполняется код?",
+      "normalized_label": "как исполняется код?",
+      "kind": "question",
+      "occurrence_ids": [
+        "kg02_execution"
+      ],
+      "sheets": [
+        "KG02"
+      ],
+      "merge_kind": "single_occurrence",
+      "merge_confidence": null,
+      "merge_rationale": null,
+      "source_alignments": []
+    },
+    {
+      "concept_id": "concept_kak_kod_vzaimodejstvuet_s_vneshnej_sredoj",
+      "canonical_label": "Как код взаимодействует с внешней средой?",
+      "normalized_label": "как код взаимодействует с внешней средой?",
+      "kind": "question",
+      "occurrence_ids": [
+        "kg02_external"
+      ],
+      "sheets": [
+        "KG02"
+      ],
+      "merge_kind": "single_occurrence",
+      "merge_confidence": null,
+      "merge_rationale": null,
+      "source_alignments": []
+    },
+    {
+      "concept_id": "concept_kak_obespechit_povtoryaemuyu_sborku",
+      "canonical_label": "Как обеспечить повторяемую сборку?",
+      "normalized_label": "как обеспечить повторяемую сборку?",
+      "kind": "concept",
+      "occurrence_ids": [
+        "kg01_repro_build"
+      ],
+      "sheets": [
+        "KG01"
+      ],
+      "merge_kind": "single_occurrence",
+      "merge_confidence": null,
+      "merge_rationale": null,
+      "source_alignments": []
+    },
+    {
+      "concept_id": "concept_kak_obmenivatsya_s_drugimi_programmami",
+      "canonical_label": "Как обмениваться с другими программами?",
+      "normalized_label": "как обмениваться с другими программами?",
+      "kind": "question",
+      "occurrence_ids": [
+        "kg01_interop"
+      ],
+      "sheets": [
+        "KG01"
+      ],
+      "merge_kind": "single_occurrence",
+      "merge_confidence": null,
+      "merge_rationale": null,
+      "source_alignments": []
+    },
+    {
+      "concept_id": "concept_kak_organizovat_vneshnyuyu_dokumentaciyu_i_ee_proverku_na_korrektnost",
+      "canonical_label": "Как организовать внешнюю документацию и её проверку на корректность?",
+      "normalized_label": "как организовать внешнюю документацию и ее проверку на корректность?",
+      "kind": "concept",
+      "occurrence_ids": [
+        "kg01_external_docs"
+      ],
+      "sheets": [
+        "KG01"
+      ],
+      "merge_kind": "single_occurrence",
+      "merge_confidence": null,
+      "merge_rationale": null,
+      "source_alignments": []
+    },
+    {
+      "concept_id": "concept_kak_poluchit_otchuzhdaemyj_artefakt",
+      "canonical_label": "Как получить отчуждаемый артефакт?",
+      "normalized_label": "как получить отчуждаемый артефакт?",
+      "kind": "question",
+      "occurrence_ids": [
+        "kg01_artifact"
+      ],
+      "sheets": [
+        "KG01"
+      ],
+      "merge_kind": "single_occurrence",
+      "merge_confidence": null,
+      "merge_rationale": null,
+      "source_alignments": []
+    },
+    {
+      "concept_id": "concept_kak_proverit_bezopasnost",
+      "canonical_label": "Как проверить безопасность?",
+      "normalized_label": "как проверить безопасность?",
+      "kind": "concept",
+      "occurrence_ids": [
+        "kg01_test_security"
+      ],
+      "sheets": [
+        "KG01"
+      ],
+      "merge_kind": "single_occurrence",
+      "merge_confidence": null,
+      "merge_rationale": null,
+      "source_alignments": []
+    },
+    {
+      "concept_id": "concept_kak_proverit_korrektnost_testov",
+      "canonical_label": "Как проверить корректность тестов?",
+      "normalized_label": "как проверить корректность тестов?",
+      "kind": "concept",
+      "occurrence_ids": [
+        "kg01_test_correctness"
+      ],
+      "sheets": [
+        "KG01"
+      ],
+      "merge_kind": "single_occurrence",
+      "merge_confidence": null,
+      "merge_rationale": null,
+      "source_alignments": []
+    },
+    {
+      "concept_id": "concept_kak_proverit_polnotu_testirovaniya_code_coverage",
+      "canonical_label": "Как проверить полноту тестирования? (code coverage)",
+      "normalized_label": "как проверить полноту тестирования? (code coverage)",
+      "kind": "concept",
+      "occurrence_ids": [
+        "kg01_test_coverage"
+      ],
+      "sheets": [
+        "KG01"
+      ],
+      "merge_kind": "single_occurrence",
+      "merge_confidence": null,
+      "merge_rationale": null,
+      "source_alignments": []
+    },
+    {
+      "concept_id": "concept_kak_proverit_v_raznyh_okruzheniyah_bd_nagruzka",
+      "canonical_label": "Как проверить в разных окружениях (БД, нагрузка)?",
+      "normalized_label": "как проверить в разных окружениях (бд, нагрузка)?",
+      "kind": "concept",
+      "occurrence_ids": [
+        "kg01_test_env"
+      ],
+      "sheets": [
+        "KG01"
+      ],
+      "merge_kind": "single_occurrence",
+      "merge_confidence": null,
+      "merge_rationale": null,
+      "source_alignments": []
+    },
+    {
+      "concept_id": "concept_kak_razbit_po_fajlam",
+      "canonical_label": "Как разбить по файлам?",
+      "normalized_label": "как разбить по файлам?",
+      "kind": "concept",
+      "occurrence_ids": [
+        "kg01_split_files"
+      ],
+      "sheets": [
+        "KG01"
+      ],
+      "merge_kind": "single_occurrence",
+      "merge_confidence": null,
+      "merge_rationale": null,
+      "source_alignments": []
+    },
+    {
+      "concept_id": "concept_kak_razbit_po_modulyam",
+      "canonical_label": "Как разбить по модулям?",
+      "normalized_label": "как разбить по модулям?",
+      "kind": "concept",
+      "occurrence_ids": [
+        "kg01_split_modules"
+      ],
+      "sheets": [
+        "KG01"
+      ],
+      "merge_kind": "single_occurrence",
+      "merge_confidence": null,
+      "merge_rationale": null,
+      "source_alignments": []
+    },
+    {
+      "concept_id": "concept_kak_strukturirovat_kod",
+      "canonical_label": "Как структурировать код?",
+      "normalized_label": "как структурировать код?",
+      "kind": "question",
+      "occurrence_ids": [
+        "kg01_structure"
+      ],
+      "sheets": [
+        "KG01"
+      ],
+      "merge_kind": "single_occurrence",
+      "merge_confidence": null,
+      "merge_rationale": null,
+      "source_alignments": []
+    },
+    {
+      "concept_id": "concept_kak_testirovat_kod",
+      "canonical_label": "Как тестировать код?",
+      "normalized_label": "как тестировать код?",
+      "kind": "question",
+      "occurrence_ids": [
+        "kg01_how_test"
+      ],
+      "sheets": [
+        "KG01"
+      ],
+      "merge_kind": "single_occurrence",
+      "merge_confidence": null,
+      "merge_rationale": null,
+      "source_alignments": []
+    },
+    {
+      "concept_id": "concept_kak_testirovat_na_raznyh_arhitekturah_ustrojstv",
+      "canonical_label": "Как тестировать на разных архитектурах устройств?",
+      "normalized_label": "как тестировать на разных архитектурах устройств?",
+      "kind": "concept",
+      "occurrence_ids": [
+        "kg01_test_arch"
+      ],
+      "sheets": [
+        "KG01"
+      ],
+      "merge_kind": "single_occurrence",
+      "merge_confidence": null,
+      "merge_rationale": null,
+      "source_alignments": []
+    },
+    {
+      "concept_id": "concept_kak_zapuskat_kod",
+      "canonical_label": "Как запускать код?",
+      "normalized_label": "как запускать код?",
+      "kind": "question",
+      "occurrence_ids": [
+        "kg01_how_launch"
+      ],
+      "sheets": [
+        "KG01"
+      ],
+      "merge_kind": "single_occurrence",
+      "merge_confidence": null,
+      "merge_rationale": null,
+      "source_alignments": []
+    },
+    {
+      "concept_id": "concept_kakimi_abstrakciyami_operiruet_kod",
+      "canonical_label": "Какими абстракциями оперирует код?",
+      "normalized_label": "какими абстракциями оперирует код?",
+      "kind": "question",
+      "occurrence_ids": [
+        "kg02_abstractions"
+      ],
+      "sheets": [
+        "KG02"
+      ],
+      "merge_kind": "single_occurrence",
+      "merge_confidence": null,
+      "merge_rationale": null,
+      "source_alignments": []
+    },
+    {
+      "concept_id": "concept_keycloak",
+      "canonical_label": "Keycloak",
+      "normalized_label": "keycloak",
+      "kind": "example",
+      "occurrence_ids": [
+        "kg03_keycloak"
+      ],
+      "sheets": [
+        "KG03"
+      ],
+      "merge_kind": "single_occurrence",
+      "merge_confidence": null,
+      "merge_rationale": null,
+      "source_alignments": []
+    },
+    {
+      "concept_id": "concept_kibana",
+      "canonical_label": "Kibana",
+      "normalized_label": "kibana",
+      "kind": "example",
+      "occurrence_ids": [
+        "kg03_kibana"
+      ],
+      "sheets": [
+        "KG03"
+      ],
+      "merge_kind": "single_occurrence",
+      "merge_confidence": null,
+      "merge_rationale": null,
+      "source_alignments": []
+    },
+    {
+      "concept_id": "concept_klassy",
+      "canonical_label": "Классы",
+      "normalized_label": "классы",
+      "kind": "concept",
+      "occurrence_ids": [
+        "kg02_classes"
+      ],
+      "sheets": [
+        "KG02"
+      ],
+      "merge_kind": "single_occurrence",
+      "merge_confidence": null,
+      "merge_rationale": null,
+      "source_alignments": []
+    },
+    {
+      "concept_id": "concept_klient",
+      "canonical_label": "Клиент",
+      "normalized_label": "клиент",
+      "kind": "concept",
+      "occurrence_ids": [
+        "kg02_client"
+      ],
+      "sheets": [
+        "KG02"
+      ],
+      "merge_kind": "single_occurrence",
+      "merge_confidence": null,
+      "merge_rationale": null,
+      "source_alignments": []
+    },
+    {
+      "concept_id": "concept_kod",
+      "canonical_label": "Код",
+      "normalized_label": "код",
+      "kind": "root",
+      "occurrence_ids": [
+        "kg01_root"
+      ],
+      "sheets": [
+        "KG01"
+      ],
+      "merge_kind": "single_occurrence",
+      "merge_confidence": null,
+      "merge_rationale": null,
+      "source_alignments": []
+    },
+    {
+      "concept_id": "concept_kod__kg02_root",
+      "canonical_label": "Код",
+      "normalized_label": "код",
+      "kind": "root",
+      "occurrence_ids": [
+        "kg02_root"
+      ],
+      "sheets": [
+        "KG02"
+      ],
+      "merge_kind": "single_occurrence",
+      "merge_confidence": null,
+      "merge_rationale": null,
+      "source_alignments": []
+    },
+    {
+      "concept_id": "concept_konfiguracionnye_fajly_yaml_json_ini_toml",
+      "canonical_label": "Конфигурационные файлы (YAML, JSON, INI, TOML)",
+      "normalized_label": "конфигурационные файлы (yaml, json, ini, toml)",
+      "kind": "concept",
+      "occurrence_ids": [
+        "kg02_config"
+      ],
+      "sheets": [
+        "KG02"
+      ],
+      "merge_kind": "single_occurrence",
+      "merge_confidence": null,
+      "merge_rationale": null,
+      "source_alignments": []
+    },
+    {
+      "concept_id": "concept_konkurentnoe_programmirovanie",
+      "canonical_label": "Конкурентное программирование",
+      "normalized_label": "конкурентное программирование",
+      "kind": "concept",
+      "occurrence_ids": [
+        "kg02_concurrent"
+      ],
+      "sheets": [
+        "KG02"
+      ],
+      "merge_kind": "single_occurrence",
+      "merge_confidence": null,
+      "merge_rationale": null,
+      "source_alignments": []
+    },
+    {
+      "concept_id": "concept_konstanty",
+      "canonical_label": "Константы",
+      "normalized_label": "константы",
+      "kind": "concept",
+      "occurrence_ids": [
+        "kg02_constants"
+      ],
+      "sheets": [
+        "KG02"
+      ],
+      "merge_kind": "single_occurrence",
+      "merge_confidence": null,
+      "merge_rationale": null,
+      "source_alignments": []
+    },
+    {
+      "concept_id": "concept_logirovanie",
+      "canonical_label": "Логирование",
+      "normalized_label": "логирование",
+      "kind": "concept",
+      "occurrence_ids": [
+        "kg03_logging"
+      ],
+      "sheets": [
+        "KG03"
+      ],
+      "merge_kind": "single_occurrence",
+      "merge_confidence": null,
+      "merge_rationale": null,
+      "source_alignments": []
+    },
+    {
+      "concept_id": "concept_loki",
+      "canonical_label": "Loki",
+      "normalized_label": "loki",
+      "kind": "example",
+      "occurrence_ids": [
+        "kg03_loki"
+      ],
+      "sheets": [
+        "KG03"
+      ],
+      "merge_kind": "single_occurrence",
+      "merge_confidence": null,
+      "merge_rationale": null,
+      "source_alignments": []
+    },
+    {
+      "concept_id": "concept_model_upravleniya_pamyatyu",
+      "canonical_label": "Модель управления памятью",
+      "normalized_label": "модель управления памятью",
+      "kind": "topic",
+      "occurrence_ids": [
+        "kg02_memory"
+      ],
+      "sheets": [
+        "KG02"
+      ],
+      "merge_kind": "single_occurrence",
+      "merge_confidence": null,
+      "merge_rationale": null,
+      "source_alignments": []
+    },
+    {
+      "concept_id": "concept_moduli",
+      "canonical_label": "Модули",
+      "normalized_label": "модули",
+      "kind": "concept",
+      "occurrence_ids": [
+        "kg02_modules"
+      ],
+      "sheets": [
+        "KG02"
+      ],
+      "merge_kind": "single_occurrence",
+      "merge_confidence": null,
+      "merge_rationale": null,
+      "source_alignments": []
+    },
+    {
+      "concept_id": "concept_na_servere_v_internete",
+      "canonical_label": "На сервере в интернете",
+      "normalized_label": "на сервере в интернете",
+      "kind": "concept",
+      "occurrence_ids": [
+        "kg01_remote"
+      ],
+      "sheets": [
+        "KG01"
+      ],
+      "merge_kind": "single_occurrence",
+      "merge_confidence": null,
+      "merge_rationale": null,
+      "source_alignments": []
+    },
+    {
+      "concept_id": "concept_na_virtualnoj_mashine",
+      "canonical_label": "На виртуальной машине",
+      "normalized_label": "на виртуальной машине",
+      "kind": "concept",
+      "occurrence_ids": [
+        "kg02_virtual_machine"
+      ],
+      "sheets": [
+        "KG02"
+      ],
+      "merge_kind": "single_occurrence",
+      "merge_confidence": null,
+      "merge_rationale": null,
+      "source_alignments": []
+    },
+    {
+      "concept_id": "concept_neposredstvenno_processorom_iz_mashinnogo_predstavleniya",
+      "canonical_label": "Непосредственно процессором из машинного представления",
+      "normalized_label": "непосредственно процессором из машинного представления",
+      "kind": "concept",
+      "occurrence_ids": [
+        "kg02_native"
+      ],
+      "sheets": [
+        "KG02"
+      ],
+      "merge_kind": "single_occurrence",
+      "merge_confidence": null,
+      "merge_rationale": null,
+      "source_alignments": []
+    },
+    {
+      "concept_id": "concept_nestrogaya",
+      "canonical_label": "Нестрогая",
+      "normalized_label": "нестрогая",
+      "kind": "concept",
+      "occurrence_ids": [
+        "kg02_weak"
+      ],
+      "sheets": [
+        "KG02"
+      ],
+      "merge_kind": "single_occurrence",
+      "merge_confidence": null,
+      "merge_rationale": null,
+      "source_alignments": []
+    },
+    {
+      "concept_id": "concept_obektno_orientirovannaya",
+      "canonical_label": "Объектно-ориентированная",
+      "normalized_label": "объектно-ориентированная",
+      "kind": "concept",
+      "occurrence_ids": [
+        "kg02_oop"
+      ],
+      "sheets": [
+        "KG02"
+      ],
+      "merge_kind": "single_occurrence",
+      "merge_confidence": null,
+      "merge_rationale": null,
+      "source_alignments": []
+    },
+    {
+      "concept_id": "concept_operatory",
+      "canonical_label": "Операторы",
+      "normalized_label": "операторы",
+      "kind": "concept",
+      "occurrence_ids": [
+        "kg02_operators"
+      ],
+      "sheets": [
+        "KG02"
+      ],
+      "merge_kind": "single_occurrence",
+      "merge_confidence": null,
+      "merge_rationale": null,
+      "source_alignments": []
+    },
+    {
+      "concept_id": "concept_otladka",
+      "canonical_label": "Отладка",
+      "normalized_label": "отладка",
+      "kind": "concept",
+      "occurrence_ids": [
+        "kg03_debugging"
+      ],
+      "sheets": [
+        "KG03"
+      ],
+      "merge_kind": "single_occurrence",
+      "merge_confidence": null,
+      "merge_rationale": null,
+      "source_alignments": []
+    },
+    {
+      "concept_id": "concept_paradigmy_programmirovaniya",
+      "canonical_label": "Парадигмы программирования",
+      "normalized_label": "парадигмы программирования",
+      "kind": "topic",
+      "occurrence_ids": [
+        "kg02_paradigms"
+      ],
+      "sheets": [
+        "KG02"
+      ],
+      "merge_kind": "single_occurrence",
+      "merge_confidence": null,
+      "merge_rationale": null,
+      "source_alignments": []
+    },
+    {
+      "concept_id": "concept_peremennye",
+      "canonical_label": "Переменные",
+      "normalized_label": "переменные",
+      "kind": "concept",
+      "occurrence_ids": [
+        "kg02_variables"
+      ],
+      "sheets": [
+        "KG02"
+      ],
+      "merge_kind": "single_occurrence",
+      "merge_confidence": null,
+      "merge_rationale": null,
+      "source_alignments": []
+    },
+    {
+      "concept_id": "concept_peremennye_okruzheniya",
+      "canonical_label": "Переменные окружения",
+      "normalized_label": "переменные окружения",
+      "kind": "concept",
+      "occurrence_ids": [
+        "kg02_envvars"
+      ],
+      "sheets": [
+        "KG02"
+      ],
+      "merge_kind": "single_occurrence",
+      "merge_confidence": null,
+      "merge_rationale": null,
+      "source_alignments": []
+    },
+    {
+      "concept_id": "concept_pipeline_gitlab",
+      "canonical_label": "Pipeline (GitLab)",
+      "normalized_label": "pipeline (gitlab)",
+      "kind": "concept",
+      "occurrence_ids": [
+        "kg01_pipeline"
+      ],
+      "sheets": [
+        "KG01"
+      ],
+      "merge_kind": "single_occurrence",
+      "merge_confidence": null,
+      "merge_rationale": null,
+      "source_alignments": []
+    },
+    {
+      "concept_id": "concept_pod_upravleniem_orkestratora_kubernetes",
+      "canonical_label": "Под управлением оркестратора (Kubernetes)",
+      "normalized_label": "под управлением оркестратора (kubernetes)",
+      "kind": "concept",
+      "occurrence_ids": [
+        "kg01_orchestrated"
+      ],
+      "sheets": [
+        "KG01"
+      ],
+      "merge_kind": "single_occurrence",
+      "merge_confidence": null,
+      "merge_rationale": null,
+      "source_alignments": []
+    },
+    {
+      "concept_id": "concept_predstavleniya_koda",
+      "canonical_label": "Представления кода",
+      "normalized_label": "представления кода",
+      "kind": "topic",
+      "occurrence_ids": [
+        "kg02_representation"
+      ],
+      "sheets": [
+        "KG02"
+      ],
+      "merge_kind": "single_occurrence",
+      "merge_confidence": null,
+      "merge_rationale": null,
+      "source_alignments": []
+    },
+    {
+      "concept_id": "concept_prilozhenie",
+      "canonical_label": "Приложение",
+      "normalized_label": "приложение",
+      "kind": "root",
+      "occurrence_ids": [
+        "kg03_root"
+      ],
+      "sheets": [
+        "KG03"
+      ],
+      "merge_kind": "single_occurrence",
+      "merge_confidence": null,
+      "merge_rationale": null,
+      "source_alignments": []
+    },
+    {
+      "concept_id": "concept_profilirovanie",
+      "canonical_label": "Профилирование",
+      "normalized_label": "профилирование",
+      "kind": "concept",
+      "occurrence_ids": [
+        "kg03_profiling"
+      ],
+      "sheets": [
+        "KG03"
+      ],
+      "merge_kind": "single_occurrence",
+      "merge_confidence": null,
+      "merge_rationale": null,
+      "source_alignments": []
+    },
+    {
+      "concept_id": "concept_rabbitmq",
+      "canonical_label": "RabbitMQ",
+      "normalized_label": "rabbitmq",
+      "kind": "example",
+      "occurrence_ids": [
+        "kg03_rabbitmq"
+      ],
+      "sheets": [
+        "KG03"
+      ],
+      "merge_kind": "single_occurrence",
+      "merge_confidence": null,
+      "merge_rationale": null,
+      "source_alignments": []
+    },
+    {
+      "concept_id": "concept_rest",
+      "canonical_label": "REST",
+      "normalized_label": "rest",
+      "kind": "example",
+      "occurrence_ids": [
+        "kg02_rest"
+      ],
+      "sheets": [
+        "KG02"
+      ],
+      "merge_kind": "single_occurrence",
+      "merge_confidence": null,
+      "merge_rationale": null,
+      "source_alignments": []
+    },
+    {
+      "concept_id": "concept_ruchnaya",
+      "canonical_label": "Ручная",
+      "normalized_label": "ручная",
+      "kind": "concept",
+      "occurrence_ids": [
+        "kg02_manual"
+      ],
+      "sheets": [
+        "KG02"
+      ],
+      "merge_kind": "single_occurrence",
+      "merge_confidence": null,
+      "merge_rationale": null,
+      "source_alignments": []
+    },
+    {
+      "concept_id": "concept_server",
+      "canonical_label": "Сервер",
+      "normalized_label": "сервер",
+      "kind": "concept",
+      "occurrence_ids": [
+        "kg02_server"
+      ],
+      "sheets": [
+        "KG02"
+      ],
+      "merge_kind": "single_occurrence",
+      "merge_confidence": null,
+      "merge_rationale": null,
+      "source_alignments": []
+    },
+    {
+      "concept_id": "concept_setevoe_vzaimodejstvie",
+      "canonical_label": "Сетевое взаимодействие",
+      "normalized_label": "сетевое взаимодействие",
+      "kind": "topic",
+      "occurrence_ids": [
+        "kg02_network"
+      ],
+      "sheets": [
+        "KG02"
+      ],
+      "merge_kind": "single_occurrence",
+      "merge_confidence": null,
+      "merge_rationale": null,
+      "source_alignments": []
+    },
+    {
+      "concept_id": "concept_sinhronnoe",
+      "canonical_label": "Синхронное",
+      "normalized_label": "синхронное",
+      "kind": "concept",
+      "occurrence_ids": [
+        "kg03_synchronous"
+      ],
+      "sheets": [
+        "KG03"
+      ],
+      "merge_kind": "single_occurrence",
+      "merge_confidence": null,
+      "merge_rationale": null,
+      "source_alignments": []
+    },
+    {
+      "concept_id": "concept_so_sborschikom_musora",
+      "canonical_label": "Со сборщиком мусора",
+      "normalized_label": "со сборщиком мусора",
+      "kind": "concept",
+      "occurrence_ids": [
+        "kg02_gc"
+      ],
+      "sheets": [
+        "KG02"
+      ],
+      "merge_kind": "single_occurrence",
+      "merge_confidence": null,
+      "merge_rationale": null,
+      "source_alignments": []
+    },
+    {
+      "concept_id": "concept_soap",
+      "canonical_label": "SOAP",
+      "normalized_label": "soap",
+      "kind": "example",
+      "occurrence_ids": [
+        "kg02_soap"
+      ],
+      "sheets": [
+        "KG02"
+      ],
+      "merge_kind": "single_occurrence",
+      "merge_confidence": null,
+      "merge_rationale": null,
+      "source_alignments": []
+    },
+    {
+      "concept_id": "concept_sobytiya_bezopasnosti",
+      "canonical_label": "События безопасности",
+      "normalized_label": "события безопасности",
+      "kind": "topic",
+      "occurrence_ids": [
+        "kg03_security_events"
+      ],
+      "sheets": [
+        "KG03"
+      ],
+      "merge_kind": "single_occurrence",
+      "merge_confidence": null,
+      "merge_rationale": null,
+      "source_alignments": []
+    },
+    {
+      "concept_id": "concept_state_storage",
+      "canonical_label": "Хранение состояния",
+      "normalized_label": "хранение состояния",
+      "kind": "topic",
+      "occurrence_ids": [
+        "kg01_state_storage",
+        "kg03_state_storage"
+      ],
+      "sheets": [
+        "KG01",
+        "KG03"
+      ],
+      "merge_kind": "exact_duplicate",
+      "merge_confidence": "medium",
+      "merge_rationale": "Обе ветки называют хранение состояния приложения. Различается только контекст листа (действия с кодом / приложение). Слияние неразрушительное: оба occurrence_id сохранены.",
+      "source_alignments": [
+        "kg01_state_storage -> kg03_state_storage (same_concept_candidate)"
+      ]
+    },
+    {
+      "concept_id": "concept_staticheskaya",
+      "canonical_label": "Статическая",
+      "normalized_label": "статическая",
+      "kind": "concept",
+      "occurrence_ids": [
+        "kg02_static"
+      ],
+      "sheets": [
+        "KG02"
+      ],
+      "merge_kind": "single_occurrence",
+      "merge_confidence": null,
+      "merge_rationale": null,
+      "source_alignments": []
+    },
+    {
+      "concept_id": "concept_storage_in_cache",
+      "canonical_label": "В кэше (Redis)",
+      "normalized_label": "в кэше (redis)",
+      "kind": "concept",
+      "occurrence_ids": [
+        "kg01_cache",
+        "kg03_cache"
+      ],
+      "sheets": [
+        "KG01",
+        "KG03"
+      ],
+      "merge_kind": "exact_duplicate",
+      "merge_confidence": "medium",
+      "merge_rationale": "Совпадает «в кэше; redis». Гарантии долговременности не обсуждались ни на одном листе и остаются открытым вопросом.",
+      "source_alignments": [
+        "kg01_cache -> kg03_cache (same_concept_candidate)"
+      ]
+    },
+    {
+      "concept_id": "concept_storage_in_files",
+      "canonical_label": "В файлах",
+      "normalized_label": "в файлах",
+      "kind": "concept",
+      "occurrence_ids": [
+        "kg01_files",
+        "kg03_files"
+      ],
+      "sheets": [
+        "KG01",
+        "KG03"
+      ],
+      "merge_kind": "exact_duplicate",
+      "merge_confidence": "medium",
+      "merge_rationale": "Совпадает формулировка «в файлах» и роль узла.",
+      "source_alignments": [
+        "kg01_files -> kg03_files (same_concept_candidate)"
+      ]
+    },
+    {
+      "concept_id": "concept_storage_nosql",
+      "canonical_label": "В NoSQL БД (MongoDB)",
+      "normalized_label": "в nosql бд (mongodb)",
+      "kind": "concept",
+      "occurrence_ids": [
+        "kg01_nosql",
+        "kg03_nosql"
+      ],
+      "sheets": [
+        "KG01",
+        "KG03"
+      ],
+      "merge_kind": "partial_overlap",
+      "merge_confidence": "medium",
+      "merge_rationale": "Оба узла — «в NoSQL БД», но списки примеров различаются (Cassandra есть только на KG03).",
+      "source_alignments": [
+        "kg01_nosql -> kg03_nosql (overlapping_concepts)"
+      ]
+    },
+    {
+      "concept_id": "concept_storage_rdbms",
+      "canonical_label": "В реляционной СУБД (PostgreSQL, MySQL)",
+      "normalized_label": "в реляционной субд (postgresql, mysql)",
+      "kind": "concept",
+      "occurrence_ids": [
+        "kg01_rdbms",
+        "kg03_rdbms"
+      ],
+      "sheets": [
+        "KG01",
+        "KG03"
+      ],
+      "merge_kind": "partial_overlap",
+      "merge_confidence": "medium",
+      "merge_rationale": "Оба узла — «в реляционной СУБД», но списки примеров различаются (MariaDB есть только на KG03). Примеры не объединяются в один набор: raw_label каждого вхождения сохранён отдельно.",
+      "source_alignments": [
+        "kg01_rdbms -> kg03_rdbms (overlapping_concepts)"
+      ]
+    },
+    {
+      "concept_id": "concept_strogaya",
+      "canonical_label": "Строгая",
+      "normalized_label": "строгая",
+      "kind": "concept",
+      "occurrence_ids": [
+        "kg02_strong"
+      ],
+      "sheets": [
+        "KG02"
+      ],
+      "merge_kind": "single_occurrence",
+      "merge_confidence": null,
+      "merge_rationale": null,
+      "source_alignments": []
+    },
+    {
+      "concept_id": "concept_tipizaciya",
+      "canonical_label": "Типизация",
+      "normalized_label": "типизация",
+      "kind": "topic",
+      "occurrence_ids": [
+        "kg02_typing"
+      ],
+      "sheets": [
+        "KG02"
+      ],
+      "merge_kind": "single_occurrence",
+      "merge_confidence": null,
+      "merge_rationale": null,
+      "source_alignments": []
+    },
+    {
+      "concept_id": "concept_tyuring_nepolnye",
+      "canonical_label": "Тьюринг-неполные",
+      "normalized_label": "тьюринг-неполные",
+      "kind": "concept",
+      "occurrence_ids": [
+        "kg02_incomplete"
+      ],
+      "sheets": [
+        "KG02"
+      ],
+      "merge_kind": "single_occurrence",
+      "merge_confidence": null,
+      "merge_rationale": null,
+      "source_alignments": []
+    },
+    {
+      "concept_id": "concept_tyuring_polnota",
+      "canonical_label": "Тьюринг-полнота",
+      "normalized_label": "тьюринг-полнота",
+      "kind": "topic",
+      "occurrence_ids": [
+        "kg02_turing"
+      ],
+      "sheets": [
+        "KG02"
+      ],
+      "merge_kind": "single_occurrence",
+      "merge_confidence": null,
+      "merge_rationale": null,
+      "source_alignments": []
+    },
+    {
+      "concept_id": "concept_tyuring_polnye",
+      "canonical_label": "Тьюринг-полные",
+      "normalized_label": "тьюринг-полные",
+      "kind": "concept",
+      "occurrence_ids": [
+        "kg02_complete"
+      ],
+      "sheets": [
+        "KG02"
+      ],
+      "merge_kind": "single_occurrence",
+      "merge_confidence": null,
+      "merge_rationale": null,
+      "source_alignments": []
+    },
+    {
+      "concept_id": "concept_u_razrabotchika",
+      "canonical_label": "У разработчика",
+      "normalized_label": "у разработчика",
+      "kind": "concept",
+      "occurrence_ids": [
+        "kg01_local"
+      ],
+      "sheets": [
+        "KG01"
+      ],
+      "merge_kind": "single_occurrence",
+      "merge_confidence": null,
+      "merge_rationale": null,
+      "source_alignments": []
+    },
+    {
+      "concept_id": "concept_uchetnye_dannye",
+      "canonical_label": "Учётные данные",
+      "normalized_label": "учетные данные",
+      "kind": "example",
+      "occurrence_ids": [
+        "kg03_credentials"
+      ],
+      "sheets": [
+        "KG03"
+      ],
+      "merge_kind": "single_occurrence",
+      "merge_confidence": null,
+      "merge_rationale": null,
+      "source_alignments": []
+    },
+    {
+      "concept_id": "concept_v_izolirovannom_okruzhenii_docker",
+      "canonical_label": "В изолированном окружении (Docker)",
+      "normalized_label": "в изолированном окружении (docker)",
+      "kind": "concept",
+      "occurrence_ids": [
+        "kg01_isolated"
+      ],
+      "sheets": [
+        "KG01"
+      ],
+      "merge_kind": "single_occurrence",
+      "merge_confidence": null,
+      "merge_rationale": null,
+      "source_alignments": []
+    },
+    {
+      "concept_id": "concept_vetvleniya",
+      "canonical_label": "Ветвления",
+      "normalized_label": "ветвления",
+      "kind": "concept",
+      "occurrence_ids": [
+        "kg02_branches"
+      ],
+      "sheets": [
+        "KG02"
+      ],
+      "merge_kind": "single_occurrence",
+      "merge_confidence": null,
+      "merge_rationale": null,
+      "source_alignments": []
+    },
+    {
+      "concept_id": "concept_vim",
+      "canonical_label": "Vim",
+      "normalized_label": "vim",
+      "kind": "example",
+      "occurrence_ids": [
+        "kg01_vim"
+      ],
+      "sheets": [
+        "KG01"
+      ],
+      "merge_kind": "single_occurrence",
+      "merge_confidence": null,
+      "merge_rationale": null,
+      "source_alignments": []
+    },
+    {
+      "concept_id": "concept_vosstanovlenie_posle_sboev",
+      "canonical_label": "Восстановление после сбоев",
+      "normalized_label": "восстановление после сбоев",
+      "kind": "topic",
+      "occurrence_ids": [
+        "kg03_recovery"
+      ],
+      "sheets": [
+        "KG03"
+      ],
+      "merge_kind": "single_occurrence",
+      "merge_confidence": null,
+      "merge_rationale": null,
+      "source_alignments": []
+    },
+    {
+      "concept_id": "concept_vs_code",
+      "canonical_label": "VS Code",
+      "normalized_label": "vs code",
+      "kind": "example",
+      "occurrence_ids": [
+        "kg01_vscode"
+      ],
+      "sheets": [
+        "KG01"
+      ],
+      "merge_kind": "single_occurrence",
+      "merge_confidence": null,
+      "merge_rationale": null,
+      "source_alignments": []
+    },
+    {
+      "concept_id": "concept_vyzovy_bibliotek_i_funkcij",
+      "canonical_label": "Вызовы библиотек и функций",
+      "normalized_label": "вызовы библиотек и функций",
+      "kind": "concept",
+      "occurrence_ids": [
+        "kg02_lib_calls"
+      ],
+      "sheets": [
+        "KG02"
+      ],
+      "merge_kind": "single_occurrence",
+      "merge_confidence": null,
+      "merge_rationale": null,
+      "source_alignments": []
+    },
+    {
+      "concept_id": "concept_vyzovy_vneshnih_programm",
+      "canonical_label": "Вызовы внешних программ",
+      "normalized_label": "вызовы внешних программ",
+      "kind": "concept",
+      "occurrence_ids": [
+        "kg02_subprocess"
+      ],
+      "sheets": [
+        "KG02"
+      ],
+      "merge_kind": "single_occurrence",
+      "merge_confidence": null,
+      "merge_rationale": null,
+      "source_alignments": []
+    },
+    {
+      "concept_id": "concept_vzaimodejstvie_s_vneshnim_mirom",
+      "canonical_label": "Взаимодействие с внешним миром",
+      "normalized_label": "взаимодействие с внешним миром",
+      "kind": "topic",
+      "occurrence_ids": [
+        "kg03_external_interaction"
+      ],
+      "sheets": [
+        "KG03"
+      ],
+      "merge_kind": "single_occurrence",
+      "merge_confidence": null,
+      "merge_rationale": null,
+      "source_alignments": []
+    },
+    {
+      "concept_id": "concept_xml",
+      "canonical_label": "XML",
+      "normalized_label": "xml",
+      "kind": "example",
+      "occurrence_ids": [
+        "kg02_xml"
+      ],
+      "sheets": [
+        "KG02"
+      ],
+      "merge_kind": "single_occurrence",
+      "merge_confidence": null,
+      "merge_rationale": null,
+      "source_alignments": []
+    },
+    {
+      "concept_id": "concept_yazyki_s_algebraicheskimi_tipami_dannyh",
+      "canonical_label": "Языки с алгебраическими типами данных",
+      "normalized_label": "языки с алгебраическими типами данных",
+      "kind": "concept",
+      "occurrence_ids": [
+        "kg02_algebraic"
+      ],
+      "sheets": [
+        "KG02"
+      ],
+      "merge_kind": "single_occurrence",
+      "merge_confidence": null,
+      "merge_rationale": null,
+      "source_alignments": []
+    }
+  ],
+  "occurrences": [
+    {
+      "occurrence_id": "kg01_artifact",
+      "concept_id": "concept_kak_poluchit_otchuzhdaemyj_artefakt",
+      "sheet": "KG01",
+      "label": "Как получить отчуждаемый артефакт?",
+      "normalized_label": "как получить отчуждаемый артефакт?",
+      "kind": "question",
+      "provenance": {
+        "sheet": "KG01",
+        "evidence": "handwriting",
+        "confidence": "medium"
+      }
+    },
+    {
+      "occurrence_id": "kg01_cache",
+      "concept_id": "concept_storage_in_cache",
+      "sheet": "KG01",
+      "label": "В кэше (Redis)",
+      "normalized_label": "в кэше (redis)",
+      "kind": "concept",
+      "provenance": {
+        "sheet": "KG01",
+        "evidence": "handwriting",
+        "confidence": "high"
+      },
+      "raw_label": "в кэше; redis"
+    },
+    {
+      "occurrence_id": "kg01_document",
+      "concept_id": "concept_kak_dokumentirovat_kod",
+      "sheet": "KG01",
+      "label": "Как документировать код?",
+      "normalized_label": "как документировать код?",
+      "kind": "question",
+      "provenance": {
+        "sheet": "KG01",
+        "evidence": "handwriting",
+        "confidence": "high"
+      }
+    },
+    {
+      "occurrence_id": "kg01_editor",
+      "concept_id": "concept_chem_pisat_kod",
+      "sheet": "KG01",
+      "label": "Чем писать код?",
+      "normalized_label": "чем писать код?",
+      "kind": "question",
+      "provenance": {
+        "sheet": "KG01",
+        "evidence": "handwriting",
+        "confidence": "high"
+      }
+    },
+    {
+      "occurrence_id": "kg01_external_docs",
+      "concept_id": "concept_kak_organizovat_vneshnyuyu_dokumentaciyu_i_ee_proverku_na_korrektnost",
+      "sheet": "KG01",
+      "label": "Как организовать внешнюю документацию и её проверку на корректность?",
+      "normalized_label": "как организовать внешнюю документацию и ее проверку на корректность?",
+      "kind": "concept",
+      "provenance": {
+        "sheet": "KG01",
+        "evidence": "handwriting",
+        "confidence": "medium"
+      },
+      "raw_label": "как орг-ть внеш. док-тацию и её проверку на корректность?"
+    },
+    {
+      "occurrence_id": "kg01_files",
+      "concept_id": "concept_storage_in_files",
+      "sheet": "KG01",
+      "label": "В файлах",
+      "normalized_label": "в файлах",
+      "kind": "concept",
+      "provenance": {
+        "sheet": "KG01",
+        "evidence": "handwriting",
+        "confidence": "high"
+      }
+    },
+    {
+      "occurrence_id": "kg01_git",
+      "concept_id": "concept_git",
+      "sheet": "KG01",
+      "label": "Git",
+      "normalized_label": "git",
+      "kind": "example",
+      "provenance": {
+        "sheet": "KG01",
+        "evidence": "handwriting",
+        "confidence": "high"
+      }
+    },
+    {
+      "occurrence_id": "kg01_gitlab",
+      "concept_id": "concept_gitlab",
+      "sheet": "KG01",
+      "label": "GitLab",
+      "normalized_label": "gitlab",
+      "kind": "example",
+      "provenance": {
+        "sheet": "KG01",
+        "evidence": "handwriting",
+        "confidence": "high"
+      }
+    },
+    {
+      "occurrence_id": "kg01_how_launch",
+      "concept_id": "concept_kak_zapuskat_kod",
+      "sheet": "KG01",
+      "label": "Как запускать код?",
+      "normalized_label": "как запускать код?",
+      "kind": "question",
+      "provenance": {
+        "sheet": "KG01",
+        "evidence": "handwriting",
+        "confidence": "high"
+      }
+    },
+    {
+      "occurrence_id": "kg01_how_test",
+      "concept_id": "concept_kak_testirovat_kod",
+      "sheet": "KG01",
+      "label": "Как тестировать код?",
+      "normalized_label": "как тестировать код?",
+      "kind": "question",
+      "provenance": {
+        "sheet": "KG01",
+        "evidence": "handwriting",
+        "confidence": "high"
+      }
+    },
+    {
+      "occurrence_id": "kg01_idea",
+      "concept_id": "concept_idea",
+      "sheet": "KG01",
+      "label": "IDEA",
+      "normalized_label": "idea",
+      "kind": "example",
+      "provenance": {
+        "sheet": "KG01",
+        "evidence": "handwriting",
+        "confidence": "high"
+      },
+      "review_note": "Скорее всего имеется в виду IntelliJ IDEA."
+    },
+    {
+      "occurrence_id": "kg01_inline_docs",
+      "concept_id": "concept_kak_dokumentirovat_kod_vnutri_pisat_kommentarii",
+      "sheet": "KG01",
+      "label": "Как документировать код внутри, писать комментарии?",
+      "normalized_label": "как документировать код внутри, писать комментарии?",
+      "kind": "concept",
+      "provenance": {
+        "sheet": "KG01",
+        "evidence": "handwriting",
+        "confidence": "medium"
+      },
+      "raw_label": "как док-ть код внутри, писать коммент-ии?"
+    },
+    {
+      "occurrence_id": "kg01_interop",
+      "concept_id": "concept_kak_obmenivatsya_s_drugimi_programmami",
+      "sheet": "KG01",
+      "label": "Как обмениваться с другими программами?",
+      "normalized_label": "как обмениваться с другими программами?",
+      "kind": "question",
+      "provenance": {
+        "sheet": "KG01",
+        "evidence": "handwriting",
+        "confidence": "high"
+      }
+    },
+    {
+      "occurrence_id": "kg01_isolated",
+      "concept_id": "concept_v_izolirovannom_okruzhenii_docker",
+      "sheet": "KG01",
+      "label": "В изолированном окружении (Docker)",
+      "normalized_label": "в изолированном окружении (docker)",
+      "kind": "concept",
+      "provenance": {
+        "sheet": "KG01",
+        "evidence": "handwriting",
+        "confidence": "high"
+      },
+      "raw_label": "в изолированном окружении; docker"
+    },
+    {
+      "occurrence_id": "kg01_local",
+      "concept_id": "concept_u_razrabotchika",
+      "sheet": "KG01",
+      "label": "У разработчика",
+      "normalized_label": "у разработчика",
+      "kind": "concept",
+      "provenance": {
+        "sheet": "KG01",
+        "evidence": "handwriting",
+        "confidence": "high"
+      }
+    },
+    {
+      "occurrence_id": "kg01_nosql",
+      "concept_id": "concept_storage_nosql",
+      "sheet": "KG01",
+      "label": "В NoSQL БД (MongoDB)",
+      "normalized_label": "в nosql бд (mongodb)",
+      "kind": "concept",
+      "provenance": {
+        "sheet": "KG01",
+        "evidence": "handwriting",
+        "confidence": "high"
+      },
+      "raw_label": "в noSQL БД; mongoDB"
+    },
+    {
+      "occurrence_id": "kg01_orchestrated",
+      "concept_id": "concept_pod_upravleniem_orkestratora_kubernetes",
+      "sheet": "KG01",
+      "label": "Под управлением оркестратора (Kubernetes)",
+      "normalized_label": "под управлением оркестратора (kubernetes)",
+      "kind": "concept",
+      "provenance": {
+        "sheet": "KG01",
+        "evidence": "handwriting",
+        "confidence": "high"
+      },
+      "raw_label": "под управлением оркестратора; Kubernetes, service mesh",
+      "review_note": "Service mesh находится рядом с Kubernetes, но не равнозначен оркестратору."
+    },
+    {
+      "occurrence_id": "kg01_pipeline",
+      "concept_id": "concept_pipeline_gitlab",
+      "sheet": "KG01",
+      "label": "Pipeline (GitLab)",
+      "normalized_label": "pipeline (gitlab)",
+      "kind": "concept",
+      "provenance": {
+        "sheet": "KG01",
+        "evidence": "handwriting",
+        "confidence": "high"
+      },
+      "raw_label": "pipeline; gitlab"
+    },
+    {
+      "occurrence_id": "kg01_rdbms",
+      "concept_id": "concept_storage_rdbms",
+      "sheet": "KG01",
+      "label": "В реляционной СУБД (PostgreSQL, MySQL)",
+      "normalized_label": "в реляционной субд (postgresql, mysql)",
+      "kind": "concept",
+      "provenance": {
+        "sheet": "KG01",
+        "evidence": "handwriting",
+        "confidence": "high"
+      },
+      "raw_label": "в РСУБД; PostgreSQL, MySQL"
+    },
+    {
+      "occurrence_id": "kg01_remote",
+      "concept_id": "concept_na_servere_v_internete",
+      "sheet": "KG01",
+      "label": "На сервере в интернете",
+      "normalized_label": "на сервере в интернете",
+      "kind": "concept",
+      "provenance": {
+        "sheet": "KG01",
+        "evidence": "handwriting",
+        "confidence": "high"
+      }
+    },
+    {
+      "occurrence_id": "kg01_repro_build",
+      "concept_id": "concept_kak_obespechit_povtoryaemuyu_sborku",
+      "sheet": "KG01",
+      "label": "Как обеспечить повторяемую сборку?",
+      "normalized_label": "как обеспечить повторяемую сборку?",
+      "kind": "concept",
+      "provenance": {
+        "sheet": "KG01",
+        "evidence": "handwriting",
+        "confidence": "high"
+      },
+      "raw_label": "как обеспечить повторяемую сборку?"
+    },
+    {
+      "occurrence_id": "kg01_root",
+      "concept_id": "concept_kod",
+      "sheet": "KG01",
+      "label": "Код",
+      "normalized_label": "код",
+      "kind": "root",
+      "provenance": {
+        "sheet": "KG01",
+        "evidence": "handwriting",
+        "confidence": "high"
+      }
+    },
+    {
+      "occurrence_id": "kg01_split_files",
+      "concept_id": "concept_kak_razbit_po_fajlam",
+      "sheet": "KG01",
+      "label": "Как разбить по файлам?",
+      "normalized_label": "как разбить по файлам?",
+      "kind": "concept",
+      "provenance": {
+        "sheet": "KG01",
+        "evidence": "handwriting",
+        "confidence": "high"
+      }
+    },
+    {
+      "occurrence_id": "kg01_split_modules",
+      "concept_id": "concept_kak_razbit_po_modulyam",
+      "sheet": "KG01",
+      "label": "Как разбить по модулям?",
+      "normalized_label": "как разбить по модулям?",
+      "kind": "concept",
+      "provenance": {
+        "sheet": "KG01",
+        "evidence": "handwriting",
+        "confidence": "high"
+      }
+    },
+    {
+      "occurrence_id": "kg01_state_storage",
+      "concept_id": "concept_state_storage",
+      "sheet": "KG01",
+      "label": "Хранение состояния",
+      "normalized_label": "хранение состояния",
+      "kind": "topic",
+      "provenance": {
+        "sheet": "KG01",
+        "evidence": "handwriting",
+        "confidence": "high"
+      }
+    },
+    {
+      "occurrence_id": "kg01_structure",
+      "concept_id": "concept_kak_strukturirovat_kod",
+      "sheet": "KG01",
+      "label": "Как структурировать код?",
+      "normalized_label": "как структурировать код?",
+      "kind": "question",
+      "provenance": {
+        "sheet": "KG01",
+        "evidence": "handwriting",
+        "confidence": "high"
+      }
+    },
+    {
+      "occurrence_id": "kg01_test_arch",
+      "concept_id": "concept_kak_testirovat_na_raznyh_arhitekturah_ustrojstv",
+      "sheet": "KG01",
+      "label": "Как тестировать на разных архитектурах устройств?",
+      "normalized_label": "как тестировать на разных архитектурах устройств?",
+      "kind": "concept",
+      "provenance": {
+        "sheet": "KG01",
+        "evidence": "handwriting",
+        "confidence": "high"
+      },
+      "raw_label": "как т-ть на разных архитектурах устройств?"
+    },
+    {
+      "occurrence_id": "kg01_test_correctness",
+      "concept_id": "concept_kak_proverit_korrektnost_testov",
+      "sheet": "KG01",
+      "label": "Как проверить корректность тестов?",
+      "normalized_label": "как проверить корректность тестов?",
+      "kind": "concept",
+      "provenance": {
+        "sheet": "KG01",
+        "evidence": "handwriting",
+        "confidence": "high"
+      }
+    },
+    {
+      "occurrence_id": "kg01_test_coverage",
+      "concept_id": "concept_kak_proverit_polnotu_testirovaniya_code_coverage",
+      "sheet": "KG01",
+      "label": "Как проверить полноту тестирования? (code coverage)",
+      "normalized_label": "как проверить полноту тестирования? (code coverage)",
+      "kind": "concept",
+      "provenance": {
+        "sheet": "KG01",
+        "evidence": "handwriting",
+        "confidence": "high"
+      },
+      "raw_label": "как проверить полноту тестирования?; code coverage",
+      "review_note": "Покрытие кода не является доказательством полноты тестирования."
+    },
+    {
+      "occurrence_id": "kg01_test_env",
+      "concept_id": "concept_kak_proverit_v_raznyh_okruzheniyah_bd_nagruzka",
+      "sheet": "KG01",
+      "label": "Как проверить в разных окружениях (БД, нагрузка)?",
+      "normalized_label": "как проверить в разных окружениях (бд, нагрузка)?",
+      "kind": "concept",
+      "provenance": {
+        "sheet": "KG01",
+        "evidence": "handwriting",
+        "confidence": "high"
+      },
+      "raw_label": "как проверить в разных окружениях (разные БД, нагрузка)"
+    },
+    {
+      "occurrence_id": "kg01_test_security",
+      "concept_id": "concept_kak_proverit_bezopasnost",
+      "sheet": "KG01",
+      "label": "Как проверить безопасность?",
+      "normalized_label": "как проверить безопасность?",
+      "kind": "concept",
+      "provenance": {
+        "sheet": "KG01",
+        "evidence": "handwriting",
+        "confidence": "high"
+      }
+    },
+    {
+      "occurrence_id": "kg01_vim",
+      "concept_id": "concept_vim",
+      "sheet": "KG01",
+      "label": "Vim",
+      "normalized_label": "vim",
+      "kind": "example",
+      "provenance": {
+        "sheet": "KG01",
+        "evidence": "handwriting",
+        "confidence": "high"
+      }
+    },
+    {
+      "occurrence_id": "kg01_vscode",
+      "concept_id": "concept_vs_code",
+      "sheet": "KG01",
+      "label": "VS Code",
+      "normalized_label": "vs code",
+      "kind": "example",
+      "provenance": {
+        "sheet": "KG01",
+        "evidence": "handwriting",
+        "confidence": "high"
+      }
+    },
+    {
+      "occurrence_id": "kg01_where_run",
+      "concept_id": "concept_gde_zapuskayut_kod",
+      "sheet": "KG01",
+      "label": "Где запускают код?",
+      "normalized_label": "где запускают код?",
+      "kind": "question",
+      "provenance": {
+        "sheet": "KG01",
+        "evidence": "handwriting",
+        "confidence": "high"
+      }
+    },
+    {
+      "occurrence_id": "kg01_where_store_code",
+      "concept_id": "concept_gde_hranyat_kod",
+      "sheet": "KG01",
+      "label": "Где хранят код?",
+      "normalized_label": "где хранят код?",
+      "kind": "question",
+      "provenance": {
+        "sheet": "KG01",
+        "evidence": "handwriting",
+        "confidence": "medium"
+      }
+    },
+    {
+      "occurrence_id": "kg02_abstractions",
+      "concept_id": "concept_kakimi_abstrakciyami_operiruet_kod",
+      "sheet": "KG02",
+      "label": "Какими абстракциями оперирует код?",
+      "normalized_label": "какими абстракциями оперирует код?",
+      "kind": "question",
+      "provenance": {
+        "sheet": "KG02",
+        "evidence": "handwriting",
+        "confidence": "high"
+      }
+    },
+    {
+      "occurrence_id": "kg02_algebraic",
+      "concept_id": "concept_yazyki_s_algebraicheskimi_tipami_dannyh",
+      "sheet": "KG02",
+      "label": "Языки с алгебраическими типами данных",
+      "normalized_label": "языки с алгебраическими типами данных",
+      "kind": "concept",
+      "provenance": {
+        "sheet": "KG02",
+        "evidence": "handwriting",
+        "confidence": "high"
+      }
+    },
+    {
+      "occurrence_id": "kg02_assembler",
+      "concept_id": "concept_assembler_assembler",
+      "sheet": "KG02",
+      "label": "Assembler / ассемблер",
+      "normalized_label": "assembler / ассемблер",
+      "kind": "example",
+      "provenance": {
+        "sheet": "KG02",
+        "evidence": "handwriting",
+        "confidence": "medium"
+      },
+      "review_note": "Написано возле IR; точное отношение неочевидно."
+    },
+    {
+      "occurrence_id": "kg02_ast",
+      "concept_id": "concept_ast_abstraktnoe_sintaksicheskoe_derevo",
+      "sheet": "KG02",
+      "label": "AST (абстрактное синтаксическое дерево)",
+      "normalized_label": "ast (абстрактное синтаксическое дерево)",
+      "kind": "concept",
+      "provenance": {
+        "sheet": "KG02",
+        "evidence": "handwriting",
+        "confidence": "high"
+      },
+      "raw_label": "AST (абстр синтакс. дерево)"
+    },
+    {
+      "occurrence_id": "kg02_branches",
+      "concept_id": "concept_vetvleniya",
+      "sheet": "KG02",
+      "label": "Ветвления",
+      "normalized_label": "ветвления",
+      "kind": "concept",
+      "provenance": {
+        "sheet": "KG02",
+        "evidence": "handwriting",
+        "confidence": "high"
+      }
+    },
+    {
+      "occurrence_id": "kg02_classes",
+      "concept_id": "concept_klassy",
+      "sheet": "KG02",
+      "label": "Классы",
+      "normalized_label": "классы",
+      "kind": "concept",
+      "provenance": {
+        "sheet": "KG02",
+        "evidence": "handwriting",
+        "confidence": "high"
+      }
+    },
+    {
+      "occurrence_id": "kg02_client",
+      "concept_id": "concept_klient",
+      "sheet": "KG02",
+      "label": "Клиент",
+      "normalized_label": "клиент",
+      "kind": "concept",
+      "provenance": {
+        "sheet": "KG02",
+        "evidence": "handwriting",
+        "confidence": "high"
+      }
+    },
+    {
+      "occurrence_id": "kg02_complete",
+      "concept_id": "concept_tyuring_polnye",
+      "sheet": "KG02",
+      "label": "Тьюринг-полные",
+      "normalized_label": "тьюринг-полные",
+      "kind": "concept",
+      "provenance": {
+        "sheet": "KG02",
+        "evidence": "handwriting",
+        "confidence": "high"
+      }
+    },
+    {
+      "occurrence_id": "kg02_composition",
+      "concept_id": "concept_iz_chego_sostoit_kod",
+      "sheet": "KG02",
+      "label": "Из чего состоит код?",
+      "normalized_label": "из чего состоит код?",
+      "kind": "question",
+      "provenance": {
+        "sheet": "KG02",
+        "evidence": "handwriting",
+        "confidence": "high"
+      }
+    },
+    {
+      "occurrence_id": "kg02_concurrent",
+      "concept_id": "concept_konkurentnoe_programmirovanie",
+      "sheet": "KG02",
+      "label": "Конкурентное программирование",
+      "normalized_label": "конкурентное программирование",
+      "kind": "concept",
+      "provenance": {
+        "sheet": "KG02",
+        "evidence": "handwriting",
+        "confidence": "high"
+      },
+      "review_note": "Конкурентность — отдельная ось проектирования, не взаимоисключающая парадигма."
+    },
+    {
+      "occurrence_id": "kg02_config",
+      "concept_id": "concept_konfiguracionnye_fajly_yaml_json_ini_toml",
+      "sheet": "KG02",
+      "label": "Конфигурационные файлы (YAML, JSON, INI, TOML)",
+      "normalized_label": "конфигурационные файлы (yaml, json, ini, toml)",
+      "kind": "concept",
+      "provenance": {
+        "sheet": "KG02",
+        "evidence": "handwriting",
+        "confidence": "medium"
+      },
+      "raw_label": "конфигурационные файлы yaml, json, ini-файл, xml/toml"
+    },
+    {
+      "occurrence_id": "kg02_constants",
+      "concept_id": "concept_konstanty",
+      "sheet": "KG02",
+      "label": "Константы",
+      "normalized_label": "константы",
+      "kind": "concept",
+      "provenance": {
+        "sheet": "KG02",
+        "evidence": "handwriting",
+        "confidence": "high"
+      }
+    },
+    {
+      "occurrence_id": "kg02_declarative",
+      "concept_id": "concept_deklarativnaya",
+      "sheet": "KG02",
+      "label": "Декларативная",
+      "normalized_label": "декларативная",
+      "kind": "concept",
+      "provenance": {
+        "sheet": "KG02",
+        "evidence": "handwriting",
+        "confidence": "high"
+      }
+    },
+    {
+      "occurrence_id": "kg02_dynamic",
+      "concept_id": "concept_dinamicheskaya",
+      "sheet": "KG02",
+      "label": "Динамическая",
+      "normalized_label": "динамическая",
+      "kind": "concept",
+      "provenance": {
+        "sheet": "KG02",
+        "evidence": "handwriting",
+        "confidence": "high"
+      }
+    },
+    {
+      "occurrence_id": "kg02_envvars",
+      "concept_id": "concept_peremennye_okruzheniya",
+      "sheet": "KG02",
+      "label": "Переменные окружения",
+      "normalized_label": "переменные окружения",
+      "kind": "concept",
+      "provenance": {
+        "sheet": "KG02",
+        "evidence": "handwriting",
+        "confidence": "high"
+      }
+    },
+    {
+      "occurrence_id": "kg02_execution",
+      "concept_id": "concept_kak_ispolnyaetsya_kod",
+      "sheet": "KG02",
+      "label": "Как исполняется код?",
+      "normalized_label": "как исполняется код?",
+      "kind": "question",
+      "provenance": {
+        "sheet": "KG02",
+        "evidence": "handwriting",
+        "confidence": "high"
+      }
+    },
+    {
+      "occurrence_id": "kg02_external",
+      "concept_id": "concept_kak_kod_vzaimodejstvuet_s_vneshnej_sredoj",
+      "sheet": "KG02",
+      "label": "Как код взаимодействует с внешней средой?",
+      "normalized_label": "как код взаимодействует с внешней средой?",
+      "kind": "question",
+      "provenance": {
+        "sheet": "KG02",
+        "evidence": "handwriting",
+        "confidence": "high"
+      }
+    },
+    {
+      "occurrence_id": "kg02_formats",
+      "concept_id": "concept_formaty_dannyh",
+      "sheet": "KG02",
+      "label": "Форматы данных",
+      "normalized_label": "форматы данных",
+      "kind": "topic",
+      "provenance": {
+        "sheet": "KG02",
+        "evidence": "handwriting",
+        "confidence": "high"
+      }
+    },
+    {
+      "occurrence_id": "kg02_framework",
+      "concept_id": "concept_framework",
+      "sheet": "KG02",
+      "label": "Framework",
+      "normalized_label": "framework",
+      "kind": "unlinked_term",
+      "provenance": {
+        "sheet": "KG02",
+        "evidence": "handwriting",
+        "confidence": "high"
+      },
+      "review_note": "Слово написано отдельно, видимой стрелки к центральному узлу нет."
+    },
+    {
+      "occurrence_id": "kg02_functional",
+      "concept_id": "concept_funkcionalnaya",
+      "sheet": "KG02",
+      "label": "Функциональная",
+      "normalized_label": "функциональная",
+      "kind": "concept",
+      "provenance": {
+        "sheet": "KG02",
+        "evidence": "handwriting",
+        "confidence": "high"
+      }
+    },
+    {
+      "occurrence_id": "kg02_functions",
+      "concept_id": "concept_funkcii",
+      "sheet": "KG02",
+      "label": "Функции",
+      "normalized_label": "функции",
+      "kind": "concept",
+      "provenance": {
+        "sheet": "KG02",
+        "evidence": "handwriting",
+        "confidence": "high"
+      }
+    },
+    {
+      "occurrence_id": "kg02_functions_abstract",
+      "concept_id": "concept_funkcii__kg02_functions_abstract",
+      "sheet": "KG02",
+      "label": "Функции",
+      "normalized_label": "функции",
+      "kind": "concept",
+      "provenance": {
+        "sheet": "KG02",
+        "evidence": "handwriting",
+        "confidence": "high"
+      }
+    },
+    {
+      "occurrence_id": "kg02_gc",
+      "concept_id": "concept_so_sborschikom_musora",
+      "sheet": "KG02",
+      "label": "Со сборщиком мусора",
+      "normalized_label": "со сборщиком мусора",
+      "kind": "concept",
+      "provenance": {
+        "sheet": "KG02",
+        "evidence": "handwriting",
+        "confidence": "high"
+      }
+    },
+    {
+      "occurrence_id": "kg02_grpc",
+      "concept_id": "concept_grpc",
+      "sheet": "KG02",
+      "label": "gRPC",
+      "normalized_label": "grpc",
+      "kind": "example",
+      "provenance": {
+        "sheet": "KG02",
+        "evidence": "handwriting",
+        "confidence": "high"
+      }
+    },
+    {
+      "occurrence_id": "kg02_higher_order",
+      "concept_id": "concept_funkcii_vysshego_poryadka",
+      "sheet": "KG02",
+      "label": "Функции высшего порядка",
+      "normalized_label": "функции высшего порядка",
+      "kind": "concept",
+      "provenance": {
+        "sheet": "KG02",
+        "evidence": "handwriting",
+        "confidence": "high"
+      }
+    },
+    {
+      "occurrence_id": "kg02_http",
+      "concept_id": "concept_http",
+      "sheet": "KG02",
+      "label": "HTTP",
+      "normalized_label": "http",
+      "kind": "example",
+      "provenance": {
+        "sheet": "KG02",
+        "evidence": "handwriting",
+        "confidence": "high"
+      }
+    },
+    {
+      "occurrence_id": "kg02_imperative",
+      "concept_id": "concept_imperativnaya_procedurnaya",
+      "sheet": "KG02",
+      "label": "Императивная (процедурная)",
+      "normalized_label": "императивная (процедурная)",
+      "kind": "concept",
+      "provenance": {
+        "sheet": "KG02",
+        "evidence": "handwriting",
+        "confidence": "high"
+      }
+    },
+    {
+      "occurrence_id": "kg02_incomplete",
+      "concept_id": "concept_tyuring_nepolnye",
+      "sheet": "KG02",
+      "label": "Тьюринг-неполные",
+      "normalized_label": "тьюринг-неполные",
+      "kind": "concept",
+      "provenance": {
+        "sheet": "KG02",
+        "evidence": "handwriting",
+        "confidence": "high"
+      }
+    },
+    {
+      "occurrence_id": "kg02_interfaces",
+      "concept_id": "concept_interfejsy",
+      "sheet": "KG02",
+      "label": "Интерфейсы",
+      "normalized_label": "интерфейсы",
+      "kind": "concept",
+      "provenance": {
+        "sheet": "KG02",
+        "evidence": "handwriting",
+        "confidence": "high"
+      }
+    },
+    {
+      "occurrence_id": "kg02_interpreted",
+      "concept_id": "concept_interpretatorom",
+      "sheet": "KG02",
+      "label": "Интерпретатором",
+      "normalized_label": "интерпретатором",
+      "kind": "concept",
+      "provenance": {
+        "sheet": "KG02",
+        "evidence": "handwriting",
+        "confidence": "high"
+      }
+    },
+    {
+      "occurrence_id": "kg02_ir",
+      "concept_id": "concept_ir_promezhutochnoe_predstavlenie",
+      "sheet": "KG02",
+      "label": "IR (промежуточное представление)",
+      "normalized_label": "ir (промежуточное представление)",
+      "kind": "concept",
+      "provenance": {
+        "sheet": "KG02",
+        "evidence": "handwriting",
+        "confidence": "high"
+      },
+      "raw_label": "IR intermediate representation — инструкции для превращения в машинный код",
+      "review_note": "Уточнение: IR — промежуточное представление; не следует отождествлять его с машинным кодом."
+    },
+    {
+      "occurrence_id": "kg02_json",
+      "concept_id": "concept_json",
+      "sheet": "KG02",
+      "label": "JSON",
+      "normalized_label": "json",
+      "kind": "example",
+      "provenance": {
+        "sheet": "KG02",
+        "evidence": "handwriting",
+        "confidence": "high"
+      }
+    },
+    {
+      "occurrence_id": "kg02_lib_calls",
+      "concept_id": "concept_vyzovy_bibliotek_i_funkcij",
+      "sheet": "KG02",
+      "label": "Вызовы библиотек и функций",
+      "normalized_label": "вызовы библиотек и функций",
+      "kind": "concept",
+      "provenance": {
+        "sheet": "KG02",
+        "evidence": "handwriting",
+        "confidence": "high"
+      }
+    },
+    {
+      "occurrence_id": "kg02_libraries",
+      "concept_id": "concept_biblioteki",
+      "sheet": "KG02",
+      "label": "Библиотеки",
+      "normalized_label": "библиотеки",
+      "kind": "concept",
+      "provenance": {
+        "sheet": "KG02",
+        "evidence": "handwriting",
+        "confidence": "high"
+      }
+    },
+    {
+      "occurrence_id": "kg02_loops",
+      "concept_id": "concept_cikly",
+      "sheet": "KG02",
+      "label": "Циклы",
+      "normalized_label": "циклы",
+      "kind": "concept",
+      "provenance": {
+        "sheet": "KG02",
+        "evidence": "handwriting",
+        "confidence": "high"
+      }
+    },
+    {
+      "occurrence_id": "kg02_manual",
+      "concept_id": "concept_ruchnaya",
+      "sheet": "KG02",
+      "label": "Ручная",
+      "normalized_label": "ручная",
+      "kind": "concept",
+      "provenance": {
+        "sheet": "KG02",
+        "evidence": "handwriting",
+        "confidence": "high"
+      }
+    },
+    {
+      "occurrence_id": "kg02_memory",
+      "concept_id": "concept_model_upravleniya_pamyatyu",
+      "sheet": "KG02",
+      "label": "Модель управления памятью",
+      "normalized_label": "модель управления памятью",
+      "kind": "topic",
+      "provenance": {
+        "sheet": "KG02",
+        "evidence": "handwriting",
+        "confidence": "high"
+      }
+    },
+    {
+      "occurrence_id": "kg02_modules",
+      "concept_id": "concept_moduli",
+      "sheet": "KG02",
+      "label": "Модули",
+      "normalized_label": "модули",
+      "kind": "concept",
+      "provenance": {
+        "sheet": "KG02",
+        "evidence": "handwriting",
+        "confidence": "high"
+      }
+    },
+    {
+      "occurrence_id": "kg02_native",
+      "concept_id": "concept_neposredstvenno_processorom_iz_mashinnogo_predstavleniya",
+      "sheet": "KG02",
+      "label": "Непосредственно процессором из машинного представления",
+      "normalized_label": "непосредственно процессором из машинного представления",
+      "kind": "concept",
+      "provenance": {
+        "sheet": "KG02",
+        "evidence": "handwriting",
+        "confidence": "high"
+      },
+      "raw_label": "непоср. на процессоре из машинного представления"
+    },
+    {
+      "occurrence_id": "kg02_network",
+      "concept_id": "concept_setevoe_vzaimodejstvie",
+      "sheet": "KG02",
+      "label": "Сетевое взаимодействие",
+      "normalized_label": "сетевое взаимодействие",
+      "kind": "topic",
+      "provenance": {
+        "sheet": "KG02",
+        "evidence": "handwriting",
+        "confidence": "high"
+      }
+    },
+    {
+      "occurrence_id": "kg02_oop",
+      "concept_id": "concept_obektno_orientirovannaya",
+      "sheet": "KG02",
+      "label": "Объектно-ориентированная",
+      "normalized_label": "объектно-ориентированная",
+      "kind": "concept",
+      "provenance": {
+        "sheet": "KG02",
+        "evidence": "handwriting",
+        "confidence": "high"
+      }
+    },
+    {
+      "occurrence_id": "kg02_operators",
+      "concept_id": "concept_operatory",
+      "sheet": "KG02",
+      "label": "Операторы",
+      "normalized_label": "операторы",
+      "kind": "concept",
+      "provenance": {
+        "sheet": "KG02",
+        "evidence": "handwriting",
+        "confidence": "high"
+      }
+    },
+    {
+      "occurrence_id": "kg02_paradigms",
+      "concept_id": "concept_paradigmy_programmirovaniya",
+      "sheet": "KG02",
+      "label": "Парадигмы программирования",
+      "normalized_label": "парадигмы программирования",
+      "kind": "topic",
+      "provenance": {
+        "sheet": "KG02",
+        "evidence": "handwriting",
+        "confidence": "high"
+      }
+    },
+    {
+      "occurrence_id": "kg02_representation",
+      "concept_id": "concept_predstavleniya_koda",
+      "sheet": "KG02",
+      "label": "Представления кода",
+      "normalized_label": "представления кода",
+      "kind": "topic",
+      "provenance": {
+        "sheet": "KG02",
+        "evidence": "handwriting",
+        "confidence": "high"
+      }
+    },
+    {
+      "occurrence_id": "kg02_rest",
+      "concept_id": "concept_rest",
+      "sheet": "KG02",
+      "label": "REST",
+      "normalized_label": "rest",
+      "kind": "example",
+      "provenance": {
+        "sheet": "KG02",
+        "evidence": "handwriting",
+        "confidence": "high"
+      }
+    },
+    {
+      "occurrence_id": "kg02_root",
+      "concept_id": "concept_kod__kg02_root",
+      "sheet": "KG02",
+      "label": "Код",
+      "normalized_label": "код",
+      "kind": "root",
+      "provenance": {
+        "sheet": "KG02",
+        "evidence": "handwriting",
+        "confidence": "high"
+      }
+    },
+    {
+      "occurrence_id": "kg02_server",
+      "concept_id": "concept_server",
+      "sheet": "KG02",
+      "label": "Сервер",
+      "normalized_label": "сервер",
+      "kind": "concept",
+      "provenance": {
+        "sheet": "KG02",
+        "evidence": "handwriting",
+        "confidence": "high"
+      }
+    },
+    {
+      "occurrence_id": "kg02_soap",
+      "concept_id": "concept_soap",
+      "sheet": "KG02",
+      "label": "SOAP",
+      "normalized_label": "soap",
+      "kind": "example",
+      "provenance": {
+        "sheet": "KG02",
+        "evidence": "handwriting",
+        "confidence": "high"
+      }
+    },
+    {
+      "occurrence_id": "kg02_static",
+      "concept_id": "concept_staticheskaya",
+      "sheet": "KG02",
+      "label": "Статическая",
+      "normalized_label": "статическая",
+      "kind": "concept",
+      "provenance": {
+        "sheet": "KG02",
+        "evidence": "handwriting",
+        "confidence": "high"
+      }
+    },
+    {
+      "occurrence_id": "kg02_strong",
+      "concept_id": "concept_strogaya",
+      "sheet": "KG02",
+      "label": "Строгая",
+      "normalized_label": "строгая",
+      "kind": "concept",
+      "provenance": {
+        "sheet": "KG02",
+        "evidence": "handwriting",
+        "confidence": "medium"
+      },
+      "review_note": "Возможно речь о строгой/нестрогой типизации, но терминологию нужно уточнить."
+    },
+    {
+      "occurrence_id": "kg02_subprocess",
+      "concept_id": "concept_vyzovy_vneshnih_programm",
+      "sheet": "KG02",
+      "label": "Вызовы внешних программ",
+      "normalized_label": "вызовы внешних программ",
+      "kind": "concept",
+      "provenance": {
+        "sheet": "KG02",
+        "evidence": "handwriting",
+        "confidence": "high"
+      }
+    },
+    {
+      "occurrence_id": "kg02_turing",
+      "concept_id": "concept_tyuring_polnota",
+      "sheet": "KG02",
+      "label": "Тьюринг-полнота",
+      "normalized_label": "тьюринг-полнота",
+      "kind": "topic",
+      "provenance": {
+        "sheet": "KG02",
+        "evidence": "handwriting",
+        "confidence": "high"
+      }
+    },
+    {
+      "occurrence_id": "kg02_typing",
+      "concept_id": "concept_tipizaciya",
+      "sheet": "KG02",
+      "label": "Типизация",
+      "normalized_label": "типизация",
+      "kind": "topic",
+      "provenance": {
+        "sheet": "KG02",
+        "evidence": "handwriting",
+        "confidence": "high"
+      }
+    },
+    {
+      "occurrence_id": "kg02_variables",
+      "concept_id": "concept_peremennye",
+      "sheet": "KG02",
+      "label": "Переменные",
+      "normalized_label": "переменные",
+      "kind": "concept",
+      "provenance": {
+        "sheet": "KG02",
+        "evidence": "handwriting",
+        "confidence": "high"
+      }
+    },
+    {
+      "occurrence_id": "kg02_virtual_machine",
+      "concept_id": "concept_na_virtualnoj_mashine",
+      "sheet": "KG02",
+      "label": "На виртуальной машине",
+      "normalized_label": "на виртуальной машине",
+      "kind": "concept",
+      "provenance": {
+        "sheet": "KG02",
+        "evidence": "handwriting",
+        "confidence": "high"
+      },
+      "raw_label": "используя вирт. машины"
+    },
+    {
+      "occurrence_id": "kg02_weak",
+      "concept_id": "concept_nestrogaya",
+      "sheet": "KG02",
+      "label": "Нестрогая",
+      "normalized_label": "нестрогая",
+      "kind": "concept",
+      "provenance": {
+        "sheet": "KG02",
+        "evidence": "handwriting",
+        "confidence": "medium"
+      },
+      "review_note": "Термин неоднозначен; не смешивать weak typing и lazy evaluation."
+    },
+    {
+      "occurrence_id": "kg02_xml",
+      "concept_id": "concept_xml",
+      "sheet": "KG02",
+      "label": "XML",
+      "normalized_label": "xml",
+      "kind": "example",
+      "provenance": {
+        "sheet": "KG02",
+        "evidence": "handwriting",
+        "confidence": "high"
+      }
+    },
+    {
+      "occurrence_id": "kg03_adfs",
+      "concept_id": "concept_ad_fs",
+      "sheet": "KG03",
+      "label": "AD FS",
+      "normalized_label": "ad fs",
+      "kind": "example",
+      "provenance": {
+        "sheet": "KG03",
+        "evidence": "handwriting",
+        "confidence": "high"
+      },
+      "raw_label": "ADFS"
+    },
+    {
+      "occurrence_id": "kg03_asynchronous",
+      "concept_id": "concept_asinhronnoe",
+      "sheet": "KG03",
+      "label": "Асинхронное",
+      "normalized_label": "асинхронное",
+      "kind": "concept",
+      "provenance": {
+        "sheet": "KG03",
+        "evidence": "handwriting",
+        "confidence": "high"
+      }
+    },
+    {
+      "occurrence_id": "kg03_audit_logs",
+      "concept_id": "concept_audit_logi",
+      "sheet": "KG03",
+      "label": "Аудит-логи",
+      "normalized_label": "аудит-логи",
+      "kind": "concept",
+      "provenance": {
+        "sheet": "KG03",
+        "evidence": "handwriting",
+        "confidence": "high"
+      },
+      "raw_label": "аудит-логи"
+    },
+    {
+      "occurrence_id": "kg03_backoff",
+      "concept_id": "concept_exponential_backoff",
+      "sheet": "KG03",
+      "label": "Exponential backoff",
+      "normalized_label": "exponential backoff",
+      "kind": "concept",
+      "provenance": {
+        "sheet": "KG03",
+        "evidence": "handwriting",
+        "confidence": "high"
+      },
+      "raw_label": "exponential backoff"
+    },
+    {
+      "occurrence_id": "kg03_cache",
+      "concept_id": "concept_storage_in_cache",
+      "sheet": "KG03",
+      "label": "В кэше (Redis)",
+      "normalized_label": "в кэше (redis)",
+      "kind": "concept",
+      "provenance": {
+        "sheet": "KG03",
+        "evidence": "handwriting",
+        "confidence": "high"
+      },
+      "raw_label": "в кэше redis"
+    },
+    {
+      "occurrence_id": "kg03_credentials",
+      "concept_id": "concept_uchetnye_dannye",
+      "sheet": "KG03",
+      "label": "Учётные данные",
+      "normalized_label": "учетные данные",
+      "kind": "example",
+      "provenance": {
+        "sheet": "KG03",
+        "evidence": "handwriting",
+        "confidence": "medium"
+      },
+      "raw_label": "креды",
+      "review_note": "Чтение «креды» вероятное; разговорное от credentials. Уточнить по автору."
+    },
+    {
+      "occurrence_id": "kg03_debugging",
+      "concept_id": "concept_otladka",
+      "sheet": "KG03",
+      "label": "Отладка",
+      "normalized_label": "отладка",
+      "kind": "concept",
+      "provenance": {
+        "sheet": "KG03",
+        "evidence": "handwriting",
+        "confidence": "high"
+      }
+    },
+    {
+      "occurrence_id": "kg03_diagnostics",
+      "concept_id": "concept_diagnostika",
+      "sheet": "KG03",
+      "label": "Диагностика",
+      "normalized_label": "диагностика",
+      "kind": "topic",
+      "provenance": {
+        "sheet": "KG03",
+        "evidence": "handwriting",
+        "confidence": "high"
+      }
+    },
+    {
+      "occurrence_id": "kg03_ebpf",
+      "concept_id": "concept_ebpf",
+      "sheet": "KG03",
+      "label": "eBPF",
+      "normalized_label": "ebpf",
+      "kind": "example",
+      "provenance": {
+        "sheet": "KG03",
+        "evidence": "handwriting",
+        "confidence": "high"
+      }
+    },
+    {
+      "occurrence_id": "kg03_elasticsearch",
+      "concept_id": "concept_elasticsearch",
+      "sheet": "KG03",
+      "label": "Elasticsearch",
+      "normalized_label": "elasticsearch",
+      "kind": "example",
+      "provenance": {
+        "sheet": "KG03",
+        "evidence": "handwriting",
+        "confidence": "high"
+      }
+    },
+    {
+      "occurrence_id": "kg03_external_interaction",
+      "concept_id": "concept_vzaimodejstvie_s_vneshnim_mirom",
+      "sheet": "KG03",
+      "label": "Взаимодействие с внешним миром",
+      "normalized_label": "взаимодействие с внешним миром",
+      "kind": "topic",
+      "provenance": {
+        "sheet": "KG03",
+        "evidence": "handwriting",
+        "confidence": "high"
+      }
+    },
+    {
+      "occurrence_id": "kg03_fail_fast",
+      "concept_id": "concept_fail_fast_restart",
+      "sheet": "KG03",
+      "label": "Fail-fast / restart",
+      "normalized_label": "fail-fast / restart",
+      "kind": "concept",
+      "provenance": {
+        "sheet": "KG03",
+        "evidence": "handwriting",
+        "confidence": "high"
+      },
+      "raw_label": "fail fast (restart)",
+      "review_note": "Fail-fast и restart — разные механизмы; на листе сгруппированы, не доказана их эквивалентность."
+    },
+    {
+      "occurrence_id": "kg03_files",
+      "concept_id": "concept_storage_in_files",
+      "sheet": "KG03",
+      "label": "В файлах",
+      "normalized_label": "в файлах",
+      "kind": "concept",
+      "provenance": {
+        "sheet": "KG03",
+        "evidence": "handwriting",
+        "confidence": "high"
+      }
+    },
+    {
+      "occurrence_id": "kg03_flamegraphs",
+      "concept_id": "concept_flame_graphs",
+      "sheet": "KG03",
+      "label": "Flame graphs",
+      "normalized_label": "flame graphs",
+      "kind": "example",
+      "provenance": {
+        "sheet": "KG03",
+        "evidence": "handwriting",
+        "confidence": "high"
+      },
+      "raw_label": "flameGraphs"
+    },
+    {
+      "occurrence_id": "kg03_identity",
+      "concept_id": "concept_autentifikaciya_i_avtorizaciya",
+      "sheet": "KG03",
+      "label": "Аутентификация и авторизация",
+      "normalized_label": "аутентификация и авторизация",
+      "kind": "topic",
+      "provenance": {
+        "sheet": "KG03",
+        "evidence": "handwriting",
+        "confidence": "high"
+      }
+    },
+    {
+      "occurrence_id": "kg03_kafka",
+      "concept_id": "concept_kafka",
+      "sheet": "KG03",
+      "label": "Kafka",
+      "normalized_label": "kafka",
+      "kind": "example",
+      "provenance": {
+        "sheet": "KG03",
+        "evidence": "handwriting",
+        "confidence": "high"
+      }
+    },
+    {
+      "occurrence_id": "kg03_keycloak",
+      "concept_id": "concept_keycloak",
+      "sheet": "KG03",
+      "label": "Keycloak",
+      "normalized_label": "keycloak",
+      "kind": "example",
+      "provenance": {
+        "sheet": "KG03",
+        "evidence": "handwriting",
+        "confidence": "high"
+      }
+    },
+    {
+      "occurrence_id": "kg03_kibana",
+      "concept_id": "concept_kibana",
+      "sheet": "KG03",
+      "label": "Kibana",
+      "normalized_label": "kibana",
+      "kind": "example",
+      "provenance": {
+        "sheet": "KG03",
+        "evidence": "handwriting",
+        "confidence": "high"
+      },
+      "raw_label": "Kibana (elk)",
+      "review_note": "ELK — обозначение стека; Kibana — отдельный компонент."
+    },
+    {
+      "occurrence_id": "kg03_logging",
+      "concept_id": "concept_logirovanie",
+      "sheet": "KG03",
+      "label": "Логирование",
+      "normalized_label": "логирование",
+      "kind": "concept",
+      "provenance": {
+        "sheet": "KG03",
+        "evidence": "handwriting",
+        "confidence": "high"
+      }
+    },
+    {
+      "occurrence_id": "kg03_loki",
+      "concept_id": "concept_loki",
+      "sheet": "KG03",
+      "label": "Loki",
+      "normalized_label": "loki",
+      "kind": "example",
+      "provenance": {
+        "sheet": "KG03",
+        "evidence": "handwriting",
+        "confidence": "high"
+      }
+    },
+    {
+      "occurrence_id": "kg03_nosql",
+      "concept_id": "concept_storage_nosql",
+      "sheet": "KG03",
+      "label": "В NoSQL БД (MongoDB, Cassandra)",
+      "normalized_label": "в nosql бд (mongodb, cassandra)",
+      "kind": "concept",
+      "provenance": {
+        "sheet": "KG03",
+        "evidence": "handwriting",
+        "confidence": "high"
+      },
+      "raw_label": "в noSQL БД mongo DB, Cassandra"
+    },
+    {
+      "occurrence_id": "kg03_profiling",
+      "concept_id": "concept_profilirovanie",
+      "sheet": "KG03",
+      "label": "Профилирование",
+      "normalized_label": "профилирование",
+      "kind": "concept",
+      "provenance": {
+        "sheet": "KG03",
+        "evidence": "handwriting",
+        "confidence": "high"
+      }
+    },
+    {
+      "occurrence_id": "kg03_rabbitmq",
+      "concept_id": "concept_rabbitmq",
+      "sheet": "KG03",
+      "label": "RabbitMQ",
+      "normalized_label": "rabbitmq",
+      "kind": "example",
+      "provenance": {
+        "sheet": "KG03",
+        "evidence": "handwriting",
+        "confidence": "high"
+      },
+      "raw_label": "rabbit"
+    },
+    {
+      "occurrence_id": "kg03_rdbms",
+      "concept_id": "concept_storage_rdbms",
+      "sheet": "KG03",
+      "label": "В реляционной СУБД (PostgreSQL, MySQL, MariaDB)",
+      "normalized_label": "в реляционной субд (postgresql, mysql, mariadb)",
+      "kind": "concept",
+      "provenance": {
+        "sheet": "KG03",
+        "evidence": "handwriting",
+        "confidence": "high"
+      },
+      "raw_label": "в РСУБД Postgress, MySQL, MariaDB",
+      "review_note": "На листе написано «Postgress» или сокращённое «Postgres»; нормализовано в PostgreSQL."
+    },
+    {
+      "occurrence_id": "kg03_recovery",
+      "concept_id": "concept_vosstanovlenie_posle_sboev",
+      "sheet": "KG03",
+      "label": "Восстановление после сбоев",
+      "normalized_label": "восстановление после сбоев",
+      "kind": "topic",
+      "provenance": {
+        "sheet": "KG03",
+        "evidence": "handwriting",
+        "confidence": "high"
+      }
+    },
+    {
+      "occurrence_id": "kg03_root",
+      "concept_id": "concept_prilozhenie",
+      "sheet": "KG03",
+      "label": "Приложение",
+      "normalized_label": "приложение",
+      "kind": "root",
+      "provenance": {
+        "sheet": "KG03",
+        "evidence": "handwriting",
+        "confidence": "high"
+      }
+    },
+    {
+      "occurrence_id": "kg03_security_events",
+      "concept_id": "concept_sobytiya_bezopasnosti",
+      "sheet": "KG03",
+      "label": "События безопасности",
+      "normalized_label": "события безопасности",
+      "kind": "topic",
+      "provenance": {
+        "sheet": "KG03",
+        "evidence": "handwriting",
+        "confidence": "high"
+      }
+    },
+    {
+      "occurrence_id": "kg03_state_storage",
+      "concept_id": "concept_state_storage",
+      "sheet": "KG03",
+      "label": "Хранение состояния",
+      "normalized_label": "хранение состояния",
+      "kind": "topic",
+      "provenance": {
+        "sheet": "KG03",
+        "evidence": "handwriting",
+        "confidence": "high"
+      }
+    },
+    {
+      "occurrence_id": "kg03_synchronous",
+      "concept_id": "concept_sinhronnoe",
+      "sheet": "KG03",
+      "label": "Синхронное",
+      "normalized_label": "синхронное",
+      "kind": "concept",
+      "provenance": {
+        "sheet": "KG03",
+        "evidence": "handwriting",
+        "confidence": "high"
+      }
+    }
+  ],
+  "declared_non_merges": [
+    {
+      "occurrence_ids": [
+        "kg02_functions",
+        "kg02_functions_abstract"
+      ],
+      "reason": "Одинаковая подпись «Функции» на одном листе, но узлы стоят в разных ветках: «Из чего состоит код?» (состав) и «Какими абстракциями оперирует код?» (абстракции). Объединение скрыло бы различие."
+    },
+    {
+      "occurrence_ids": [
+        "kg02_json",
+        "kg01_files"
+      ],
+      "reason": "Совпадение подписи отсутствует, но «JSON» на KG02 — это формат данных, а не способ хранения состояния. Не объединяются."
+    },
+    {
+      "occurrence_ids": [
+        "kg01_files",
+        "kg02_config"
+      ],
+      "reason": "«В файлах» (среда выполнения) и «Конфигурационные файлы» (интерфейс к внешней среде) — разные понятия."
+    },
+    {
+      "occurrence_ids": [
+        "kg02_ast",
+        "kg02_assembler"
+      ],
+      "reason": "Assembler написан рядом с IR, но отношение неочевидно; уверенность чтения medium. Оставлены отдельными до подтверждения автора."
+    }
+  ],
+  "same_label_separate_ids": [
+    [
+      "kg01_state_storage",
+      "kg03_state_storage"
+    ],
+    [
+      "kg01_files",
+      "kg03_files"
+    ],
+    [
+      "kg01_cache",
+      "kg03_cache"
+    ],
+    [
+      "kg01_rdbms",
+      "kg03_rdbms"
+    ],
+    [
+      "kg01_nosql",
+      "kg03_nosql"
+    ]
+  ]
+}

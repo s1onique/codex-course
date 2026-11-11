@@ -1,0 +1,903 @@
+{
+  "schema_version": "1.0",
+  "artifact": "lesson_mapping",
+  "status": "draft_pending_author_review",
+  "generator": "scripts/build_lesson_mapping.py",
+  "policy": {
+    "verified": "Урок существует в репозитории, указанный фрагмент дословно найден в его файле, и он покрывает это понятие. Проверяется повторно в тестах.",
+    "proposed": "Урок ещё не написан. Якоря нет by design: подтверждать нечего. Идентификатор урока — план, а не файл.",
+    "no_fabrication": "Ни одна запись со статусом verified не может ссылаться на несуществующий файл урока; ни одна запись со статусом proposed не содержит якорь."
+  },
+  "counts": {
+    "mapped_concepts": 50,
+    "total_concepts": 116,
+    "uncovered_concepts": 67,
+    "entries_verified": 23,
+    "entries_proposed": 38
+  },
+  "existing_lessons": {
+    "LESSON-00": "LESSON-00.md",
+    "LESSON-01": "LESSON-01.md",
+    "LESSON-02": "LESSON-02.md",
+    "LESSON-03": "LESSON-03.md",
+    "LESSON-04": "LESSON-04.md",
+    "LESSON-05": "LESSON-05.md",
+    "LESSON-06": "LESSON-06.md"
+  },
+  "planned_only_lessons": {
+    "LESSON-07": "Циклы и функции высшего порядка (план Фазы II).",
+    "LESSON-PHASE-II": "Отладка и диагностика (план Фазы II).",
+    "LESSON-PHASE-III": "Тесты, чистые функции, типы (план Фазы III).",
+    "LESSON-PHASE-IV": "Модули, ООП, сравнение парадигм (план Фазы IV).",
+    "LESSON-PHASE-V": "Сеть, хранение, доступы, отказы (план Фазы V).",
+    "LESSON-PHASE-VI": "Наблюдаемость, восстановление, выпуск (план Фазы VI)."
+  },
+  "course_only_concepts": [
+    {
+      "id": "course:arrays",
+      "label": "Массив: несколько значений в одной переменной",
+      "source": "LESSON-06.md",
+      "reason": "Массив не записан на рукописных листах; он есть в уроке 06 и в плане Фазы II."
+    }
+  ],
+  "mapping": [
+    {
+      "concept_id": "concept_asinhronnoe",
+      "introduced_in": [
+        {
+          "lesson_id": "LESSON-PHASE-VI",
+          "lesson_file": null,
+          "status": "proposed",
+          "evidence_anchor": null,
+          "note": "Фаза VI: асинхронные события."
+        }
+      ],
+      "practiced_in": [],
+      "assessed_in": []
+    },
+    {
+      "concept_id": "concept_audit_logi",
+      "introduced_in": [
+        {
+          "lesson_id": "LESSON-PHASE-VI",
+          "lesson_file": null,
+          "status": "proposed",
+          "evidence_anchor": null,
+          "note": "Фаза VI: аудит-логи как доказательство действий."
+        }
+      ],
+      "practiced_in": [],
+      "assessed_in": []
+    },
+    {
+      "concept_id": "concept_autentifikaciya_i_avtorizaciya",
+      "introduced_in": [
+        {
+          "lesson_id": "LESSON-PHASE-V",
+          "lesson_file": null,
+          "status": "proposed",
+          "evidence_anchor": null,
+          "note": "Фаза V: аутентификация и авторизация — обязательная компетенция фазы."
+        }
+      ],
+      "practiced_in": [],
+      "assessed_in": []
+    },
+    {
+      "concept_id": "concept_cikly",
+      "introduced_in": [
+        {
+          "lesson_id": "LESSON-07",
+          "lesson_file": null,
+          "status": "proposed",
+          "evidence_anchor": null,
+          "note": "Фаза II: цикл — первый урок после массивов; в COURSE-OUTLINE.md заявлен как обязательный."
+        }
+      ],
+      "practiced_in": [],
+      "assessed_in": []
+    },
+    {
+      "concept_id": "concept_deklarativnaya",
+      "introduced_in": [
+        {
+          "lesson_id": "LESSON-PHASE-IV",
+          "lesson_file": null,
+          "status": "proposed",
+          "evidence_anchor": null,
+          "note": "Фаза IV: декларативный подход в обязательной сравнительной таблице."
+        }
+      ],
+      "practiced_in": [],
+      "assessed_in": []
+    },
+    {
+      "concept_id": "concept_diagnostika",
+      "introduced_in": [
+        {
+          "lesson_id": "LESSON-PHASE-II",
+          "lesson_file": null,
+          "status": "proposed",
+          "evidence_anchor": null,
+          "note": "Фаза II: отладка как «воспроизвести, сузить, проверить гипотезу»."
+        }
+      ],
+      "practiced_in": [],
+      "assessed_in": []
+    },
+    {
+      "concept_id": "concept_exponential_backoff",
+      "introduced_in": [
+        {
+          "lesson_id": "LESSON-PHASE-VI",
+          "lesson_file": null,
+          "status": "proposed",
+          "evidence_anchor": null,
+          "note": "Фаза VI: backoff как стратегия задержек, не как гарантия восстановления."
+        }
+      ],
+      "practiced_in": [],
+      "assessed_in": []
+    },
+    {
+      "concept_id": "concept_fail_fast_restart",
+      "introduced_in": [
+        {
+          "lesson_id": "LESSON-PHASE-VI",
+          "lesson_file": null,
+          "status": "proposed",
+          "evidence_anchor": null,
+          "note": "Фаза VI: fail-fast и restart — разные механизмы, разбираются раздельно."
+        }
+      ],
+      "practiced_in": [],
+      "assessed_in": []
+    },
+    {
+      "concept_id": "concept_formaty_dannyh",
+      "introduced_in": [
+        {
+          "lesson_id": "LESSON-PHASE-V",
+          "lesson_file": null,
+          "status": "proposed",
+          "evidence_anchor": null,
+          "note": "Фаза V: форматы данных как отдельная тема."
+        }
+      ],
+      "practiced_in": [],
+      "assessed_in": []
+    },
+    {
+      "concept_id": "concept_funkcii",
+      "introduced_in": [
+        {
+          "lesson_id": "LESSON-05",
+          "lesson_file": "LESSON-05.md",
+          "status": "verified",
+          "evidence_anchor": "## Шаг 1. Predict — сначала предсказываем (10 минут)",
+          "note": "Урок 05 вводит функцию: объявление, вызов, параметр, аргумент, return."
+        }
+      ],
+      "practiced_in": [
+        {
+          "lesson_id": "LESSON-05",
+          "lesson_file": "LESSON-05.md",
+          "status": "verified",
+          "evidence_anchor": "### 4. Проверьте в браузере",
+          "note": "Практика: вызов функции и проверка, что страница работает как раньше."
+        }
+      ],
+      "assessed_in": [
+        {
+          "lesson_id": "LESSON-05",
+          "lesson_file": "LESSON-05.md",
+          "status": "verified",
+          "evidence_anchor": "## Критерий завершения урока",
+          "note": "Критерий завершения урока 05 — переписать повторяющийся расчёт в функцию и проверить."
+        }
+      ]
+    },
+    {
+      "concept_id": "concept_funkcii__kg02_functions_abstract",
+      "introduced_in": [],
+      "practiced_in": [
+        {
+          "lesson_id": "LESSON-05",
+          "lesson_file": "LESSON-05.md",
+          "status": "verified",
+          "evidence_anchor": "### Где функция начинается и заканчивается",
+          "note": "Урок 05 работает с функцией как с «поведением с понятным именем, входом и результатом»."
+        }
+      ],
+      "assessed_in": []
+    },
+    {
+      "concept_id": "concept_funkcii_vysshego_poryadka",
+      "introduced_in": [
+        {
+          "lesson_id": "LESSON-07",
+          "lesson_file": null,
+          "status": "proposed",
+          "evidence_anchor": null,
+          "note": "Фаза II: вводится вместе с циклом, когда уже есть массив и обычная функция."
+        }
+      ],
+      "practiced_in": [],
+      "assessed_in": []
+    },
+    {
+      "concept_id": "concept_funkcionalnaya",
+      "introduced_in": [
+        {
+          "lesson_id": "LESSON-PHASE-IV",
+          "lesson_file": null,
+          "status": "proposed",
+          "evidence_anchor": null,
+          "note": "Фаза IV: функциональный подход — вторая половина обязательного сравнения."
+        }
+      ],
+      "practiced_in": [],
+      "assessed_in": []
+    },
+    {
+      "concept_id": "concept_gde_hranyat_kod",
+      "introduced_in": [
+        {
+          "lesson_id": "LESSON-01",
+          "lesson_file": "LESSON-01.md",
+          "status": "verified",
+          "evidence_anchor": "GitHub и папка на компьютере — не одно и то же.",
+          "note": "Урок 01 различает GitHub-репозиторий и локальную папку проекта."
+        }
+      ],
+      "practiced_in": [],
+      "assessed_in": []
+    },
+    {
+      "concept_id": "concept_gde_zapuskayut_kod",
+      "introduced_in": [],
+      "practiced_in": [
+        {
+          "lesson_id": "LESSON-01",
+          "lesson_file": "LESSON-01.md",
+          "status": "verified",
+          "evidence_anchor": "Откройте файл `practice/lesson-01/index.html` в браузере",
+          "note": "Ученик сам открывает страницу в браузере — это и есть «запуск кода у разработчика»."
+        }
+      ],
+      "assessed_in": []
+    },
+    {
+      "concept_id": "concept_git",
+      "introduced_in": [
+        {
+          "lesson_id": "LESSON-00",
+          "lesson_file": "LESSON-00.md",
+          "status": "verified",
+          "evidence_anchor": "## Три названия, которые важно различать",
+          "note": "Урок 00 различает Git / GitHub / GitHub Desktop и объясняет, зачем нужен Git."
+        }
+      ],
+      "practiced_in": [
+        {
+          "lesson_id": "LESSON-00",
+          "lesson_file": "LESSON-00.md",
+          "status": "verified",
+          "evidence_anchor": "## Самостоятельная проверка",
+          "note": "Шаги 1–5 урока — практика: установка, клонирование, git status."
+        }
+      ],
+      "assessed_in": [
+        {
+          "lesson_id": "LESSON-00",
+          "lesson_file": "LESSON-00.md",
+          "status": "verified",
+          "evidence_anchor": "### Проверьте себя",
+          "note": "Критерий завершения урока 00 проверяет работу git и чтение его вывода."
+        }
+      ]
+    },
+    {
+      "concept_id": "concept_gitlab",
+      "introduced_in": [
+        {
+          "lesson_id": "LESSON-01",
+          "lesson_file": "LESSON-01.md",
+          "status": "verified",
+          "evidence_anchor": "## Дополнительно: сохраним на GitHub (необязательно, 10 минут)",
+          "note": "GitHub как сервис хранения кода; сам GitLab на листе KG01 упомянут рядом."
+        }
+      ],
+      "practiced_in": [],
+      "assessed_in": []
+    },
+    {
+      "concept_id": "concept_http",
+      "introduced_in": [
+        {
+          "lesson_id": "LESSON-PHASE-V",
+          "lesson_file": null,
+          "status": "proposed",
+          "evidence_anchor": null,
+          "note": "Фаза V: HTTP — запрос, ответ, статус-код, заголовок."
+        }
+      ],
+      "practiced_in": [],
+      "assessed_in": []
+    },
+    {
+      "concept_id": "concept_imperativnaya_procedurnaya",
+      "introduced_in": [
+        {
+          "lesson_id": "LESSON-PHASE-IV",
+          "lesson_file": null,
+          "status": "proposed",
+          "evidence_anchor": null,
+          "note": "Фаза IV: императивный подход как база для сравнения парадигм."
+        }
+      ],
+      "practiced_in": [],
+      "assessed_in": []
+    },
+    {
+      "concept_id": "concept_interfejsy",
+      "introduced_in": [
+        {
+          "lesson_id": "LESSON-PHASE-IV",
+          "lesson_file": null,
+          "status": "proposed",
+          "evidence_anchor": null,
+          "note": "Фаза IV: интерфейс — «обещание модуля другим»."
+        }
+      ],
+      "practiced_in": [],
+      "assessed_in": []
+    },
+    {
+      "concept_id": "concept_json",
+      "introduced_in": [
+        {
+          "lesson_id": "LESSON-PHASE-V",
+          "lesson_file": null,
+          "status": "proposed",
+          "evidence_anchor": null,
+          "note": "Фаза V: JSON и сериализация."
+        }
+      ],
+      "practiced_in": [],
+      "assessed_in": []
+    },
+    {
+      "concept_id": "concept_kak_dokumentirovat_kod_vnutri_pisat_kommentarii",
+      "introduced_in": [
+        {
+          "lesson_id": "LESSON-02",
+          "lesson_file": "LESSON-02.md",
+          "status": "verified",
+          "evidence_anchor": "### Три новых слова",
+          "note": "Урок 02 разбирает чужой код и объясняет, зачем нужны комментарии и понятные имена."
+        }
+      ],
+      "practiced_in": [],
+      "assessed_in": []
+    },
+    {
+      "concept_id": "concept_kak_proverit_korrektnost_testov",
+      "introduced_in": [
+        {
+          "lesson_id": "LESSON-PHASE-III",
+          "lesson_file": null,
+          "status": "proposed",
+          "evidence_anchor": null,
+          "note": "Фаза III: проверка корректности самих тестов."
+        }
+      ],
+      "practiced_in": [],
+      "assessed_in": []
+    },
+    {
+      "concept_id": "concept_kak_proverit_polnotu_testirovaniya_code_coverage",
+      "introduced_in": [
+        {
+          "lesson_id": "LESSON-PHASE-III",
+          "lesson_file": null,
+          "status": "proposed",
+          "evidence_anchor": null,
+          "note": "Фаза III: полнота тестирования и code coverage — отдельная тема листа KG01."
+        }
+      ],
+      "practiced_in": [],
+      "assessed_in": []
+    },
+    {
+      "concept_id": "concept_kak_testirovat_kod",
+      "introduced_in": [
+        {
+          "lesson_id": "LESSON-PHASE-III",
+          "lesson_file": null,
+          "status": "proposed",
+          "evidence_anchor": null,
+          "note": "Фаза III: тесты как тема; критерий выхода фазы требует покрытых тестами кода."
+        }
+      ],
+      "practiced_in": [],
+      "assessed_in": []
+    },
+    {
+      "concept_id": "concept_klassy",
+      "introduced_in": [
+        {
+          "lesson_id": "LESSON-PHASE-IV",
+          "lesson_file": null,
+          "status": "proposed",
+          "evidence_anchor": null,
+          "note": "Фаза IV: ООП как отдельная тема после модулей и чистых функций."
+        }
+      ],
+      "practiced_in": [],
+      "assessed_in": []
+    },
+    {
+      "concept_id": "concept_klient",
+      "introduced_in": [
+        {
+          "lesson_id": "LESSON-PHASE-V",
+          "lesson_file": null,
+          "status": "proposed",
+          "evidence_anchor": null,
+          "note": "Фаза V: клиентская часть как «вызов своего API»."
+        }
+      ],
+      "practiced_in": [],
+      "assessed_in": []
+    },
+    {
+      "concept_id": "concept_konstanty",
+      "introduced_in": [
+        {
+          "lesson_id": "LESSON-03",
+          "lesson_file": "LESSON-03.md",
+          "status": "verified",
+          "evidence_anchor": "### `let` и `const` — два способа объявить переменную",
+          "note": "Урок 03 вводит `const` и различает его с `let`."
+        }
+      ],
+      "practiced_in": [],
+      "assessed_in": []
+    },
+    {
+      "concept_id": "concept_logirovanie",
+      "introduced_in": [
+        {
+          "lesson_id": "LESSON-PHASE-V",
+          "lesson_file": null,
+          "status": "proposed",
+          "evidence_anchor": null,
+          "note": "Фаза V: «в логах видно, что происходит при ошибке» — критерий выхода фазы."
+        }
+      ],
+      "practiced_in": [],
+      "assessed_in": []
+    },
+    {
+      "concept_id": "concept_moduli",
+      "introduced_in": [
+        {
+          "lesson_id": "LESSON-PHASE-IV",
+          "lesson_file": null,
+          "status": "proposed",
+          "evidence_anchor": null,
+          "note": "Фаза IV: деление трекера на модули — практический проект фазы."
+        }
+      ],
+      "practiced_in": [],
+      "assessed_in": []
+    },
+    {
+      "concept_id": "concept_obektno_orientirovannaya",
+      "introduced_in": [
+        {
+          "lesson_id": "LESSON-PHASE-IV",
+          "lesson_file": null,
+          "status": "proposed",
+          "evidence_anchor": null,
+          "note": "Фаза IV: парадигма ООП сравнивается с императивной на своей программе."
+        }
+      ],
+      "practiced_in": [],
+      "assessed_in": []
+    },
+    {
+      "concept_id": "concept_operatory",
+      "introduced_in": [
+        {
+          "lesson_id": "LESSON-03",
+          "lesson_file": "LESSON-03.md",
+          "status": "verified",
+          "evidence_anchor": "### Значение (value)",
+          "note": "Урок 03 разбирает операторы в выражениях (`clicks + 1`, `=`, `===`)."
+        }
+      ],
+      "practiced_in": [],
+      "assessed_in": [
+        {
+          "lesson_id": "LESSON-03",
+          "lesson_file": "LESSON-03.md",
+          "status": "verified",
+          "evidence_anchor": "**Отличаете** присваивание `=` от сравнения `===` на уровне «что делает»",
+          "note": "Критерий 4 урока 03 — различение операторов."
+        }
+      ]
+    },
+    {
+      "concept_id": "concept_otladka",
+      "introduced_in": [
+        {
+          "lesson_id": "LESSON-PHASE-II",
+          "lesson_file": null,
+          "status": "proposed",
+          "evidence_anchor": null,
+          "note": "Фаза II: отладка — обязательная компетенция фазы."
+        }
+      ],
+      "practiced_in": [],
+      "assessed_in": []
+    },
+    {
+      "concept_id": "concept_peremennye",
+      "introduced_in": [
+        {
+          "lesson_id": "LESSON-03",
+          "lesson_file": "LESSON-03.md",
+          "status": "verified",
+          "evidence_anchor": "## Что такое «значение», «переменная» и «выражение»",
+          "note": "Раздел определяет значение, переменную, присваивание и выражение."
+        }
+      ],
+      "practiced_in": [
+        {
+          "lesson_id": "LESSON-03",
+          "lesson_file": "LESSON-03.md",
+          "status": "verified",
+          "evidence_anchor": "## Шаг 1. Predict — находим значение в коде (10 минут)",
+          "note": "Задание: найти переменную и ответить письменно."
+        }
+      ],
+      "assessed_in": [
+        {
+          "lesson_id": "LESSON-03",
+          "lesson_file": "LESSON-03.md",
+          "status": "verified",
+          "evidence_anchor": "## Критерий завершения урока",
+          "note": "Критерий 1–2: самостоятельно найти переменную и назвать её значение."
+        }
+      ]
+    },
+    {
+      "concept_id": "concept_rest",
+      "introduced_in": [
+        {
+          "lesson_id": "LESSON-PHASE-V",
+          "lesson_file": null,
+          "status": "proposed",
+          "evidence_anchor": null,
+          "note": "Фаза V: REST как стиль взаимодействия поверх HTTP."
+        }
+      ],
+      "practiced_in": [],
+      "assessed_in": []
+    },
+    {
+      "concept_id": "concept_server",
+      "introduced_in": [
+        {
+          "lesson_id": "LESSON-PHASE-V",
+          "lesson_file": null,
+          "status": "proposed",
+          "evidence_anchor": null,
+          "note": "Фаза V: серверная часть трекера задач."
+        }
+      ],
+      "practiced_in": [],
+      "assessed_in": []
+    },
+    {
+      "concept_id": "concept_setevoe_vzaimodejstvie",
+      "introduced_in": [
+        {
+          "lesson_id": "LESSON-PHASE-V",
+          "lesson_file": null,
+          "status": "proposed",
+          "evidence_anchor": null,
+          "note": "Фаза V: сетевое взаимодействие как обязательная компетенция фазы."
+        }
+      ],
+      "practiced_in": [],
+      "assessed_in": []
+    },
+    {
+      "concept_id": "concept_sinhronnoe",
+      "introduced_in": [
+        {
+          "lesson_id": "LESSON-PHASE-V",
+          "lesson_file": null,
+          "status": "proposed",
+          "evidence_anchor": null,
+          "note": "Фаза V: синхронный запрос как базовый случай."
+        }
+      ],
+      "practiced_in": [],
+      "assessed_in": []
+    },
+    {
+      "concept_id": "concept_sobytiya_bezopasnosti",
+      "introduced_in": [
+        {
+          "lesson_id": "LESSON-PHASE-VI",
+          "lesson_file": null,
+          "status": "proposed",
+          "evidence_anchor": null,
+          "note": "Фаза VI: события безопасности и их разбор."
+        }
+      ],
+      "practiced_in": [],
+      "assessed_in": []
+    },
+    {
+      "concept_id": "concept_state_storage",
+      "introduced_in": [
+        {
+          "lesson_id": "LESSON-PHASE-V",
+          "lesson_file": null,
+          "status": "proposed",
+          "evidence_anchor": null,
+          "note": "Фаза V: постоянное хранение — что живёт в памяти, а что переживает перезагрузку."
+        }
+      ],
+      "practiced_in": [],
+      "assessed_in": []
+    },
+    {
+      "concept_id": "concept_storage_in_cache",
+      "introduced_in": [
+        {
+          "lesson_id": "LESSON-PHASE-V",
+          "lesson_file": null,
+          "status": "proposed",
+          "evidence_anchor": null,
+          "note": "Фаза V: кэш и его гарантии; отдельная оговорка в COURSE-MAPPING.md."
+        }
+      ],
+      "practiced_in": [],
+      "assessed_in": []
+    },
+    {
+      "concept_id": "concept_storage_in_files",
+      "introduced_in": [
+        {
+          "lesson_id": "LESSON-PHASE-V",
+          "lesson_file": null,
+          "status": "proposed",
+          "evidence_anchor": null,
+          "note": "Фаза V: хранение в файлах — самый простой первый шаг."
+        }
+      ],
+      "practiced_in": [],
+      "assessed_in": []
+    },
+    {
+      "concept_id": "concept_storage_nosql",
+      "introduced_in": [
+        {
+          "lesson_id": "LESSON-PHASE-V",
+          "lesson_file": null,
+          "status": "proposed",
+          "evidence_anchor": null,
+          "note": "Фаза V: NoSQL как альтернатива; в COURSE-OUTLINE.md отнесена к углублённым темам."
+        }
+      ],
+      "practiced_in": [],
+      "assessed_in": []
+    },
+    {
+      "concept_id": "concept_storage_rdbms",
+      "introduced_in": [
+        {
+          "lesson_id": "LESSON-PHASE-V",
+          "lesson_file": null,
+          "status": "proposed",
+          "evidence_anchor": null,
+          "note": "Фаза V: реляционная СУБД; в COURSE-OUTLINE.md отнесена к углублённым темам."
+        }
+      ],
+      "practiced_in": [],
+      "assessed_in": []
+    },
+    {
+      "concept_id": "concept_uchetnye_dannye",
+      "introduced_in": [
+        {
+          "lesson_id": "LESSON-PHASE-V",
+          "lesson_file": null,
+          "status": "proposed",
+          "evidence_anchor": null,
+          "note": "Фаза V: учётные данные и хранение секретов вне клиентского кода."
+        }
+      ],
+      "practiced_in": [],
+      "assessed_in": []
+    },
+    {
+      "concept_id": "concept_vetvleniya",
+      "introduced_in": [
+        {
+          "lesson_id": "LESSON-04",
+          "lesson_file": "LESSON-04.md",
+          "status": "verified",
+          "evidence_anchor": "## Шаг 1. Predict — сначала предсказываем (10 минут)",
+          "note": "Урок 04 — введение условия и ветвления на счётчике."
+        }
+      ],
+      "practiced_in": [
+        {
+          "lesson_id": "LESSON-04",
+          "lesson_file": "LESSON-04.md",
+          "status": "verified",
+          "evidence_anchor": "### 3. Проверьте обе ветки",
+          "note": "Ученик проверяет обе ветви в браузере."
+        }
+      ],
+      "assessed_in": [
+        {
+          "lesson_id": "LESSON-04",
+          "lesson_file": "LESSON-04.md",
+          "status": "verified",
+          "evidence_anchor": "## Критерий завершения урока",
+          "note": "Критерий завершения урока 04 — предсказать и проверить обе ветки."
+        }
+      ]
+    },
+    {
+      "concept_id": "concept_vosstanovlenie_posle_sboev",
+      "introduced_in": [
+        {
+          "lesson_id": "LESSON-PHASE-VI",
+          "lesson_file": null,
+          "status": "proposed",
+          "evidence_anchor": null,
+          "note": "Фаза VI: восстановление после сбоев."
+        }
+      ],
+      "practiced_in": [],
+      "assessed_in": []
+    },
+    {
+      "concept_id": "concept_vzaimodejstvie_s_vneshnim_mirom",
+      "introduced_in": [
+        {
+          "lesson_id": "LESSON-PHASE-V",
+          "lesson_file": null,
+          "status": "proposed",
+          "evidence_anchor": null,
+          "note": "Фаза V: синхронное и асинхронное взаимодействие с внешним миром."
+        }
+      ],
+      "practiced_in": [],
+      "assessed_in": []
+    },
+    {
+      "concept_id": "concept_xml",
+      "introduced_in": [
+        {
+          "lesson_id": "LESSON-PHASE-V",
+          "lesson_file": null,
+          "status": "proposed",
+          "evidence_anchor": null,
+          "note": "Фаза V: XML — второй формат данных; сравнивается с JSON."
+        }
+      ],
+      "practiced_in": [],
+      "assessed_in": []
+    },
+    {
+      "concept_id": "course:arrays",
+      "introduced_in": [
+        {
+          "lesson_id": "LESSON-06",
+          "lesson_file": "LESSON-06.md",
+          "status": "verified",
+          "evidence_anchor": "## Шаг 1. Predict — сначала предсказываем (10 минут)",
+          "note": "Урок 06 вводит массив как «одна переменная — несколько значений»."
+        }
+      ],
+      "practiced_in": [
+        {
+          "lesson_id": "LESSON-06",
+          "lesson_file": "LESSON-06.md",
+          "status": "verified",
+          "evidence_anchor": "### 3. Добавьте на страницу блок «Ближайшая задача»",
+          "note": "Практика: массив из трёх задач, вывод на страницу, push()."
+        }
+      ],
+      "assessed_in": [
+        {
+          "lesson_id": "LESSON-06",
+          "lesson_file": "LESSON-06.md",
+          "status": "verified",
+          "evidence_anchor": "## Критерий завершения урока",
+          "note": "Критерий 1–6 урока 06 — записать массив, объяснить индексы, length, push."
+        }
+      ]
+    }
+  ],
+  "uncovered_concepts": [
+    "concept_ad_fs",
+    "concept_assembler_assembler",
+    "concept_ast_abstraktnoe_sintaksicheskoe_derevo",
+    "concept_biblioteki",
+    "concept_chem_pisat_kod",
+    "concept_dinamicheskaya",
+    "concept_ebpf",
+    "concept_elasticsearch",
+    "concept_flame_graphs",
+    "concept_framework",
+    "concept_grpc",
+    "concept_idea",
+    "concept_interpretatorom",
+    "concept_ir_promezhutochnoe_predstavlenie",
+    "concept_iz_chego_sostoit_kod",
+    "concept_kafka",
+    "concept_kak_dokumentirovat_kod",
+    "concept_kak_ispolnyaetsya_kod",
+    "concept_kak_kod_vzaimodejstvuet_s_vneshnej_sredoj",
+    "concept_kak_obespechit_povtoryaemuyu_sborku",
+    "concept_kak_obmenivatsya_s_drugimi_programmami",
+    "concept_kak_organizovat_vneshnyuyu_dokumentaciyu_i_ee_proverku_na_korrektnost",
+    "concept_kak_poluchit_otchuzhdaemyj_artefakt",
+    "concept_kak_proverit_bezopasnost",
+    "concept_kak_proverit_v_raznyh_okruzheniyah_bd_nagruzka",
+    "concept_kak_razbit_po_fajlam",
+    "concept_kak_razbit_po_modulyam",
+    "concept_kak_strukturirovat_kod",
+    "concept_kak_testirovat_na_raznyh_arhitekturah_ustrojstv",
+    "concept_kak_zapuskat_kod",
+    "concept_kakimi_abstrakciyami_operiruet_kod",
+    "concept_keycloak",
+    "concept_kibana",
+    "concept_kod",
+    "concept_kod__kg02_root",
+    "concept_konfiguracionnye_fajly_yaml_json_ini_toml",
+    "concept_konkurentnoe_programmirovanie",
+    "concept_loki",
+    "concept_model_upravleniya_pamyatyu",
+    "concept_na_servere_v_internete",
+    "concept_na_virtualnoj_mashine",
+    "concept_neposredstvenno_processorom_iz_mashinnogo_predstavleniya",
+    "concept_nestrogaya",
+    "concept_paradigmy_programmirovaniya",
+    "concept_peremennye_okruzheniya",
+    "concept_pipeline_gitlab",
+    "concept_pod_upravleniem_orkestratora_kubernetes",
+    "concept_predstavleniya_koda",
+    "concept_prilozhenie",
+    "concept_profilirovanie",
+    "concept_rabbitmq",
+    "concept_ruchnaya",
+    "concept_so_sborschikom_musora",
+    "concept_soap",
+    "concept_staticheskaya",
+    "concept_strogaya",
+    "concept_tipizaciya",
+    "concept_tyuring_nepolnye",
+    "concept_tyuring_polnota",
+    "concept_tyuring_polnye",
+    "concept_u_razrabotchika",
+    "concept_v_izolirovannom_okruzhenii_docker",
+    "concept_vim",
+    "concept_vs_code",
+    "concept_vyzovy_bibliotek_i_funkcij",
+    "concept_vyzovy_vneshnih_programm",
+    "concept_yazyki_s_algebraicheskimi_tipami_dannyh"
+  ],
+  "uncovered_course_only_concepts": []
+}
