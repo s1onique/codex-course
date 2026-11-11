@@ -1,0 +1,1254 @@
+{
+  "schema_version": "1.0",
+  "artifact": "gap_analysis",
+  "status": "draft_pending_author_review",
+  "generator": "scripts/build_gap_analysis.py",
+  "policy": {
+    "no_fabricated_coverage": "Покрытие со статусом verified подтверждено дословным якорем в файле урока. Покрытие со статусом proposed не подтверждено и не выдаётся за существующее.",
+    "evidence_required": "Каждая строка покрытия и каждый пробел несут ссылку на источник."
+  },
+  "totals": {
+    "occurrences": 121,
+    "concepts": 116,
+    "mapped_concepts": 50,
+    "uncovered_concepts": 67,
+    "coverage_ratio": 0.431,
+    "verified_entries": 23,
+    "proposed_entries": 38,
+    "proposed_only_concepts": 38,
+    "prerequisite_edges": 31,
+    "audit_findings": 61,
+    "audit_open_findings": 33
+  },
+  "coverage_by_lesson": [
+    {
+      "lesson_id": "LESSON-00",
+      "lesson_file": "LESSON-00.md",
+      "status": "verified",
+      "introduced_in": [
+        "concept_git"
+      ],
+      "practiced_in": [
+        "concept_git"
+      ],
+      "assessed_in": [
+        "concept_git"
+      ]
+    },
+    {
+      "lesson_id": "LESSON-01",
+      "lesson_file": "LESSON-01.md",
+      "status": "verified",
+      "introduced_in": [
+        "concept_gde_hranyat_kod",
+        "concept_gitlab"
+      ],
+      "practiced_in": [
+        "concept_gde_zapuskayut_kod"
+      ],
+      "assessed_in": []
+    },
+    {
+      "lesson_id": "LESSON-02",
+      "lesson_file": "LESSON-02.md",
+      "status": "verified",
+      "introduced_in": [
+        "concept_kak_dokumentirovat_kod_vnutri_pisat_kommentarii"
+      ],
+      "practiced_in": [],
+      "assessed_in": []
+    },
+    {
+      "lesson_id": "LESSON-03",
+      "lesson_file": "LESSON-03.md",
+      "status": "verified",
+      "introduced_in": [
+        "concept_konstanty",
+        "concept_operatory",
+        "concept_peremennye"
+      ],
+      "practiced_in": [
+        "concept_peremennye"
+      ],
+      "assessed_in": [
+        "concept_operatory",
+        "concept_peremennye"
+      ]
+    },
+    {
+      "lesson_id": "LESSON-04",
+      "lesson_file": "LESSON-04.md",
+      "status": "verified",
+      "introduced_in": [
+        "concept_vetvleniya"
+      ],
+      "practiced_in": [
+        "concept_vetvleniya"
+      ],
+      "assessed_in": [
+        "concept_vetvleniya"
+      ]
+    },
+    {
+      "lesson_id": "LESSON-05",
+      "lesson_file": "LESSON-05.md",
+      "status": "verified",
+      "introduced_in": [
+        "concept_funkcii"
+      ],
+      "practiced_in": [
+        "concept_funkcii",
+        "concept_funkcii__kg02_functions_abstract"
+      ],
+      "assessed_in": [
+        "concept_funkcii"
+      ]
+    },
+    {
+      "lesson_id": "LESSON-06",
+      "lesson_file": "LESSON-06.md",
+      "status": "verified",
+      "introduced_in": [
+        "course:arrays"
+      ],
+      "practiced_in": [
+        "course:arrays"
+      ],
+      "assessed_in": [
+        "course:arrays"
+      ]
+    },
+    {
+      "lesson_id": "LESSON-07",
+      "lesson_file": null,
+      "status": "proposed",
+      "introduced_in": [
+        "concept_cikly",
+        "concept_funkcii_vysshego_poryadka"
+      ],
+      "practiced_in": [],
+      "assessed_in": []
+    },
+    {
+      "lesson_id": "LESSON-PHASE-II",
+      "lesson_file": null,
+      "status": "proposed",
+      "introduced_in": [
+        "concept_diagnostika",
+        "concept_otladka"
+      ],
+      "practiced_in": [],
+      "assessed_in": []
+    },
+    {
+      "lesson_id": "LESSON-PHASE-III",
+      "lesson_file": null,
+      "status": "proposed",
+      "introduced_in": [
+        "concept_kak_proverit_korrektnost_testov",
+        "concept_kak_proverit_polnotu_testirovaniya_code_coverage",
+        "concept_kak_testirovat_kod"
+      ],
+      "practiced_in": [],
+      "assessed_in": []
+    },
+    {
+      "lesson_id": "LESSON-PHASE-IV",
+      "lesson_file": null,
+      "status": "proposed",
+      "introduced_in": [
+        "concept_deklarativnaya",
+        "concept_funkcionalnaya",
+        "concept_imperativnaya_procedurnaya",
+        "concept_interfejsy",
+        "concept_klassy",
+        "concept_moduli",
+        "concept_obektno_orientirovannaya"
+      ],
+      "practiced_in": [],
+      "assessed_in": []
+    },
+    {
+      "lesson_id": "LESSON-PHASE-V",
+      "lesson_file": null,
+      "status": "proposed",
+      "introduced_in": [
+        "concept_autentifikaciya_i_avtorizaciya",
+        "concept_formaty_dannyh",
+        "concept_http",
+        "concept_json",
+        "concept_klient",
+        "concept_logirovanie",
+        "concept_rest",
+        "concept_server",
+        "concept_setevoe_vzaimodejstvie",
+        "concept_sinhronnoe",
+        "concept_state_storage",
+        "concept_storage_in_cache",
+        "concept_storage_in_files",
+        "concept_storage_nosql",
+        "concept_storage_rdbms",
+        "concept_uchetnye_dannye",
+        "concept_vzaimodejstvie_s_vneshnim_mirom",
+        "concept_xml"
+      ],
+      "practiced_in": [],
+      "assessed_in": []
+    },
+    {
+      "lesson_id": "LESSON-PHASE-VI",
+      "lesson_file": null,
+      "status": "proposed",
+      "introduced_in": [
+        "concept_asinhronnoe",
+        "concept_audit_logi",
+        "concept_exponential_backoff",
+        "concept_fail_fast_restart",
+        "concept_sobytiya_bezopasnosti",
+        "concept_vosstanovlenie_posle_sboev"
+      ],
+      "practiced_in": [],
+      "assessed_in": []
+    }
+  ],
+  "coverage_by_sheet": [
+    {
+      "sheet": "KG01",
+      "title": "Действия с кодом",
+      "source_image": "sources/kg01-actions.jpg",
+      "occurrences": 35,
+      "concepts": 35,
+      "mapped_concepts": 13,
+      "unmapped_concepts": 22,
+      "coverage_ratio": 0.371
+    },
+    {
+      "sheet": "KG02",
+      "title": "Свойства кода",
+      "source_image": "sources/kg02-properties.jpg",
+      "occurrences": 57,
+      "concepts": 57,
+      "mapped_concepts": 23,
+      "unmapped_concepts": 34,
+      "coverage_ratio": 0.404
+    },
+    {
+      "sheet": "KG03",
+      "title": "Приложение",
+      "source_image": "sources/kg03-application.jpg",
+      "occurrences": 29,
+      "concepts": 29,
+      "mapped_concepts": 18,
+      "unmapped_concepts": 11,
+      "coverage_ratio": 0.621
+    }
+  ],
+  "proposed_only_concepts": [
+    "concept_asinhronnoe",
+    "concept_audit_logi",
+    "concept_autentifikaciya_i_avtorizaciya",
+    "concept_cikly",
+    "concept_deklarativnaya",
+    "concept_diagnostika",
+    "concept_exponential_backoff",
+    "concept_fail_fast_restart",
+    "concept_formaty_dannyh",
+    "concept_funkcii_vysshego_poryadka",
+    "concept_funkcionalnaya",
+    "concept_http",
+    "concept_imperativnaya_procedurnaya",
+    "concept_interfejsy",
+    "concept_json",
+    "concept_kak_proverit_korrektnost_testov",
+    "concept_kak_proverit_polnotu_testirovaniya_code_coverage",
+    "concept_kak_testirovat_kod",
+    "concept_klassy",
+    "concept_klient",
+    "concept_logirovanie",
+    "concept_moduli",
+    "concept_obektno_orientirovannaya",
+    "concept_otladka",
+    "concept_rest",
+    "concept_server",
+    "concept_setevoe_vzaimodejstvie",
+    "concept_sinhronnoe",
+    "concept_sobytiya_bezopasnosti",
+    "concept_state_storage",
+    "concept_storage_in_cache",
+    "concept_storage_in_files",
+    "concept_storage_nosql",
+    "concept_storage_rdbms",
+    "concept_uchetnye_dannye",
+    "concept_vosstanovlenie_posle_sboev",
+    "concept_vzaimodejstvie_s_vneshnim_mirom",
+    "concept_xml"
+  ],
+  "gaps": [
+    {
+      "concept_id": "concept_ad_fs",
+      "label": "AD FS",
+      "kind": "example",
+      "occurrence_ids": [
+        "kg03_adfs"
+      ],
+      "source_images": [
+        "KG03"
+      ],
+      "gap_type": "no_lesson_coverage",
+      "severity": "low",
+      "note": "Ни один существующий урок это понятие не покрывает; покрытие не заявлено и не выдумано."
+    },
+    {
+      "concept_id": "concept_assembler_assembler",
+      "label": "Assembler / ассемблер",
+      "kind": "example",
+      "occurrence_ids": [
+        "kg02_assembler"
+      ],
+      "source_images": [
+        "KG02"
+      ],
+      "gap_type": "no_lesson_coverage",
+      "severity": "low",
+      "note": "Ни один существующий урок это понятие не покрывает; покрытие не заявлено и не выдумано."
+    },
+    {
+      "concept_id": "concept_ast_abstraktnoe_sintaksicheskoe_derevo",
+      "label": "AST (абстрактное синтаксическое дерево)",
+      "kind": "concept",
+      "occurrence_ids": [
+        "kg02_ast"
+      ],
+      "source_images": [
+        "KG02"
+      ],
+      "gap_type": "no_lesson_coverage",
+      "severity": "high",
+      "note": "Ни один существующий урок это понятие не покрывает; покрытие не заявлено и не выдумано."
+    },
+    {
+      "concept_id": "concept_biblioteki",
+      "label": "Библиотеки",
+      "kind": "concept",
+      "occurrence_ids": [
+        "kg02_libraries"
+      ],
+      "source_images": [
+        "KG02"
+      ],
+      "gap_type": "no_lesson_coverage",
+      "severity": "high",
+      "note": "Ни один существующий урок это понятие не покрывает; покрытие не заявлено и не выдумано."
+    },
+    {
+      "concept_id": "concept_chem_pisat_kod",
+      "label": "Чем писать код?",
+      "kind": "question",
+      "occurrence_ids": [
+        "kg01_editor"
+      ],
+      "source_images": [
+        "KG01"
+      ],
+      "gap_type": "no_lesson_coverage",
+      "severity": "low",
+      "note": "Ни один существующий урок это понятие не покрывает; покрытие не заявлено и не выдумано."
+    },
+    {
+      "concept_id": "concept_dinamicheskaya",
+      "label": "Динамическая",
+      "kind": "concept",
+      "occurrence_ids": [
+        "kg02_dynamic"
+      ],
+      "source_images": [
+        "KG02"
+      ],
+      "gap_type": "no_lesson_coverage",
+      "severity": "high",
+      "note": "Ни один существующий урок это понятие не покрывает; покрытие не заявлено и не выдумано."
+    },
+    {
+      "concept_id": "concept_ebpf",
+      "label": "eBPF",
+      "kind": "example",
+      "occurrence_ids": [
+        "kg03_ebpf"
+      ],
+      "source_images": [
+        "KG03"
+      ],
+      "gap_type": "no_lesson_coverage",
+      "severity": "low",
+      "note": "Ни один существующий урок это понятие не покрывает; покрытие не заявлено и не выдумано."
+    },
+    {
+      "concept_id": "concept_elasticsearch",
+      "label": "Elasticsearch",
+      "kind": "example",
+      "occurrence_ids": [
+        "kg03_elasticsearch"
+      ],
+      "source_images": [
+        "KG03"
+      ],
+      "gap_type": "no_lesson_coverage",
+      "severity": "low",
+      "note": "Ни один существующий урок это понятие не покрывает; покрытие не заявлено и не выдумано."
+    },
+    {
+      "concept_id": "concept_flame_graphs",
+      "label": "Flame graphs",
+      "kind": "example",
+      "occurrence_ids": [
+        "kg03_flamegraphs"
+      ],
+      "source_images": [
+        "KG03"
+      ],
+      "gap_type": "no_lesson_coverage",
+      "severity": "low",
+      "note": "Ни один существующий урок это понятие не покрывает; покрытие не заявлено и не выдумано."
+    },
+    {
+      "concept_id": "concept_framework",
+      "label": "Framework",
+      "kind": "unlinked_term",
+      "occurrence_ids": [
+        "kg02_framework"
+      ],
+      "source_images": [
+        "KG02"
+      ],
+      "gap_type": "no_lesson_coverage",
+      "severity": "low",
+      "note": "Ни один существующий урок это понятие не покрывает; покрытие не заявлено и не выдумано."
+    },
+    {
+      "concept_id": "concept_grpc",
+      "label": "gRPC",
+      "kind": "example",
+      "occurrence_ids": [
+        "kg02_grpc"
+      ],
+      "source_images": [
+        "KG02"
+      ],
+      "gap_type": "no_lesson_coverage",
+      "severity": "low",
+      "note": "Ни один существующий урок это понятие не покрывает; покрытие не заявлено и не выдумано."
+    },
+    {
+      "concept_id": "concept_idea",
+      "label": "IDEA",
+      "kind": "example",
+      "occurrence_ids": [
+        "kg01_idea"
+      ],
+      "source_images": [
+        "KG01"
+      ],
+      "gap_type": "no_lesson_coverage",
+      "severity": "low",
+      "note": "Ни один существующий урок это понятие не покрывает; покрытие не заявлено и не выдумано."
+    },
+    {
+      "concept_id": "concept_interpretatorom",
+      "label": "Интерпретатором",
+      "kind": "concept",
+      "occurrence_ids": [
+        "kg02_interpreted"
+      ],
+      "source_images": [
+        "KG02"
+      ],
+      "gap_type": "no_lesson_coverage",
+      "severity": "high",
+      "note": "Ни один существующий урок это понятие не покрывает; покрытие не заявлено и не выдумано."
+    },
+    {
+      "concept_id": "concept_ir_promezhutochnoe_predstavlenie",
+      "label": "IR (промежуточное представление)",
+      "kind": "concept",
+      "occurrence_ids": [
+        "kg02_ir"
+      ],
+      "source_images": [
+        "KG02"
+      ],
+      "gap_type": "no_lesson_coverage",
+      "severity": "high",
+      "note": "Ни один существующий урок это понятие не покрывает; покрытие не заявлено и не выдумано."
+    },
+    {
+      "concept_id": "concept_iz_chego_sostoit_kod",
+      "label": "Из чего состоит код?",
+      "kind": "question",
+      "occurrence_ids": [
+        "kg02_composition"
+      ],
+      "source_images": [
+        "KG02"
+      ],
+      "gap_type": "no_lesson_coverage",
+      "severity": "low",
+      "note": "Ни один существующий урок это понятие не покрывает; покрытие не заявлено и не выдумано."
+    },
+    {
+      "concept_id": "concept_kafka",
+      "label": "Kafka",
+      "kind": "example",
+      "occurrence_ids": [
+        "kg03_kafka"
+      ],
+      "source_images": [
+        "KG03"
+      ],
+      "gap_type": "no_lesson_coverage",
+      "severity": "low",
+      "note": "Ни один существующий урок это понятие не покрывает; покрытие не заявлено и не выдумано."
+    },
+    {
+      "concept_id": "concept_kak_dokumentirovat_kod",
+      "label": "Как документировать код?",
+      "kind": "question",
+      "occurrence_ids": [
+        "kg01_document"
+      ],
+      "source_images": [
+        "KG01"
+      ],
+      "gap_type": "no_lesson_coverage",
+      "severity": "low",
+      "note": "Ни один существующий урок это понятие не покрывает; покрытие не заявлено и не выдумано."
+    },
+    {
+      "concept_id": "concept_kak_ispolnyaetsya_kod",
+      "label": "Как исполняется код?",
+      "kind": "question",
+      "occurrence_ids": [
+        "kg02_execution"
+      ],
+      "source_images": [
+        "KG02"
+      ],
+      "gap_type": "no_lesson_coverage",
+      "severity": "low",
+      "note": "Ни один существующий урок это понятие не покрывает; покрытие не заявлено и не выдумано."
+    },
+    {
+      "concept_id": "concept_kak_kod_vzaimodejstvuet_s_vneshnej_sredoj",
+      "label": "Как код взаимодействует с внешней средой?",
+      "kind": "question",
+      "occurrence_ids": [
+        "kg02_external"
+      ],
+      "source_images": [
+        "KG02"
+      ],
+      "gap_type": "no_lesson_coverage",
+      "severity": "low",
+      "note": "Ни один существующий урок это понятие не покрывает; покрытие не заявлено и не выдумано."
+    },
+    {
+      "concept_id": "concept_kak_obespechit_povtoryaemuyu_sborku",
+      "label": "Как обеспечить повторяемую сборку?",
+      "kind": "concept",
+      "occurrence_ids": [
+        "kg01_repro_build"
+      ],
+      "source_images": [
+        "KG01"
+      ],
+      "gap_type": "no_lesson_coverage",
+      "severity": "high",
+      "note": "Ни один существующий урок это понятие не покрывает; покрытие не заявлено и не выдумано."
+    },
+    {
+      "concept_id": "concept_kak_obmenivatsya_s_drugimi_programmami",
+      "label": "Как обмениваться с другими программами?",
+      "kind": "question",
+      "occurrence_ids": [
+        "kg01_interop"
+      ],
+      "source_images": [
+        "KG01"
+      ],
+      "gap_type": "no_lesson_coverage",
+      "severity": "low",
+      "note": "Ни один существующий урок это понятие не покрывает; покрытие не заявлено и не выдумано."
+    },
+    {
+      "concept_id": "concept_kak_organizovat_vneshnyuyu_dokumentaciyu_i_ee_proverku_na_korrektnost",
+      "label": "Как организовать внешнюю документацию и её проверку на корректность?",
+      "kind": "concept",
+      "occurrence_ids": [
+        "kg01_external_docs"
+      ],
+      "source_images": [
+        "KG01"
+      ],
+      "gap_type": "no_lesson_coverage",
+      "severity": "high",
+      "note": "Ни один существующий урок это понятие не покрывает; покрытие не заявлено и не выдумано."
+    },
+    {
+      "concept_id": "concept_kak_poluchit_otchuzhdaemyj_artefakt",
+      "label": "Как получить отчуждаемый артефакт?",
+      "kind": "question",
+      "occurrence_ids": [
+        "kg01_artifact"
+      ],
+      "source_images": [
+        "KG01"
+      ],
+      "gap_type": "no_lesson_coverage",
+      "severity": "low",
+      "note": "Ни один существующий урок это понятие не покрывает; покрытие не заявлено и не выдумано."
+    },
+    {
+      "concept_id": "concept_kak_proverit_bezopasnost",
+      "label": "Как проверить безопасность?",
+      "kind": "concept",
+      "occurrence_ids": [
+        "kg01_test_security"
+      ],
+      "source_images": [
+        "KG01"
+      ],
+      "gap_type": "no_lesson_coverage",
+      "severity": "high",
+      "note": "Ни один существующий урок это понятие не покрывает; покрытие не заявлено и не выдумано."
+    },
+    {
+      "concept_id": "concept_kak_proverit_v_raznyh_okruzheniyah_bd_nagruzka",
+      "label": "Как проверить в разных окружениях (БД, нагрузка)?",
+      "kind": "concept",
+      "occurrence_ids": [
+        "kg01_test_env"
+      ],
+      "source_images": [
+        "KG01"
+      ],
+      "gap_type": "no_lesson_coverage",
+      "severity": "high",
+      "note": "Ни один существующий урок это понятие не покрывает; покрытие не заявлено и не выдумано."
+    },
+    {
+      "concept_id": "concept_kak_razbit_po_fajlam",
+      "label": "Как разбить по файлам?",
+      "kind": "concept",
+      "occurrence_ids": [
+        "kg01_split_files"
+      ],
+      "source_images": [
+        "KG01"
+      ],
+      "gap_type": "no_lesson_coverage",
+      "severity": "high",
+      "note": "Ни один существующий урок это понятие не покрывает; покрытие не заявлено и не выдумано."
+    },
+    {
+      "concept_id": "concept_kak_razbit_po_modulyam",
+      "label": "Как разбить по модулям?",
+      "kind": "concept",
+      "occurrence_ids": [
+        "kg01_split_modules"
+      ],
+      "source_images": [
+        "KG01"
+      ],
+      "gap_type": "no_lesson_coverage",
+      "severity": "high",
+      "note": "Ни один существующий урок это понятие не покрывает; покрытие не заявлено и не выдумано."
+    },
+    {
+      "concept_id": "concept_kak_strukturirovat_kod",
+      "label": "Как структурировать код?",
+      "kind": "question",
+      "occurrence_ids": [
+        "kg01_structure"
+      ],
+      "source_images": [
+        "KG01"
+      ],
+      "gap_type": "no_lesson_coverage",
+      "severity": "low",
+      "note": "Ни один существующий урок это понятие не покрывает; покрытие не заявлено и не выдумано."
+    },
+    {
+      "concept_id": "concept_kak_testirovat_na_raznyh_arhitekturah_ustrojstv",
+      "label": "Как тестировать на разных архитектурах устройств?",
+      "kind": "concept",
+      "occurrence_ids": [
+        "kg01_test_arch"
+      ],
+      "source_images": [
+        "KG01"
+      ],
+      "gap_type": "no_lesson_coverage",
+      "severity": "high",
+      "note": "Ни один существующий урок это понятие не покрывает; покрытие не заявлено и не выдумано."
+    },
+    {
+      "concept_id": "concept_kak_zapuskat_kod",
+      "label": "Как запускать код?",
+      "kind": "question",
+      "occurrence_ids": [
+        "kg01_how_launch"
+      ],
+      "source_images": [
+        "KG01"
+      ],
+      "gap_type": "no_lesson_coverage",
+      "severity": "low",
+      "note": "Ни один существующий урок это понятие не покрывает; покрытие не заявлено и не выдумано."
+    },
+    {
+      "concept_id": "concept_kakimi_abstrakciyami_operiruet_kod",
+      "label": "Какими абстракциями оперирует код?",
+      "kind": "question",
+      "occurrence_ids": [
+        "kg02_abstractions"
+      ],
+      "source_images": [
+        "KG02"
+      ],
+      "gap_type": "no_lesson_coverage",
+      "severity": "low",
+      "note": "Ни один существующий урок это понятие не покрывает; покрытие не заявлено и не выдумано."
+    },
+    {
+      "concept_id": "concept_keycloak",
+      "label": "Keycloak",
+      "kind": "example",
+      "occurrence_ids": [
+        "kg03_keycloak"
+      ],
+      "source_images": [
+        "KG03"
+      ],
+      "gap_type": "no_lesson_coverage",
+      "severity": "low",
+      "note": "Ни один существующий урок это понятие не покрывает; покрытие не заявлено и не выдумано."
+    },
+    {
+      "concept_id": "concept_kibana",
+      "label": "Kibana",
+      "kind": "example",
+      "occurrence_ids": [
+        "kg03_kibana"
+      ],
+      "source_images": [
+        "KG03"
+      ],
+      "gap_type": "no_lesson_coverage",
+      "severity": "low",
+      "note": "Ни один существующий урок это понятие не покрывает; покрытие не заявлено и не выдумано."
+    },
+    {
+      "concept_id": "concept_kod",
+      "label": "Код",
+      "kind": "root",
+      "occurrence_ids": [
+        "kg01_root"
+      ],
+      "source_images": [
+        "KG01"
+      ],
+      "gap_type": "no_lesson_coverage",
+      "severity": "low",
+      "note": "Ни один существующий урок это понятие не покрывает; покрытие не заявлено и не выдумано."
+    },
+    {
+      "concept_id": "concept_kod__kg02_root",
+      "label": "Код",
+      "kind": "root",
+      "occurrence_ids": [
+        "kg02_root"
+      ],
+      "source_images": [
+        "KG02"
+      ],
+      "gap_type": "no_lesson_coverage",
+      "severity": "low",
+      "note": "Ни один существующий урок это понятие не покрывает; покрытие не заявлено и не выдумано."
+    },
+    {
+      "concept_id": "concept_konfiguracionnye_fajly_yaml_json_ini_toml",
+      "label": "Конфигурационные файлы (YAML, JSON, INI, TOML)",
+      "kind": "concept",
+      "occurrence_ids": [
+        "kg02_config"
+      ],
+      "source_images": [
+        "KG02"
+      ],
+      "gap_type": "no_lesson_coverage",
+      "severity": "high",
+      "note": "Ни один существующий урок это понятие не покрывает; покрытие не заявлено и не выдумано."
+    },
+    {
+      "concept_id": "concept_konkurentnoe_programmirovanie",
+      "label": "Конкурентное программирование",
+      "kind": "concept",
+      "occurrence_ids": [
+        "kg02_concurrent"
+      ],
+      "source_images": [
+        "KG02"
+      ],
+      "gap_type": "no_lesson_coverage",
+      "severity": "high",
+      "note": "Ни один существующий урок это понятие не покрывает; покрытие не заявлено и не выдумано."
+    },
+    {
+      "concept_id": "concept_loki",
+      "label": "Loki",
+      "kind": "example",
+      "occurrence_ids": [
+        "kg03_loki"
+      ],
+      "source_images": [
+        "KG03"
+      ],
+      "gap_type": "no_lesson_coverage",
+      "severity": "low",
+      "note": "Ни один существующий урок это понятие не покрывает; покрытие не заявлено и не выдумано."
+    },
+    {
+      "concept_id": "concept_model_upravleniya_pamyatyu",
+      "label": "Модель управления памятью",
+      "kind": "topic",
+      "occurrence_ids": [
+        "kg02_memory"
+      ],
+      "source_images": [
+        "KG02"
+      ],
+      "gap_type": "no_lesson_coverage",
+      "severity": "high",
+      "note": "Ни один существующий урок это понятие не покрывает; покрытие не заявлено и не выдумано."
+    },
+    {
+      "concept_id": "concept_na_servere_v_internete",
+      "label": "На сервере в интернете",
+      "kind": "concept",
+      "occurrence_ids": [
+        "kg01_remote"
+      ],
+      "source_images": [
+        "KG01"
+      ],
+      "gap_type": "no_lesson_coverage",
+      "severity": "high",
+      "note": "Ни один существующий урок это понятие не покрывает; покрытие не заявлено и не выдумано."
+    },
+    {
+      "concept_id": "concept_na_virtualnoj_mashine",
+      "label": "На виртуальной машине",
+      "kind": "concept",
+      "occurrence_ids": [
+        "kg02_virtual_machine"
+      ],
+      "source_images": [
+        "KG02"
+      ],
+      "gap_type": "no_lesson_coverage",
+      "severity": "high",
+      "note": "Ни один существующий урок это понятие не покрывает; покрытие не заявлено и не выдумано."
+    },
+    {
+      "concept_id": "concept_neposredstvenno_processorom_iz_mashinnogo_predstavleniya",
+      "label": "Непосредственно процессором из машинного представления",
+      "kind": "concept",
+      "occurrence_ids": [
+        "kg02_native"
+      ],
+      "source_images": [
+        "KG02"
+      ],
+      "gap_type": "no_lesson_coverage",
+      "severity": "high",
+      "note": "Ни один существующий урок это понятие не покрывает; покрытие не заявлено и не выдумано."
+    },
+    {
+      "concept_id": "concept_nestrogaya",
+      "label": "Нестрогая",
+      "kind": "concept",
+      "occurrence_ids": [
+        "kg02_weak"
+      ],
+      "source_images": [
+        "KG02"
+      ],
+      "gap_type": "no_lesson_coverage",
+      "severity": "high",
+      "note": "Ни один существующий урок это понятие не покрывает; покрытие не заявлено и не выдумано."
+    },
+    {
+      "concept_id": "concept_paradigmy_programmirovaniya",
+      "label": "Парадигмы программирования",
+      "kind": "topic",
+      "occurrence_ids": [
+        "kg02_paradigms"
+      ],
+      "source_images": [
+        "KG02"
+      ],
+      "gap_type": "no_lesson_coverage",
+      "severity": "high",
+      "note": "Ни один существующий урок это понятие не покрывает; покрытие не заявлено и не выдумано."
+    },
+    {
+      "concept_id": "concept_peremennye_okruzheniya",
+      "label": "Переменные окружения",
+      "kind": "concept",
+      "occurrence_ids": [
+        "kg02_envvars"
+      ],
+      "source_images": [
+        "KG02"
+      ],
+      "gap_type": "no_lesson_coverage",
+      "severity": "high",
+      "note": "Ни один существующий урок это понятие не покрывает; покрытие не заявлено и не выдумано."
+    },
+    {
+      "concept_id": "concept_pipeline_gitlab",
+      "label": "Pipeline (GitLab)",
+      "kind": "concept",
+      "occurrence_ids": [
+        "kg01_pipeline"
+      ],
+      "source_images": [
+        "KG01"
+      ],
+      "gap_type": "no_lesson_coverage",
+      "severity": "high",
+      "note": "Ни один существующий урок это понятие не покрывает; покрытие не заявлено и не выдумано."
+    },
+    {
+      "concept_id": "concept_pod_upravleniem_orkestratora_kubernetes",
+      "label": "Под управлением оркестратора (Kubernetes)",
+      "kind": "concept",
+      "occurrence_ids": [
+        "kg01_orchestrated"
+      ],
+      "source_images": [
+        "KG01"
+      ],
+      "gap_type": "no_lesson_coverage",
+      "severity": "high",
+      "note": "Ни один существующий урок это понятие не покрывает; покрытие не заявлено и не выдумано."
+    },
+    {
+      "concept_id": "concept_predstavleniya_koda",
+      "label": "Представления кода",
+      "kind": "topic",
+      "occurrence_ids": [
+        "kg02_representation"
+      ],
+      "source_images": [
+        "KG02"
+      ],
+      "gap_type": "no_lesson_coverage",
+      "severity": "high",
+      "note": "Ни один существующий урок это понятие не покрывает; покрытие не заявлено и не выдумано."
+    },
+    {
+      "concept_id": "concept_prilozhenie",
+      "label": "Приложение",
+      "kind": "root",
+      "occurrence_ids": [
+        "kg03_root"
+      ],
+      "source_images": [
+        "KG03"
+      ],
+      "gap_type": "no_lesson_coverage",
+      "severity": "low",
+      "note": "Ни один существующий урок это понятие не покрывает; покрытие не заявлено и не выдумано."
+    },
+    {
+      "concept_id": "concept_profilirovanie",
+      "label": "Профилирование",
+      "kind": "concept",
+      "occurrence_ids": [
+        "kg03_profiling"
+      ],
+      "source_images": [
+        "KG03"
+      ],
+      "gap_type": "no_lesson_coverage",
+      "severity": "high",
+      "note": "Ни один существующий урок это понятие не покрывает; покрытие не заявлено и не выдумано."
+    },
+    {
+      "concept_id": "concept_rabbitmq",
+      "label": "RabbitMQ",
+      "kind": "example",
+      "occurrence_ids": [
+        "kg03_rabbitmq"
+      ],
+      "source_images": [
+        "KG03"
+      ],
+      "gap_type": "no_lesson_coverage",
+      "severity": "low",
+      "note": "Ни один существующий урок это понятие не покрывает; покрытие не заявлено и не выдумано."
+    },
+    {
+      "concept_id": "concept_ruchnaya",
+      "label": "Ручная",
+      "kind": "concept",
+      "occurrence_ids": [
+        "kg02_manual"
+      ],
+      "source_images": [
+        "KG02"
+      ],
+      "gap_type": "no_lesson_coverage",
+      "severity": "high",
+      "note": "Ни один существующий урок это понятие не покрывает; покрытие не заявлено и не выдумано."
+    },
+    {
+      "concept_id": "concept_so_sborschikom_musora",
+      "label": "Со сборщиком мусора",
+      "kind": "concept",
+      "occurrence_ids": [
+        "kg02_gc"
+      ],
+      "source_images": [
+        "KG02"
+      ],
+      "gap_type": "no_lesson_coverage",
+      "severity": "high",
+      "note": "Ни один существующий урок это понятие не покрывает; покрытие не заявлено и не выдумано."
+    },
+    {
+      "concept_id": "concept_soap",
+      "label": "SOAP",
+      "kind": "example",
+      "occurrence_ids": [
+        "kg02_soap"
+      ],
+      "source_images": [
+        "KG02"
+      ],
+      "gap_type": "no_lesson_coverage",
+      "severity": "low",
+      "note": "Ни один существующий урок это понятие не покрывает; покрытие не заявлено и не выдумано."
+    },
+    {
+      "concept_id": "concept_staticheskaya",
+      "label": "Статическая",
+      "kind": "concept",
+      "occurrence_ids": [
+        "kg02_static"
+      ],
+      "source_images": [
+        "KG02"
+      ],
+      "gap_type": "no_lesson_coverage",
+      "severity": "high",
+      "note": "Ни один существующий урок это понятие не покрывает; покрытие не заявлено и не выдумано."
+    },
+    {
+      "concept_id": "concept_strogaya",
+      "label": "Строгая",
+      "kind": "concept",
+      "occurrence_ids": [
+        "kg02_strong"
+      ],
+      "source_images": [
+        "KG02"
+      ],
+      "gap_type": "no_lesson_coverage",
+      "severity": "high",
+      "note": "Ни один существующий урок это понятие не покрывает; покрытие не заявлено и не выдумано."
+    },
+    {
+      "concept_id": "concept_tipizaciya",
+      "label": "Типизация",
+      "kind": "topic",
+      "occurrence_ids": [
+        "kg02_typing"
+      ],
+      "source_images": [
+        "KG02"
+      ],
+      "gap_type": "no_lesson_coverage",
+      "severity": "high",
+      "note": "Ни один существующий урок это понятие не покрывает; покрытие не заявлено и не выдумано."
+    },
+    {
+      "concept_id": "concept_tyuring_nepolnye",
+      "label": "Тьюринг-неполные",
+      "kind": "concept",
+      "occurrence_ids": [
+        "kg02_incomplete"
+      ],
+      "source_images": [
+        "KG02"
+      ],
+      "gap_type": "no_lesson_coverage",
+      "severity": "high",
+      "note": "Ни один существующий урок это понятие не покрывает; покрытие не заявлено и не выдумано."
+    },
+    {
+      "concept_id": "concept_tyuring_polnota",
+      "label": "Тьюринг-полнота",
+      "kind": "topic",
+      "occurrence_ids": [
+        "kg02_turing"
+      ],
+      "source_images": [
+        "KG02"
+      ],
+      "gap_type": "no_lesson_coverage",
+      "severity": "high",
+      "note": "Ни один существующий урок это понятие не покрывает; покрытие не заявлено и не выдумано."
+    },
+    {
+      "concept_id": "concept_tyuring_polnye",
+      "label": "Тьюринг-полные",
+      "kind": "concept",
+      "occurrence_ids": [
+        "kg02_complete"
+      ],
+      "source_images": [
+        "KG02"
+      ],
+      "gap_type": "no_lesson_coverage",
+      "severity": "high",
+      "note": "Ни один существующий урок это понятие не покрывает; покрытие не заявлено и не выдумано."
+    },
+    {
+      "concept_id": "concept_u_razrabotchika",
+      "label": "У разработчика",
+      "kind": "concept",
+      "occurrence_ids": [
+        "kg01_local"
+      ],
+      "source_images": [
+        "KG01"
+      ],
+      "gap_type": "no_lesson_coverage",
+      "severity": "high",
+      "note": "Ни один существующий урок это понятие не покрывает; покрытие не заявлено и не выдумано."
+    },
+    {
+      "concept_id": "concept_v_izolirovannom_okruzhenii_docker",
+      "label": "В изолированном окружении (Docker)",
+      "kind": "concept",
+      "occurrence_ids": [
+        "kg01_isolated"
+      ],
+      "source_images": [
+        "KG01"
+      ],
+      "gap_type": "no_lesson_coverage",
+      "severity": "high",
+      "note": "Ни один существующий урок это понятие не покрывает; покрытие не заявлено и не выдумано."
+    },
+    {
+      "concept_id": "concept_vim",
+      "label": "Vim",
+      "kind": "example",
+      "occurrence_ids": [
+        "kg01_vim"
+      ],
+      "source_images": [
+        "KG01"
+      ],
+      "gap_type": "no_lesson_coverage",
+      "severity": "low",
+      "note": "Ни один существующий урок это понятие не покрывает; покрытие не заявлено и не выдумано."
+    },
+    {
+      "concept_id": "concept_vs_code",
+      "label": "VS Code",
+      "kind": "example",
+      "occurrence_ids": [
+        "kg01_vscode"
+      ],
+      "source_images": [
+        "KG01"
+      ],
+      "gap_type": "no_lesson_coverage",
+      "severity": "low",
+      "note": "Ни один существующий урок это понятие не покрывает; покрытие не заявлено и не выдумано."
+    },
+    {
+      "concept_id": "concept_vyzovy_bibliotek_i_funkcij",
+      "label": "Вызовы библиотек и функций",
+      "kind": "concept",
+      "occurrence_ids": [
+        "kg02_lib_calls"
+      ],
+      "source_images": [
+        "KG02"
+      ],
+      "gap_type": "no_lesson_coverage",
+      "severity": "high",
+      "note": "Ни один существующий урок это понятие не покрывает; покрытие не заявлено и не выдумано."
+    },
+    {
+      "concept_id": "concept_vyzovy_vneshnih_programm",
+      "label": "Вызовы внешних программ",
+      "kind": "concept",
+      "occurrence_ids": [
+        "kg02_subprocess"
+      ],
+      "source_images": [
+        "KG02"
+      ],
+      "gap_type": "no_lesson_coverage",
+      "severity": "high",
+      "note": "Ни один существующий урок это понятие не покрывает; покрытие не заявлено и не выдумано."
+    },
+    {
+      "concept_id": "concept_yazyki_s_algebraicheskimi_tipami_dannyh",
+      "label": "Языки с алгебраическими типами данных",
+      "kind": "concept",
+      "occurrence_ids": [
+        "kg02_algebraic"
+      ],
+      "source_images": [
+        "KG02"
+      ],
+      "gap_type": "no_lesson_coverage",
+      "severity": "high",
+      "note": "Ни один существующий урок это понятие не покрывает; покрытие не заявлено и не выдумано."
+    }
+  ],
+  "uncertain_concepts": [
+    "concept_ad_fs",
+    "concept_assembler_assembler",
+    "concept_ebpf",
+    "concept_elasticsearch",
+    "concept_fail_fast_restart",
+    "concept_flame_graphs",
+    "concept_framework",
+    "concept_gde_hranyat_kod",
+    "concept_idea",
+    "concept_ir_promezhutochnoe_predstavlenie",
+    "concept_kafka",
+    "concept_kak_dokumentirovat_kod_vnutri_pisat_kommentarii",
+    "concept_kak_organizovat_vneshnyuyu_dokumentaciyu_i_ee_proverku_na_korrektnost",
+    "concept_kak_poluchit_otchuzhdaemyj_artefakt",
+    "concept_kak_proverit_polnotu_testirovaniya_code_coverage",
+    "concept_keycloak",
+    "concept_kibana",
+    "concept_konfiguracionnye_fajly_yaml_json_ini_toml",
+    "concept_konkurentnoe_programmirovanie",
+    "concept_loki",
+    "concept_nestrogaya",
+    "concept_pod_upravleniem_orkestratora_kubernetes",
+    "concept_rabbitmq",
+    "concept_storage_rdbms",
+    "concept_strogaya",
+    "concept_uchetnye_dannye"
+  ]
+}

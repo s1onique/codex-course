@@ -23,6 +23,39 @@
 - `COURSE-MAPPING.md` — привязка к шести фазам курса и технические уточнения.
 - `scripts/validate.py` — автономная проверка уникальности IDs, существования целей рёбер, целостности объединения и происхождения; Python stdlib.
 
+## Производная онтология (`ontology/`)
+
+Слой, построенный **поверх** рукописных карт. Рукописный слой при этом не изменяется: всё производное воспроизводится генераторами из исходных JSON.
+
+| Файл | Что это |
+|---|---|
+| `ontology/concepts.json` | Канонический реестр: 121 вхождение → 116 понятий; 5 объявленных слияний, каждое с обоснованием |
+| `ontology/prerequisites.json` | Отдельный типизированный DAG предпосылок (31 ребро); **не** выведен из стрелок рукописи |
+| `ontology/lesson-mapping.json` | `introduced_in` / `practiced_in` / `assessed_in` со статусом `verified` (23) или `proposed` (38) |
+| `ontology/audit.json` | Аудит транскрипции: 61 находка, 33 открытых; ничего не додумывается |
+| `ontology/gap-analysis.json` / `.md` | Покрытие и пробелы; все числа вычисляются из артефактов |
+
+Генераторы: `scripts/build_registry.py`, `build_prerequisites.py`, `build_lesson_mapping.py`, `build_audit.py`, `build_gap_analysis.py`. Пересборка всех пяти даёт побайтово тот же результат.
+
+Проверки:
+
+```sh
+python scripts/validate.py            # рукописный слой (не изменён)
+python scripts/validate_ontology.py   # производный слой
+python -m unittest discover -s docs/knowledge-graphs/tests
+```
+
+### Три слоя доказательства
+
+| Слой | Маркер | Где |
+|---|---|---|
+| Рукописный факт | `origin=handwriting`, `provenance.evidence=handwriting` | `graphs/**` |
+| Интерпретация | `merge_rationale`, `confidence=medium`, `review_note`, `declared_non_merges` | `ontology/concepts.json`, `ontology/audit.json` |
+| Педагогическое предложение | `origin=pedagogical_proposal`, `status=proposed`, `rationale`, `traced_to` | `ontology/prerequisites.json`, `ontology/lesson-mapping.json` |
+
+Покрытие уроками со статусом `verified` подтверждается дословным якорем в реальном файле урока; `proposed` означает, что урок ещё не написан, и якоря не имеет by design.
+
+
 ## Семантика
 
 - `origin=handwriting` — реально видимая стрелка между написанными понятиями.
