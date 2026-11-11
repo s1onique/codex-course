@@ -48,6 +48,7 @@
 4. На большинстве экранов оставьте настройки по умолчанию. Обратите внимание на две настройки:
    - **Adjusting your PATH environment:** выберите или оставьте **Git from the command line and also from 3rd-party software**, чтобы `git` был доступен из PowerShell и другим программам.
    - **Credential helper:** выберите или оставьте **Git Credential Manager** — он поможет войти в GitHub через браузер вместо ручного ввода токена.
+   - **Choose the default behavior of `git pull`:** пока оставьте **Merge**. О том, чем он отличается от Rebase и Fast-forward only, рассказываем в [дополнительном материале про `git pull`](supplements/git/pull-merge-vs-rebase.md).
 5. Завершите установку. Если PowerShell был открыт, **закройте его и откройте заново**.
 
 > Для этого урока **не нужны SSH-ключи**, персональные токены GitHub, права администратора для команд Git, WSL или установка Linux.
