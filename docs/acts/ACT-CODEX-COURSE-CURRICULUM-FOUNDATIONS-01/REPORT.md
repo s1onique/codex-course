@@ -29,7 +29,7 @@
 
 ```
 COURSE-OUTLINE.md            82 строки
-README.md                     0 строк (пустой файл)
+README.md                     1 строка: заголовок «# codex-course» (без содержимого)
 LESSON-00.md                218 строк
 LESSON-01.md                176 строк
 LICENSE
@@ -39,7 +39,7 @@ supplements/git/pull-merge-vs-rebase.md
 supplements/powershell/windows-powershell-introduction.md
 ```
 
-Прочитаны полностью: `COURSE-OUTLINE.md`, `README.md` (пустой), `LESSON-00.md`, `LESSON-01.md`, `supplements/README.md`, а также все три файла приложений — чтобы понять организацию, tone of voice и уже существующие ссылки.
+Прочитаны полностью: `COURSE-OUTLINE.md`, `README.md` (содержал только заголовок `# codex-course`), `LESSON-00.md`, `LESSON-01.md`, `supplements/README.md`, а также все три файла приложений — чтобы понять организацию, tone of voice и уже существующие ссылки.
 
 ### 1.4. Решения по безопасности
 
@@ -61,7 +61,7 @@ supplements/powershell/windows-powershell-introduction.md
 | # | Путь | Действие | Входит в авторизованный scope |
 |---|---|---|---|
 | 1 | `COURSE-OUTLINE.md` | Изменён (переписан) | Да — п. 2.1 |
-| 2 | `README.md` | Изменён (был пустым) | Да — п. 2.2 |
+| 2 | `README.md` | Изменён (был заголовком `# codex-course` без содержимого) | Да — п. 2.2 |
 | 3 | `CURRICULUM-DESIGN.md` | Создан | Да — п. 2.3 |
 | 4 | `docs/acts/ACT-CODEX-COURSE-CURRICULUM-FOUNDATIONS-01/REPORT.md` | Создан | Да — п. 2.4 |
 
@@ -89,6 +89,8 @@ supplements/powershell/windows-powershell-introduction.md
 - Фреймворк проверки шаблонов уроков не вводился.
 - Push / PR / публикация не выполнялись.
 - Другие репозитории не затрагивались.
+
+> **Поправка от ACT-CODEX-COURSE-HAPPY-PATH-02.** В п. 1.3, 2.1 и 8.2 этого отчёта `README.md` описан как «пустой файл». Фактически на базовом коммите `991033e` он содержал одну строку — заголовок `# codex-course` (14 байт). Это не влияло на суть выводов (файл не содержал содержательной части, поэтому его содержание не пришлось сохранять), но описание неточно. Поправлено по факту.
 
 ---
 
@@ -352,7 +354,7 @@ git show --stat --oneline HEAD
 
 ```
 COURSE-OUTLINE.md                                                  (изменён)
-README.md                                                          (изменён; был пустым)
+README.md                                                          (изменён; был заголовком `# codex-course`)
 CURRICULUM-DESIGN.md                                               (создан)
 docs/acts/ACT-CODEX-COURSE-CURRICULUM-FOUNDATIONS-01/REPORT.md    (создан)
 ```
