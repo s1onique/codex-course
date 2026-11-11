@@ -1,0 +1,46 @@
+{
+  "schema_version": "1.0",
+  "description": "Proposed semantic alignment; original nodes remain separate. No automatic merging.",
+  "alignments": [
+    {
+      "from": "kg01_state_storage",
+      "to": "kg03_state_storage",
+      "relation": "same_concept_candidate",
+      "origin": "pedagogical_inference",
+      "confidence": "medium",
+      "note": "Обе ветки означают хранение состояния приложения."
+    },
+    {
+      "from": "kg01_files",
+      "to": "kg03_files",
+      "relation": "same_concept_candidate",
+      "origin": "pedagogical_inference",
+      "confidence": "medium",
+      "note": "Совпадение способа хранения «в файлах»."
+    },
+    {
+      "from": "kg01_cache",
+      "to": "kg03_cache",
+      "relation": "same_concept_candidate",
+      "origin": "pedagogical_inference",
+      "confidence": "medium",
+      "note": "Совпадение кэша Redis; режим хранения и гарантии не уточнены."
+    },
+    {
+      "from": "kg01_rdbms",
+      "to": "kg03_rdbms",
+      "relation": "overlapping_concepts",
+      "origin": "pedagogical_inference",
+      "confidence": "medium",
+      "note": "В KG03 дополнительно указана MariaDB; разные списки примеров."
+    },
+    {
+      "from": "kg01_nosql",
+      "to": "kg03_nosql",
+      "relation": "overlapping_concepts",
+      "origin": "pedagogical_inference",
+      "confidence": "medium",
+      "note": "В KG03 дополнительно Cassandra; разные списки примеров."
+    }
+  ]
+}
