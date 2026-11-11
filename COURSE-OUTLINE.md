@@ -79,4 +79,4 @@
 
 Начните с [Урока 00 — Установка Git на Windows 10](LESSON-00.md), затем переходите к [Уроку 01 — Первый проект с Codex](LESSON-01.md).
 
-Дополнительные объяснения собраны в [справочнике по темам](supplements/README.md), в том числе [Merge, Rebase и Fast-forward only](supplements/git/pull-merge-vs-rebase.md).
+Дополнительные !!! объяснения собраны в [справочнике по темам](supplements/README.md), в том числе [Merge, Rebase и Fast-forward only](supplements/git/pull-merge-vs-rebase.md).
