@@ -452,6 +452,161 @@ test('в уроке порядок PRIMM: Predict → Run → Investigate → Mo
   assert.ok(modify < make, 'Modify идёт перед Make');
 });
 
+test('CONS-1: обязательные консольные проверки используют только знакомые конструкции', () => {
+  // ИСТОРИЧЕСКАЯ ПОПРАВКА (ACT-15, 12.11.2026).
+  //
+  // Прежний обязательный путь ученика вводил новые конструкции, которых
+  // в курсе ещё не было: Array.map(), Array.every(), Array.includes() и
+  // стрелочные функции. Теперь используются только уже знакомые:
+  // обращение к элементу по номеру и цикл for...of.
+  const checksStart = lesson13.indexOf('### Первые исполняемые проверки');
+  const checksEnd = lesson13.indexOf('### Таблица наблюдения');
+  assert.ok(checksStart >= 0, 'найден раздел «Первые исполняемые проверки»');
+  assert.ok(checksEnd > checksStart, 'найден раздел «Таблица наблюдения»');
+
+  const section = lesson13.slice(checksStart, checksEnd);
+  const blocks = fencedBlocks(section, 'javascript');
+  assert.ok(blocks.length > 0, 'в разделе есть исполняемый блок');
+
+  for (const block of blocks) {
+    assert.doesNotMatch(
+      block.code,
+      /\.map\s*\(/,
+      'в обязательном пути нет Array.map()'
+    );
+    assert.doesNotMatch(
+      block.code,
+      /\.every\s*\(/,
+      'в обязательном пути нет Array.every()'
+    );
+    assert.doesNotMatch(
+      block.code,
+      /\.includes\s*\(/,
+      'в обязательном пути нет Array.includes()'
+    );
+    assert.doesNotMatch(
+      block.code,
+      /=>/,
+      'в обязательном пути нет стрелочных функций'
+    );
+  }
+
+  // Знакомые конструкции, на которых построена проверка, — присутствуют.
+  const code = blocks.map((b) => b.code).join('\n');
+  assert.match(code, /for \(const task of tasks\)/, 'использован уже знакомый for...of');
+  assert.match(code, /tasks\[0\]\.status/, 'использовано обращение к элементу по номеру');
+  assert.match(code, /console\.assert\(/, 'использован console.assert()');
+});
+
+test('CONS-2: контракт показа описан как «принято — показ, отказ — без показа»', () => {
+  // ИСТОРИЧЕСКАЯ ПОПРАВКА (ACT-15, 12.11.2026). Прежняя формулировка
+  // «показ только тогда, когда данные действительно изменились» была
+  // НЕВЕРНА: принятый идемпотентный переход (done + COMPLETE) меняет
+  // данные, но по принятому событию показ всё равно происходит.
+  assert.doesNotMatch(
+    lesson13,
+    /только тогда, когда данные действительно изменились/i,
+    'прежняя неверная формулировка убрана'
+  );
+  assert.match(
+    lesson13,
+    /принятое событие — показ один раз, отказ — без показа/i,
+    'сказано: принятое событие — показ один раз, отказ — без показа'
+  );
+});
+
+test('CONS-3: таблица упражнения REOPEN содержит ровно ТРИ строки', () => {
+  // ИСТОРИЧЕСКАЯ ПОПРАВКА (ACT-15, 12.11.2026). Прежний текст говорил,
+  // что в таблице REOPEN «должно быть все шесть строк», хотя в ней
+  // ровно три комбинации «состояние + REOPEN».
+  const makeStart = lesson13.indexOf('## Шаг 5. Make');
+  assert.ok(makeStart >= 0, 'найден раздел «Шаг 5. Make»');
+  const makeSection = lesson13.slice(makeStart);
+
+  const rows = makeSection
+    .split('\n')
+    .filter((line) => /^\| `(new|in_progress|done)` \| `REOPEN` \|/.test(line));
+  assert.equal(rows.length, 3, 'в таблице REOPEN ровно три строки');
+
+  assert.match(
+    makeSection,
+    /все \*\*три\*\* строки|\*\*все три\*\* строки|все три строки/,
+    'текст называет три строки, а не шесть'
+  );
+  assert.doesNotMatch(
+    makeSection,
+    /все шесть строк/,
+    'прежнее «все шесть строк» убрано'
+  );
+});
+
+test('CONS-4: сказано, что одна кнопка не проверяет все шесть переходов', () => {
+  // ИСТОРИЧЕСКАЯ ПОПРАВКА (ACT-15, 12.11.2026). Прежний текст намекал,
+  // что все шесть комбинаций проверяются нажатием кнопки, хотя кнопка
+  // отправляет только событие COMPLETE.
+  assert.match(
+    lesson13,
+    /Одна кнопка — не все шесть строк/,
+    'сказано, что одна кнопка не покрывает все шесть строк'
+  );
+  assert.match(
+    lesson13,
+    /только\*\* строки с `COMPLETE`|только строки с `COMPLETE`/,
+    'сказано, что кнопка проверяет только строки с COMPLETE'
+  );
+
+  // И объяснено, как задать известное начальное состояние.
+  assert.match(
+    lesson13,
+    /задайте\*\* состояние|задать известное начальное состояние/i,
+    'объяснено, как установить известное начальное состояние'
+  );
+  assert.match(
+    lesson13,
+    /tasks\[0\]\.status = 'new';/,
+    'показан пример установки состояния обычным присваиванием'
+  );
+});
+
+test('CONS-5: консольные проверки начинаются с известного состояния', () => {
+  // ИСТОРИЧЕСКАЯ ПОПРАВКА (ACT-15, 12.11.2026). Если предыдущее
+  // нажатие уже перевело tasks[1] в done, ученик проверял бы НЕ ТУ
+  // строку таблицы. Требуется явное указание.
+  const checksStart = lesson13.indexOf('### Первые исполняемые проверки');
+  const checksEnd = lesson13.indexOf('### Таблица наблюдения');
+  const section = lesson13.slice(checksStart, checksEnd);
+
+  assert.match(
+    section,
+    /известное начальное состояние/i,
+    'сказано, что сначала нужно известное начальное состояние'
+  );
+  assert.match(
+    section,
+    /обновите страницу|F5/i,
+    'сказано, что страницу нужно обновить'
+  );
+
+  // Состояние «до» запоминается ДО вызова перехода.
+  const code = fencedBlocks(section, 'javascript')
+    .map((b) => b.code)
+    .join('\n');
+  const beforeIndex = code.indexOf('const beforeFirst');
+  const callIndex = code.indexOf('transitionTask(1');
+  assert.ok(beforeIndex >= 0, 'состояние «до» запоминается');
+  assert.ok(callIndex >= 0, 'переход вызывается');
+  assert.ok(
+    beforeIndex < callIndex,
+    'состояние «до» запоминается ДО вызова перехода'
+  );
+
+  // Проверки инварианта, постусловия и границы сохранены.
+  assert.match(code, /accepted === true/, 'проверка постусловия «событие принято» сохранена');
+  assert.match(code, /tasks\[1\]\.status === 'done'/, 'проверка постусловия «стало done» сохранена');
+  assert.match(code, /beforeFirst/, 'проверка границы допустимых изменений сохранена');
+  assert.match(code, /for \(const task of tasks\)/, 'проверка инварианта сохранена');
+});
+
 test('Make остаётся необязательным', () => {
   assert.match(lesson13, /Шаг 5\. Make[\s\S]*?необязательн/i, 'шаг Make помечен необязательным');
 });
