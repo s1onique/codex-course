@@ -174,6 +174,151 @@ test('урок не вводит запрещённые понятия', () => {
 });
 
 // ---------------------------------------------------------------------------
+// P2 — порядок PRIMM: сначала предсказание, потом запуск
+// ---------------------------------------------------------------------------
+
+test('P2: в шаге Predict нет исполняемого кода — предсказания идут ДО запуска', () => {
+  // Находим раздел «Шаг 1. Predict …» и следующий раздел «Шаг 2. Run …».
+  const predictStart = lesson10.indexOf('## Шаг 1. Predict');
+  const runStart = lesson10.indexOf('## Шаг 2. Run');
+
+  assert.ok(predictStart >= 0, 'в LESSON-10.md есть раздел «Шаг 1. Predict»');
+  assert.ok(runStart > predictStart, 'раздел «Шаг 2. Run» идёт после «Шаг 1. Predict»');
+
+  const predictSection = lesson10.slice(predictStart, runStart);
+
+  // В Predict не должно быть fenced-блока javascript, который что-то МЕНЯЕТ.
+  const predictJs = fencedBlocks(predictSection, 'javascript');
+  assert.equal(
+    predictJs.length,
+    0,
+    'в шаге Predict не должно быть ни одного исполняемого блока javascript — ' +
+      'предсказание должно быть записано ДО запуска'
+  );
+
+  // Шаблон для предсказаний должен быть ДО запуска.
+  assert.match(
+    predictSection,
+    /Запишите предсказания/i,
+    'в шаге Predict есть требование записать предсказания'
+  );
+});
+
+test('P2: исполняемая демонстрация перенесена в Run и требует вернуть базовую линию', () => {
+  const runStart = lesson10.indexOf('## Шаг 2. Run');
+  const investigateStart = lesson10.indexOf('## Шаг 3. Investigate');
+
+  assert.ok(runStart >= 0 && investigateStart > runStart, 'разделы Run и Investigate на месте');
+
+  const runSection = lesson10.slice(runStart, investigateStart);
+
+  // Изменение данных вручную теперь выполняется в Run, а не в Predict.
+  assert.match(
+    runSection,
+    /tasks\[0\]\.done = true;/,
+    'в шаге Run есть исполняемая демонстрация изменения данных'
+  );
+
+  // Требование вернуть исходную базовую линию из трёх задач.
+  assert.match(
+    runSection,
+    /tasks\[0\]\.done = false;/,
+    'в шаге Run требуется вернуть исходное состояние задачи'
+  );
+  assert.match(
+    runSection,
+    /базов/i,
+    'в шаге Run объясняется, зачем нужна исходная базовая линия'
+  );
+});
+
+test('P2: необязательная completeTaskByIndex() отклоняет не-целые номера', () => {
+  const optionalBlock = uniqueBlock(
+    jsBlocks,
+    (block) => block.code.includes('function completeTaskByIndex('),
+    'необязательная функция completeTaskByIndex()'
+  );
+
+  assert.match(
+    optionalBlock,
+    /Number\.isInteger\(index\)/,
+    'проверка целочисленности номера обязательна'
+  );
+
+  // Функция исполняется в реальном Node.js.
+  const factory = new Function(
+    'document',
+    'console',
+    `
+const tasks = [
+  { title: 'Прочитать главу', done: false },
+  { title: 'Сделать упражнение', done: false },
+  { title: 'Проверить результат', done: false }
+];
+function renderTaskList() {}
+${optionalBlock}
+return { tasks, completeTaskByIndex };
+`
+  );
+
+  const errors = [];
+  const consoleStub = { log: () => {}, error: (m) => errors.push(String(m)), warn: () => {} };
+  const api = factory({}, consoleStub);
+
+  // ПРИНИМАЮТСЯ: 0, 1, 2
+  for (const index of [0, 1, 2]) {
+    const before = api.tasks.map((t) => t.done);
+    api.completeTaskByIndex(index);
+    assert.equal(
+      api.tasks[index].done,
+      true,
+      `номер ${index} принимается — задача завершена`
+    );
+    assert.equal(
+      api.tasks.filter((t) => t.done).length,
+      before.filter(Boolean).length + 1,
+      `номер ${index} меняет ровно одну задачу`
+    );
+  }
+
+  // ОТКЛОНЯЮТСЯ: -1, 3, 99, 1.5, NaN, "1"
+  const rejected = [-1, 3, 99, 1.5, NaN, '1'];
+  for (const index of rejected) {
+    const before = api.tasks.map((t) => t.done);
+    const errorsBefore = errors.length;
+
+    assert.doesNotThrow(
+      () => api.completeTaskByIndex(index),
+      `неверный номер ${String(index)} не бросает исключение`
+    );
+    assert.deepEqual(
+      api.tasks.map((t) => t.done),
+      before,
+      `неверный номер ${String(index)} не меняет задачи`
+    );
+    assert.equal(
+      errors.length,
+      errorsBefore + 1,
+      `неверный номер ${String(index)} даёт понятное сообщение в консоль`
+    );
+    assert.match(errors[errors.length - 1], /Неверный номер задачи/, 'сообщение ожидаемое');
+  }
+});
+
+test('P2: необязательный материал Урока 10 остаётся необязательным', () => {
+  assert.match(
+    lesson10,
+    /Шаг 5\. Make[\s\S]*?необязат/i,
+    'шаг Make помечен как необязательный'
+  );
+  assert.match(
+    lesson10,
+    /необязательн/i,
+    'в уроке есть явные пометки необязательности'
+  );
+});
+
+// ---------------------------------------------------------------------------
 // ИМИТАЦИЯ МИНИМАЛЬНОГО DOM
 // ---------------------------------------------------------------------------
 
@@ -231,8 +376,31 @@ function makeFakeDocument(ids) {
         children.push(child);
         return child;
       },
-      addEventListener(type, handler) {
-        listeners.push({ type, handler });
+      /**
+       * Регистрация обработчика с НАСТОЯЩИМИ правилами native EventTarget:
+       *   - тот же тип события, тот же объект-функция и тот же флаг capture —
+       *     повторная регистрация ИГНОРИРУЕТСЯ (дубликат не добавляется);
+       *   - два разных объекта-функции — это два разных обработчика,
+       *     и оба выполняются при отправке события.
+       *
+       * До ACT-12 имитация безусловно добавляла обработчик, из-за чего
+       * ошибочно считала, что одинаковая функция зарегистрирована дважды.
+       * Семантика сверена с native EventTarget (см. тест «нативная семантика…»).
+       */
+      addEventListener(type, handler, options) {
+        const capture = Boolean(
+          options && typeof options === 'object' ? options.capture : options
+        );
+
+        const alreadyRegistered = listeners.some(
+          (l) => l.type === type && l.handler === handler && l.capture === capture
+        );
+
+        if (alreadyRegistered) {
+          return;
+        }
+
+        listeners.push({ type, handler, capture });
       },
       /** Имитация нажатия: вызывает ВСЕ зарегистрированные обработчики. */
       click() {
@@ -242,9 +410,24 @@ function makeFakeDocument(ids) {
           }
         }
       },
+      /**
+       * Отправка события произвольного типа — как native EventTarget.
+       * Вызываются все зарегистрированные обработчики этого типа.
+       */
+      dispatchEvent(type) {
+        for (const listener of listeners) {
+          if (listener.type === type) {
+            listener.handler();
+          }
+        }
+      },
       /** Сколько обработчиков клика зарегистрировано на элементе. */
       clickListenerCount() {
         return listeners.filter((l) => l.type === 'click').length;
+      },
+      /** Сколько обработчиков события данного типа зарегистрировано. */
+      listenerCount(type) {
+        return listeners.filter((l) => l.type === type).length;
       }
     };
     return element;
@@ -309,6 +492,107 @@ function shownCount(page) {
   const count = page.registry.get('#task-count');
   return count ? count.textContent : null;
 }
+
+// ---------------------------------------------------------------------------
+// СЕМАНТИКА РЕГИСТРАЦИИ ОБРАБОТЧИКОВ: сверка с native EventTarget
+//
+// Имитация DOM обязана вести себя как настоящий EventTarget в тех случаях,
+// которые проверяет курс. Эталон — НАСТОЯЩИЙ EventTarget из Node.js:
+// он не является имитацией и не зависит от кода этого репозитория.
+// ---------------------------------------------------------------------------
+
+test('нативная семантика EventTarget: одинаковая функция — один вызов', () => {
+  const target = new EventTarget();
+  let calls = 0;
+
+  function handler() {
+    calls += 1;
+  }
+
+  target.addEventListener('test', handler);
+  target.addEventListener('test', handler);
+
+  target.dispatchEvent(new Event('test'));
+
+  assert.equal(calls, 1, 'native EventTarget вызывает одинаковый обработчик один раз');
+});
+
+test('нативная семантика EventTarget: две разные функции — два вызова', () => {
+  const target = new EventTarget();
+  let calls = 0;
+
+  target.addEventListener('test', function () {
+    calls += 1;
+  });
+
+  target.addEventListener('test', function () {
+    calls += 1;
+  });
+
+  target.dispatchEvent(new Event('test'));
+
+  assert.equal(calls, 2, 'native EventTarget вызывает два разных обработчика');
+});
+
+test('нативная семантика EventTarget совпадает с имитацией DOM', () => {
+  // Эталон: настоящий EventTarget.
+  const nativeTarget = new EventTarget();
+  let nativeCalls = 0;
+  function nativeHandler() {
+    nativeCalls += 1;
+  }
+  nativeTarget.addEventListener('test', nativeHandler);
+  nativeTarget.addEventListener('test', nativeHandler);
+  nativeTarget.dispatchEvent(new Event('test'));
+
+  assert.equal(nativeCalls, 1, 'эталон: одинаковая функция — один вызов');
+
+  // Имитация DOM: тот же сценарий.
+  const page = makePage(['#probe']);
+  const element = page.registry.get('#probe');
+
+  let fakeCalls = 0;
+  function fakeHandler() {
+    fakeCalls += 1;
+  }
+  element.addEventListener('test', fakeHandler);
+  element.addEventListener('test', fakeHandler);
+  element.dispatchEvent('test');
+
+  assert.equal(fakeCalls, nativeCalls, 'имитация совпадает с эталоном по одинаковой функции');
+  assert.equal(element.listenerCount('test'), 1, 'дубликат одинаковой функции не регистрируется дважды');
+});
+
+test('имитация DOM совпадает с эталоном по двум разным функциям', () => {
+  // Эталон: настоящий EventTarget.
+  const nativeTarget = new EventTarget();
+  let nativeCalls = 0;
+  nativeTarget.addEventListener('test', function () {
+    nativeCalls += 1;
+  });
+  nativeTarget.addEventListener('test', function () {
+    nativeCalls += 1;
+  });
+  nativeTarget.dispatchEvent(new Event('test'));
+
+  assert.equal(nativeCalls, 2, 'эталон: две разные функции — два вызова');
+
+  // Имитация DOM: тот же сценарий.
+  const page = makePage(['#probe']);
+  const element = page.registry.get('#probe');
+
+  let fakeCalls = 0;
+  element.addEventListener('test', function () {
+    fakeCalls += 1;
+  });
+  element.addEventListener('test', function () {
+    fakeCalls += 1;
+  });
+  element.dispatchEvent('test');
+
+  assert.equal(fakeCalls, nativeCalls, 'имитация совпадает с эталоном по двум разным функциям');
+  assert.equal(element.listenerCount('test'), 2, 'две разные функции — два зарегистрированных обработчика');
+});
 
 /**
  * Собирает исполняемое приложение из КАНОНИЧЕСКОГО кода урока.
@@ -527,19 +811,45 @@ test('V4: показ без изменения состояния не заве�
 // ---------------------------------------------------------------------------
 
 /**
- * Репрезентативный код Урока 08–09: счётчик, сообщение, тема, пример задачи.
+ * Репрезентативный код Урока 05–09: счётчик, сообщение, тема, пример задачи.
  * Он проверяется ВМЕСТЕ с каноническим кодом Урока 10.
+ *
+ * ВАЖНО (исправлено в ACT-12). Раньше здесь стояла выдуманная реализация:
+ *
+ *     function achievementMessage() {
+ *       if (clicks > 5) { return 'Цель достигнута!'; }
+ *       return 'Продолжайте';
+ *     }
+ *
+ * Это НЕ канонический код более ранних уроков: порог 5 вместо 3 и
+ * сообщение без восклицательного знака. Прежний интеграционный тест
+ * проверял именно эту подделку, поэтому «сохранность существующей
+ * функциональности» не была доказана.
+ *
+ * Канонический источник — LESSON-05.md, блок «Конечный обрабатываемый
+ * кусок» (и происхождение правила — LESSON-04.md, шаг с `clicks >= 3`):
+ *
+ *     function achievementMessage(count) {
+ *       if (count >= 3) { return 'Цель достигнута!'; }
+ *       else { return 'Продолжайте!'; }
+ *     }
+ *
+ * Ниже — канонический код с небольшими поправками на имена элементов
+ * тестовой страницы (#click-count вместо #counter) и на добавленные
+ * в Уроке 03 упражнение points и в Уроке 07 блок «Пример задачи».
+ * Порог, обе строки сообщения и порядок вызовов — из LESSON-05.md.
  */
 const LEGACY_SOURCE = `
 let clicks = 0;
 let points = 0;
 const exampleTask = { title: 'Составить план', done: false };
 
-function achievementMessage() {
-  if (clicks > 5) {
+function achievementMessage(count) {
+  if (count >= 3) {
     return 'Цель достигнута!';
+  } else {
+    return 'Продолжайте!';
   }
-  return 'Продолжайте';
 }
 
 function startCounter() {
@@ -560,7 +870,7 @@ function startCounter() {
       }
 
       if (message) {
-        message.textContent = achievementMessage();
+        message.textContent = achievementMessage(clicks);
       }
 
       if (exampleStatus) {
@@ -654,7 +964,7 @@ test('V5: необязательное упражнение points продол�
   button.click();
 
   assert.equal(page.registry.get('#click-count').textContent, '3', 'счётчик показывает 3');
-  assert.equal(page.registry.get('#message').textContent, 'Продолжайте', 'сообщение прежнее');
+  assert.equal(page.registry.get('#message').textContent, 'Цель достигнута!', 'сообщение прежнее');
 });
 
 test('V5: сообщение «Цель достигнута!» и переключение темы не сломаны', () => {
@@ -666,8 +976,63 @@ test('V5: сообщение «Цель достигнута!» и перекл�
   }
 
   assert.equal(page.registry.get('#message').textContent, 'Цель достигнута!', 'сообщение достигнуто');
-  assert.equal(api.achievementMessage(), 'Цель достигнута!', 'функция achievementMessage работает');
+  assert.equal(api.achievementMessage(6), 'Цель достигнута!', 'функция achievementMessage работает');
 
+  page.registry.get('#theme-button').click();
+  assert.equal(page.registry.get('#theme-button').clickListenerCount(), 1, 'на кнопке темы один обработчик');
+});
+
+test('V5: контракт сообщения о достижении цели — как в Уроке 05 (порог 3)', () => {
+  // Канонический контракт из LESSON-05.md:
+  //   achievementMessage(count): count >= 3 -> 'Цель достигнута!', иначе 'Продолжайте!'
+  const { page, api } = buildIntegratedApp();
+  const button = page.registry.get('#click-button');
+
+  assert.equal(api.achievementMessage(0), 'Продолжайте!', '0 кликов — «Продолжайте!»');
+  assert.equal(api.achievementMessage(2), 'Продолжайте!', '2 клика — «Продолжайте!»');
+  assert.equal(api.achievementMessage(3), 'Цель достигнута!', '3 клика — «Цель достигнута!»');
+  assert.equal(api.achievementMessage(4), 'Цель достигнута!', '4 клика — «Цель достигнута!»');
+
+  // То же самое — через реальное нажатие на кнопку счётчика.
+  button.click();
+  button.click();
+  assert.equal(page.registry.get('#message').textContent, 'Продолжайте!', 'после 2 кликов — «Продолжайте!»');
+
+  button.click();
+  assert.equal(page.registry.get('#message').textContent, 'Цель достигнута!', 'после 3 кликов — «Цель достигнута!»');
+
+  button.click();
+  assert.equal(page.registry.get('#message').textContent, 'Цель достигнута!', 'после 4 кликов — «Цель достигнута!»');
+});
+
+test('V5: завершение задачи НЕ меняет счётчик, порог, сообщение, тему и exampleTask', () => {
+  const { page, api, tasks } = buildIntegratedApp();
+  const button = page.registry.get('#click-button');
+
+  button.click();
+  button.click();
+  button.click();
+
+  const messageBefore = page.registry.get('#message').textContent;
+  const countBefore = page.registry.get('#click-count').textContent;
+
+  assert.equal(messageBefore, 'Цель достигнута!', 'до завершения задачи сообщение достигнуто');
+
+  // Завершаем задачу.
+  page.registry.get('#complete-first-task').click();
+
+  assert.equal(tasks[0].done, true, 'задача завершена');
+  assert.equal(page.registry.get('#click-count').textContent, countBefore, 'счётчик кликов не изменился');
+  assert.equal(page.registry.get('#message').textContent, messageBefore, 'сообщение не изменилось');
+  assert.equal(api.achievementMessage(3), 'Цель достигнута!', 'порог сообщения прежний');
+  assert.equal(api.exampleTask.done, false, 'exampleTask не изменился');
+  assert.equal(
+    page.registry.get('#example-status').textContent,
+    'Не выполнена',
+    'блок «Пример задачи» прежний'
+  );
+
+  // Тема переключается как раньше.
   page.registry.get('#theme-button').click();
   assert.equal(page.registry.get('#theme-button').clickListenerCount(), 1, 'на кнопке темы один обработчик');
 });
@@ -702,6 +1067,78 @@ test('V5: переключение темы и счётчик не ломают�
 // соответствующая проверка действительно ломается. Ни один контроль не
 // ограничивается просмотром строк исходного текста.
 // ---------------------------------------------------------------------------
+
+test('NC-0: ПРЕЖДЯЯ интеграционная фикстура не проходит трёхкликовый критерий Урока 05', () => {
+  // Исполняем СТАРУЮ (испорченную) фикстуру из ACT-11:
+  //   порог `clicks > 5` и сообщение 'Продолжайте' без восклицательного знака.
+  // Проверка ниже — это критерий более раннего урока (LESSON-05.md):
+  // на третьем нажатии сообщение должно стать 'Цель достигнута!'.
+
+  const OLD_LEGACY_SOURCE = `
+let clicks = 0;
+const exampleTask = { title: 'Составить план', done: false };
+
+function achievementMessage() {
+  if (clicks > 5) {
+    return 'Цель достигнута!';
+  }
+  return 'Продолжайте';
+}
+
+function startCounter() {
+  const counter = document.querySelector('#click-count');
+  const message = document.querySelector('#message');
+  const button = document.querySelector('#click-button');
+
+  if (button) {
+    button.addEventListener('click', function () {
+      clicks = clicks + 1;
+      if (counter) { counter.textContent = String(clicks); }
+      if (message) { message.textContent = achievementMessage(); }
+    });
+  }
+}
+`;
+
+  const page = makePage(['#click-count', '#message', '#click-button']);
+
+  const factory = new Function(
+    'document',
+    'console',
+    `${OLD_LEGACY_SOURCE}
+     startCounter();
+     return { achievementMessage };`
+  );
+  const api = factory(page.document, page.consoleStub);
+
+  const button = page.registry.get('#click-button');
+  button.click();
+  button.click();
+  button.click();
+
+  // Критерий Урока 05: после трёх нажатий — 'Цель достигнута!'.
+  const shown = page.registry.get('#message').textContent;
+
+  assert.notEqual(shown, 'Цель достигнута!', 'старая фикстура обязана провалить трёхкликовый критерий');
+  assert.equal(shown, 'Продолжайте', 'старая фикстура показывает устаревшее сообщение');
+  assert.notEqual(shown, 'Продолжайте!', 'старая фикстура теряет восклицательный знак');
+
+  // И функция тоже: на третьем клике она ещё не выдаёт достижение.
+  assert.notEqual(api.achievementMessage(), 'Цель достигнута!', 'функция старой фикстуры не знает порога 3');
+});
+
+test('NC-0b: исправленная фикстура проходит трёхкликовый критерий Урока 05', () => {
+  // Тот же критерий против исправленной (канонической) фикстуры.
+  const { page, api } = buildIntegratedApp();
+  const button = page.registry.get('#click-button');
+
+  button.click();
+  button.click();
+  button.click();
+
+  assert.equal(page.registry.get('#message').textContent, 'Цель достигнута!', 'после 3 кликов — «Цель достигнута!»');
+  assert.equal(api.achievementMessage(3), 'Цель достигнута!', 'функция отдаёт тот же контракт');
+});
 
 test('NC-1: без вызова renderTaskList() проверка состояния на экране ломается', () => {
   // Убираем вызов показа после изменения данных.
@@ -738,10 +1175,29 @@ test('NC-2: при изменении tasks[1] ожидание по перво�
   assert.equal(shownFirst, 'Прочитать главу — Не выполнена', 'первая задача не завершена');
 });
 
-test('NC-3: два обработчика на кнопке ломают контракт числа подписок', () => {
+test('NC-3: два РАЗНЫХ обработчика на кнопке ломают контракт числа подписок', () => {
+  // ДЕФЕКТ, который раньше проверялся неверно.
+  //
+  // Прежний контроль регистрировал ОДНУ И ТУ ЖЕ функцию
+  // completeFirstTask два раза. Настоящий EventTarget такую повторную
+  // регистрацию ИГНОРИРУЕТСЯ (см. тест про native EventTarget выше),
+  // поэтому такой «дубль» не является дубликатом обработчика и не может
+  // доказывать, что контракт «один обработчик» что-то ловит.
+  //
+  // Исправленный контроль регистрирует ДВЕ РАЗНЫЕ функции-обёртки.
+  // Это настоящий дубликат: и native EventTarget, и имитация DOM считают
+  // их двумя разными обработчиками.
   const duplicated = connectButtonSource.replace(
     /completeButton\.addEventListener\('click', completeFirstTask\);/,
-    "completeButton.addEventListener('click', completeFirstTask);\n    completeButton.addEventListener('click', completeFirstTask);"
+    [
+      "completeButton.addEventListener('click', function () {",
+      '  completeFirstTask();',
+      '});',
+      '',
+      "completeButton.addEventListener('click', function () {",
+      '  completeFirstTask();',
+      '});'
+    ].join('\n')
   );
 
   assert.notEqual(duplicated, connectButtonSource, 'обработчик действительно продублирован');
@@ -758,6 +1214,23 @@ test('NC-3: два обработчика на кнопке ломают кон�
 
   // Ломается именно контракт числа подписок.
   assert.notEqual(button.clickListenerCount(), 1, 'контракт «один обработчик» должен сломаться');
+});
+
+test('NC-3b: ОДИНАКОВАЯ функция, зарегистрированная дважды, дубликатом НЕ является', () => {
+  // Контроль на ложное срабатывание: настоящий EventTarget игнорирует
+  // повторную регистрацию той же функции, поэтому число обработчиков
+  // остаётся равным 1 и контракт «один обработчик» НЕ ломается.
+  const duplicated = connectButtonSource.replace(
+    /completeButton\.addEventListener\('click', completeFirstTask\);/,
+    "completeButton.addEventListener('click', completeFirstTask);\n    completeButton.addEventListener('click', completeFirstTask);"
+  );
+
+  assert.notEqual(duplicated, connectButtonSource, 'повторная регистрация действительно добавлена');
+
+  const { page } = buildApp({ connectSource: duplicated });
+  const button = page.registry.get('#complete-first-task');
+
+  assert.equal(button.clickListenerCount(), 1, 'одинаковая функция считается одним обработчиком');
 });
 
 test('NC-4: показ списка без обновления количества ломает согласованность', () => {
@@ -849,11 +1322,14 @@ const exampleTask = { title: 'Составить план', done: false };
 
 let clicks = 0;
 
-function achievementMessage() {
-  if (clicks > 5) {
+// Канонический контракт Урока 05 (LESSON-05.md):
+// порог 3 и обе строки с восклицательным знаком.
+function achievementMessage(count) {
+  if (count >= 3) {
     return 'Цель достигнута!';
+  } else {
+    return 'Продолжайте!';
   }
-  return 'Продолжайте';
 }
 
 function startCounter() {
@@ -891,7 +1367,7 @@ function startCounter() {
       }
 
       if (message) {
-        message.textContent = achievementMessage();
+        message.textContent = achievementMessage(clicks);
       }
     });
   }
