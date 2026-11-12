@@ -391,6 +391,189 @@ test('в уроке порядок PRIMM: Predict → Run → Investigate → Mo
   assert.ok(modify < make, 'Modify идёт перед Make');
 });
 
+test('STRUCT-1: контракт в уроке содержит ровно ВОСЕМЬ строк', () => {
+  // Каноническая таблица контракта: колонка «Категория» и «Требование».
+  // Считаем строки именно этой таблицы, а не все таблицы урока.
+  const rows = lesson12
+    .split('\n')
+    .filter((line) =>
+      /^\| \*\*(Допустимый вход|Успешный результат|Остальные задачи|Количество задач|Названия задач|Повторный вызов|Недопустимый вход|Целостность данных)\*\* \|/.test(line)
+    );
+  assert.equal(
+    rows.length,
+    8,
+    'в канонической таблице контракта ровно восемь строк, а не семь'
+  );
+
+  // И текст критерия завершения должен называть то же число.
+  assert.match(
+    lesson12,
+    /все \*\*восемь\*\* строк/,
+    'критерий завершения называет восемь строк контракта'
+  );
+  assert.doesNotMatch(
+    lesson12,
+    /все семь строк/,
+    'старое «все семь строк» убрано'
+  );
+});
+
+test('STRUCT-2: шаг Modify содержит ровно ТРИ эксперимента', () => {
+  const modifyStart = lesson12.indexOf('## Шаг 4. Modify');
+  const makeStart = lesson12.indexOf('## Шаг 5. Make');
+  assert.ok(modifyStart >= 0, 'есть раздел «Шаг 4. Modify»');
+  assert.ok(makeStart > modifyStart, 'есть раздел «Шаг 5. Make» после Modify');
+
+  const modifySection = lesson12.slice(modifyStart, makeStart);
+
+  const headings = modifySection
+    .split('\n')
+    .filter((line) => /^### Эксперимент [A-Z] /.test(line));
+  assert.equal(headings.length, 3, 'в шаге Modify ровно три эксперимента: A, B и C');
+
+  assert.match(modifySection, /### Эксперимент A —/, 'есть эксперимент A');
+  assert.match(modifySection, /### Эксперимент B —/, 'есть эксперимент B');
+  assert.match(modifySection, /### Эксперимент C —/, 'есть эксперимент C');
+
+  // Критерий завершения должен называть все три.
+  assert.match(
+    lesson12,
+    /эксперимент C/,
+    'критерий завершения упоминает эксперимент C'
+  );
+  assert.match(
+    lesson12,
+    /всех трёх|все трёх/i,
+    'критерий завершения говорит о возврате после всех трёх экспериментов'
+  );
+});
+
+test('STRUCT-3: нумерованные цели обучения идут подряд, без «2a»', () => {
+  const learnStart = lesson12.indexOf('## Чему научимся');
+  const learnEnd = lesson12.indexOf('### Что НЕ понадобится');
+  assert.ok(learnStart >= 0, 'есть раздел «Чему научимся»');
+  assert.ok(learnEnd > learnStart, 'есть раздел «Что НЕ понадобится»');
+
+  const learnSection = lesson12.slice(learnStart, learnEnd);
+
+  const numbers = learnSection
+    .split('\n')
+    .map((line) => /^(\d+)\.\s/.exec(line))
+    .filter(Boolean)
+    .map((m) => Number(m[1]));
+
+  assert.ok(numbers.length >= 5, 'в целях обучения есть нумерованные пункты');
+  assert.deepEqual(
+    numbers,
+    numbers.map((_, index) => index + 1),
+    'нумерация целей обучения последовательная, без вставленных пунктов'
+  );
+
+  assert.doesNotMatch(
+    learnSection,
+    /^\d+[a-z]\.\s/m,
+    'в целях обучения нет пункта вида «2a»'
+  );
+});
+
+test('STRUCT-4: критерий завершения пронумерован подряд', () => {
+  const criteriaStart = lesson12.indexOf('## Критерий завершения урока');
+  assert.ok(criteriaStart >= 0, 'есть раздел «Критерий завершения урока»');
+  const criteriaSection = lesson12.slice(criteriaStart);
+
+  const numbers = criteriaSection
+    .split('\n')
+    .map((line) => /^(\d+)\.\s/.exec(line))
+    .filter(Boolean)
+    .map((m) => Number(m[1]));
+
+  assert.ok(numbers.length >= 10, 'критерий завершения содержит много пунктов');
+  assert.deepEqual(
+    numbers,
+    numbers.map((_, index) => index + 1),
+    'нумерация критерия завершения последовательная'
+  );
+});
+
+test('TRUTH-1: эксперимент C предсказывает РЕАЛЬНОЕ поведение показа', () => {
+  // ИСТОРИЧЕСКАЯ ПОПРАВКА (ACT-15, 12.11.2026).
+  //
+  // Прежний текст утверждал, что при `tasks[index].done = 'да'` показ
+  // напишет «— Не выполнена». Это НЕВЕРНО для канонического показа:
+  // условие `if (task.done)` спрашивает «истинно ли значение», а
+  // непустая строка 'да' истинна. Наблюдаемая надпись — «— Выполнена».
+  const experimentC = lesson12.slice(
+    lesson12.indexOf('### Эксперимент C'),
+    lesson12.indexOf('### Чек-лист после изменений')
+  );
+  assert.ok(experimentC.length > 0, 'найден раздел эксперимента C');
+
+  // Прежнее неверное наблюдение убрано.
+  assert.doesNotMatch(
+    experimentC,
+    /«— \*\*Не выполнена\*\*»/,
+    'прежнее неверное наблюдение «— Не выполнена» убрано'
+  );
+  assert.doesNotMatch(
+    experimentC,
+    /строка `'да'` — это \*\*не\*\* `true`/,
+    'прежнее неверное объяснение убрано'
+  );
+
+  // Новое наблюдение: показ НЕ отличает дефект от правильного результата.
+  assert.match(
+    experimentC,
+    /«— \*\*Выполнена\*\*»/,
+    'наблюдение говорит, что показ остаётся «— Выполнена»'
+  );
+  assert.match(
+    experimentC,
+    /if \(task\.done\)/,
+    'объяснение ссылается на каноническое условие показа if (task.done)'
+  );
+  assert.match(
+    experimentC,
+    /не доказывает/i,
+    'сказано, что надпись не доказывает корректность типа данных'
+  );
+});
+
+test('TRUTH-2: условие `if (task.done)` и строгое `=== true` различаются', () => {
+  // Отрицательный контроль к TRUTH-1: исполняем ОБА условия с
+  // `done = 'да'` и убеждаемся, что результаты РАЗНЫЕ. Это доказывает,
+  // что различие «истинно» против «равно true» — существенное, а не
+  // словесное.
+  const truthy = { title: 'X', done: 'да' };
+
+  const byTruthiness = truthy.done ? 'Выполнена' : 'Не выполнена';
+  const byStrictEquality = truthy.done === true ? 'Выполнена' : 'Не выполнена';
+
+  assert.equal(byTruthiness, 'Выполнена', 'if (task.done) выбирает ветку «Выполнена»');
+  assert.equal(byStrictEquality, 'Не выполнена', 'task.done === true даёт false');
+  assert.notEqual(
+    byTruthiness,
+    byStrictEquality,
+    'два условия дают РАЗНЫЕ результаты — их нельзя путать'
+  );
+  assert.equal('да' === true, false, "'да' не равно true");
+  assert.equal(Boolean('да'), true, "'да' — истинное значение");
+});
+
+test('TRUTH-3: канонический показ в уроке использует if (task.done)', () => {
+  // Проверяем, что наш вывод опирается на РЕАЛЬНЫЙ код показа, а не на
+  // догадку: в уроке должен быть фрагмент с условием `if (task.done)`.
+  assert.match(
+    lesson12,
+    /if \(task\.done\)/,
+    'в уроке есть каноническое условие показа if (task.done)'
+  );
+  assert.doesNotMatch(
+    lesson12,
+    /if \(task\.done === true\)/,
+    'канонический показ не использует строгое сравнение с true'
+  );
+});
+
 test('Make остаётся необязательным', () => {
   assert.match(lesson12, /Шаг 5\. Make[\s\S]*?необязательн/i, 'шаг Make помечен необязательным');
 });
@@ -751,19 +934,34 @@ function invariantHolds(tasks) {
   return tasks.every((t) => typeof t.done === 'boolean');
 }
 
-/** Граница допустимых изменений: измениться может ТОЛЬКО выбранная задача. */
+/**
+ * Граница допустимых изменений: измениться может ТОЛЬКО поле `done`
+ * ВЫБРАННОЙ задачи.
+ *
+ * ИСТОРИЧЕСКАЯ ПОПРАВКА (ACT-15, 12.11.2026). Прежняя реализация делала
+ * `continue` для выбранной задачи и потому ПРОПУСКАЛА изменение её
+ * `title`. А контракт урока разрешает менять у выбранной задачи
+ * ТОЛЬКО `done` — название обязано остаться прежним.
+ *
+ * Теперь проверка идёт по двум независимым основаниям:
+ *   - у ВСЕХ задач (включая выбранную) название не изменилось;
+ *   - у НЕ выбранных задач не изменилось поле `done`;
+ *   - у выбранной задачи поле `done` МОЖЕТ измениться.
+ */
 function frameRespected(before, after, index) {
   if (before.length !== after.length) {
     return false;
   }
   for (let i = 0; i < before.length; i += 1) {
+    // Название — у ВСЕХ задач, включая выбранную.
+    if (before[i].title !== after[i].title) {
+      return false;
+    }
     if (i === index) {
+      // У выбранной задачи `done` менять можно — это её цель.
       continue;
     }
     if (before[i].done !== after[i].done) {
-      return false;
-    }
-    if (before[i].title !== after[i].title) {
       return false;
     }
   }
@@ -840,6 +1038,54 @@ test('INV-2b: эталонная реализация границу допус�
     frameRespected(before, after, 1),
     true,
     'с эталонной реализацией граница допустимых изменений держится'
+  );
+});
+
+test('INV-2c: операция, меняющая НАЗВАНИЕ выбранной задачи, ломает границу допустимых изменений', () => {
+  // ИСПОРЧЕННАЯ реализация: кроме `done` меняется ещё и название
+  // ВЫБРАННОЙ задачи. Контракт урока разрешает менять у выбранной
+  // задачи ТОЛЬКО `done` — название обязано остаться прежним.
+  //
+  // ПРЕЖНЯЯ проверка границы пропускала такой дефект: для выбранной
+  // задачи делался `continue`, и её `title` вообще не сверялся.
+  const broken = markTaskDoneSource.replace(
+    /tasks\[index\]\.done = true;/,
+    "tasks[index].done = true;\n  tasks[index].title = 'Другое название';"
+  );
+
+  assert.notEqual(broken, markTaskDoneSource, 'испорченная реализация действительно отличается');
+  assert.match(
+    broken,
+    /tasks\[index\]\.title = 'Другое название';/,
+    'изменение названия выбранной задачи действительно добавлено'
+  );
+
+  const { api, tasks } = buildApp({ markSource: broken });
+
+  const before = tasks.map((t) => ({ done: t.done, title: t.title }));
+  api.markTaskDone(1);
+  const after = tasks.map((t) => ({ done: t.done, title: t.title }));
+
+  // Постусловие про выбранную задачу ПРОХОДИТ: `done` стал `true`.
+  assert.equal(tasks[1].done, true, 'выбранная задача завершена');
+
+  // А граница допустимых изменений ЛОМАЕТСЯ: название изменилось.
+  assert.equal(
+    frameRespected(before, after, 1),
+    false,
+    'граница «название выбранной задачи не изменилось» должна ломаться'
+  );
+
+  // Контроль на ложное срабатывание: ЭТАЛОННАЯ реализация такую границу
+  // НЕ ломает.
+  const { api: goodApi, tasks: goodTasks } = buildApp();
+  const goodBefore = goodTasks.map((t) => ({ done: t.done, title: t.title }));
+  goodApi.markTaskDone(1);
+  const goodAfter = goodTasks.map((t) => ({ done: t.done, title: t.title }));
+  assert.equal(
+    frameRespected(goodBefore, goodAfter, 1),
+    true,
+    'эталонная реализация название выбранной задачи не меняет'
   );
 });
 
@@ -1000,48 +1246,98 @@ test('EVT-2: native EventTarget — ОДНА И ТА ЖЕ функция два�
   assert.equal(calls, 1, 'одна и та же функция учитывается один раз');
 });
 
-test('EVT-3: программа с ДВУМЯ разными зарегистрированными обработчиками проходит прежний прямой вызов P17', () => {
-  // Отрицательный контроль к прежней формулировке P17.
+test('EVT-3: на НАТИВНОМ EventTarget число зарегистрированных обработчиков видно по ЧИСЛУ ВЫЗОВОВ', () => {
+  // ИСТОРИЧЕСКАЯ ПОПРАВКА (ACT-15, 12.11.2026).
   //
-  // Показывает, что ПРЕЖНИЙ прямой вызов completeSelectedTask() НЕ может
-  // установить контракт числа обработчиков: программа, у которой на кнопке
-  // ДВА разных обработчика click, по-прежнему удовлетворяет прямым вызовам
-  // P17 (один показ за вызов, состояние прежнее). Именно поэтому прежнее
-  // название P17 было неверным, а проверка числа обработчиков живёт
-  // в tools/check-lesson-11.mjs (P16 / NC-4 / NC-4b).
+  // Прежний EVT-3 создавал две анонимные функции, передавал их в пустую
+  // заглушку `addEventListener()` и затем проверял `handlers.length`.
+  // Это НЕ устанавливало число зарегистрированных обработчиков: длина
+  // массива — это длина СПИСКА, который мы сами составили, а не
+  // наблюдение поведения программы.
+  //
+  // Теперь используется НАСТОЯЩИЙ EventTarget из стандартной библиотеки
+  // Node.js: обработчики РЕГИСТРИРУЮТСЯ, а событие ДИСПЕТЧЕРИЗУЕТСЯ.
+  // Наблюдаемое свойство — ЧИСЛО ВЫЗОВОВ, то есть число обработчиков.
+  //
+  // ГРАНИЦА: это нативная диспетчеризация событий Node.js, а НЕ
+  // выполнение в браузере. Заглушка document при этом не меняется и
+  // по-прежнему не регистрирует обработчики.
   const { api, tasks, renderCalls, page } = buildApp();
 
   const select = page.registry.get('#task-choice');
   select.selectedIndex = 1;
 
-  // Программа зарегистрировала ДВА разных обработчика click.
-  const button = page.registry.get('#complete-selected-task');
-  const handlers = [() => {}, () => {}];
-  for (const handler of handlers) {
-    button.addEventListener('click', handler);
-  }
+  const target = new EventTarget();
+  let calls = 0;
 
-  // Прежний прямой вызов — тот же, что в P17.
-  api.completeSelectedTask();
+  // Два РАЗНЫХ обработчика, каждый зовёт представителя приложения.
+  target.addEventListener('click', function firstHandler() {
+    calls += 1;
+    api.completeSelectedTask();
+  });
+  target.addEventListener('click', function secondHandler() {
+    calls += 1;
+    api.completeSelectedTask();
+  });
 
-  assert.equal(renderCalls.length, 1, 'прежний прямой вызов всё ещё даёт один показ');
+  // Один диспетчеризованный click -> оба обработчика вызваны.
+  target.dispatchEvent(new Event('click'));
+
+  assert.equal(calls, 2, 'два зарегистрированных обработчика дают два вызова');
+  assert.equal(
+    renderCalls.length,
+    2,
+    'два вызова completeSelectedTask() дают два показа'
+  );
   assert.deepEqual(
     tasks.map((t) => t.done),
     [false, true, false],
-    'прежний прямой вызов всё ещё даёт прежнее состояние'
+    'состояние прежнее: два вызова идемпотентны, завершена только выбранная задача'
   );
+});
 
-  // Но НАСТОЯЩИЙ контракт числа обработчиков на этом НЕ ломается:
-  // прямой вызов вообще не знает про зарегистрированные обработчики.
-  assert.equal(
-    handlers.length,
-    2,
-    'в программе два зарегистрированных обработчика'
+test('EVT-3b: то же самое с ОДНИМ зарегистрированным обработчиком даёт один вызов и один показ', () => {
+  // Контроль на ложное срабатывание EVT-3: при одном обработчике
+  // нативная диспетчеризация даёт ровно один вызов и ровно один показ.
+  const { api, tasks, renderCalls, page } = buildApp();
+
+  const select = page.registry.get('#task-choice');
+  select.selectedIndex = 1;
+
+  const target = new EventTarget();
+  let calls = 0;
+
+  target.addEventListener('click', function onlyHandler() {
+    calls += 1;
+    api.completeSelectedTask();
+  });
+
+  target.dispatchEvent(new Event('click'));
+
+  assert.equal(calls, 1, 'один зарегистрированный обработчик даёт один вызов');
+  assert.equal(renderCalls.length, 1, 'один вызов completeSelectedTask() даёт один показ');
+  assert.deepEqual(
+    tasks.map((t) => t.done),
+    [false, true, false],
+    'состояние: завершена только выбранная задача'
   );
-  assert.notEqual(
-    handlers.length,
-    1,
-    'контракт «ровно один обработчик» нарушен — но прямой вызов P17 его не видит'
+});
+
+test('EVT-3c: ПРЯМОЙ вызов completeSelectedTask() по-прежнему даёт ровно один показ', () => {
+  // Сохраняем легитимное покрытие P17: прямой вызов — это один вызов
+  // функции, а не диспетчеризация события. Он даёт ровно один показ.
+  const { api, tasks, renderCalls, page } = buildApp();
+
+  const select = page.registry.get('#task-choice');
+  select.selectedIndex = 1;
+
+  api.completeSelectedTask();
+
+  assert.equal(renderCalls.length, 1, 'один прямой вызов — ровно один показ');
+  assert.deepEqual(
+    tasks.map((t) => t.done),
+    [false, true, false],
+    'завершена только выбранная задача'
   );
 });
 
