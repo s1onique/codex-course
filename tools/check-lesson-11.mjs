@@ -29,12 +29,14 @@
  *     а НЕ в настоящем браузере. Это НЕ нативное выполнение в браузере и
  *     НЕ визуальная проверка отображения.
  *   - Имитация моделирует `selectedIndex` согласно документированному
- *     интерфейсу HTML (позиция с нуля, -1 — ничего не выбрано).
+ *     интерфейсу HTML (позиция с нуля, -1 — ничего не выбрано), включая
+ *     выбор ПЕРВОГО варианта по умолчанию, если ни один вариант не выбран.
  *     Нативная реализация `selectedIndex` в браузере НЕ измерялась.
  *   - Реальное поведение ученика в браузере НЕ измерялось.
  *
- * ОТРИЦАТЕЛЬНЫЕ КОНТРОЛИ (NC-1..NC-7) исполняют ИСПОРЧЕННЫЕ реализации и
- * проверяют, что соответствующая проверка действительно ломается.
+ * ОТРИЦАТЕЛЬНЫЕ КОНТРОЛИ (NC-1..NC-7, NC-SEL-1, NC-THEME-1) исполняют
+ * ИСПОРЧЕННЫЕ реализации и проверяют, что соответствующая проверка
+ * действительно ломается.
  */
 
 import { test } from 'node:test';
@@ -149,6 +151,46 @@ const taskListHtml = uniqueBlock(
 // Модель selectedIndex повторяет документированный интерфейс HTML:
 // значение — номер позиции выбранного варианта с нуля, -1 — ничего не
 // выбрано. Нативная реализация в браузере НЕ проверялась.
+//
+// МОДЕЛИРУЕМАЯ СЕМАНТИКА ВЫБОРА ПО УМОЛЧАНИЮ (P1-исправление).
+// Источники:
+//   - MDN, HTMLSelectElement.selectedIndex:
+//     «The selectedIndex property of the HTMLSelectElement interface is the
+//      numeric index of the first selected <option> element in a <select>
+//      element, if any, or −1 if no <option> is selected.»
+//   - MDN, <select> (Usage notes):
+//     «If no selected attribute is specified, the first <option> element
+//      will be selected by default.»
+//   - WHATWG HTML Standard, раздел «The select element», алгоритм
+//     «ask for a reset»: если у <select> нет атрибута multiple, размер
+//     отображения равен 1 и ни один вариант не отмечен как выбранный,
+//     выбранным становится ПЕРВЫЙ вариант в порядке дерева, который не
+//     отключён.
+//
+// ЧТО ИМЕННО МОДЕЛИРУЕТСЯ (ограниченный набор случаев Урока 11):
+//   | Операция                          | selectedIndex |
+//   |------------------------------------|---------------|
+//   | пустой <select>                    |      -1       |
+//   | добавлен первый вариант            |       0       |
+//   | добавлен второй вариант            |       0       |
+//   | добавлен третий вариант            |       0       |
+//   | явный выбор третьего варианта      |       2       |
+//   | явная установка selectedIndex = -1  |      -1       |
+//   | очистка всех вариантов              |      -1       |
+//   | повторное заполнение пустого списка |       0       |
+//
+// ЧТО НЕ МОДЕЛИРУЕТСЯ (осознанно):
+//   - атрибут multiple и множественный выбор;
+//   - атрибут disabled у вариантов и у <select>;
+//   - placeholder-вариант (первый вариант с пустым значением);
+//   - <optgroup> и вложенные <option>;
+//   - выбранность, заданная атрибутом selected в разметке;
+//   - полный алгоритм «ask for a reset» и синхронизация selectedIndex
+//     с selectedOptions/value;
+//   - поведение при вставке варианта В НАЧАЛО списка.
+//
+// Проверка модели против документации НЕ является выполнением в
+// настоящем браузере: нативное поведение здесь НЕ измерялось.
 // ---------------------------------------------------------------------------
 
 /**
@@ -185,6 +227,11 @@ function makeSelectElement() {
     },
     appendChild(child) {
       options.push(child);
+      // Пока ни один вариант не выбран, выбранным становится первый
+      // добавленный (документированное поведение выпадающего списка).
+      if (element._selectedIndex === -1) {
+        element._selectedIndex = 0;
+      }
       return child;
     },
     addEventListener() {},
@@ -415,6 +462,7 @@ function buildApp(options = {}) {
     choicesSource = renderTaskChoicesSource,
     completeSource = completeSelectedTaskSource,
     connectSource = connectButtonSource,
+    legacySource = LEGACY_SOURCE,
     extraSource = '',
     initSource = 'renderTaskChoices();\nrenderTaskList();\nstartCounter();',
     ids = [
@@ -435,7 +483,7 @@ function buildApp(options = {}) {
   const source = `
 ${tasksLiteral}
 
-${LEGACY_SOURCE}
+${legacySource}
 
 ${choicesSource}
 
@@ -452,7 +500,16 @@ ${initSource}
     'document',
     'console',
     `${source}
-return { tasks, exampleTask, renderTaskList, renderTaskChoices, completeSelectedTask, achievementMessage };`
+return {
+  tasks,
+  exampleTask,
+  renderTaskList,
+  renderTaskChoices,
+  completeSelectedTask,
+  achievementMessage,
+  get clicks() { return clicks; },
+  get points() { return points; }
+};`
   );
 
   const api = factory(page.document, page.consoleStub);
@@ -481,6 +538,146 @@ function choices(page) {
   const select = page.registry.get('#task-choice');
   return select ? select.options.map((o) => ({ text: o.textContent })) : [];
 }
+
+
+// ---------------------------------------------------------------------------
+// МОДЕЛЬ ВЫБОРА ПО УМОЛЧАНИЮ (P1)
+//
+// Ниже — исполняемая проверка смоделированной семантики `selectedIndex`.
+// Это НЕ выполнение в настоящем браузере: нативное поведение здесь
+// НЕ измерялось. Проверяется МОДЕЛЬ на соответствие документированному
+// интерфейсу HTML.
+//
+// Источники:
+//   - MDN, HTMLSelectElement.selectedIndex («…or −1 if no <option> is
+//     selected»);
+//   - MDN, <select>, Usage notes («If no selected attribute is specified,
+//     the first <option> element will be selected by default»);
+//   - WHATWG HTML Standard, алгоритм «ask for a reset» для <select>.
+// ---------------------------------------------------------------------------
+
+/** Создаёт вариант выбора для имитации <select>. */
+function makeOption(text) {
+  return { tagName: 'OPTION', textContent: String(text), children: [] };
+}
+
+test('SEL-1: пустой список выбора — selectedIndex равен -1', () => {
+  const select = makeSelectElement();
+
+  assert.equal(select.selectedIndex, -1, 'у пустого списка ничего не выбрано');
+  assert.equal(select.options.length, 0, 'вариантов нет');
+});
+
+test('SEL-2: добавление ПЕРВОГО варианта выбирает его (selectedIndex = 0)', () => {
+  const select = makeSelectElement();
+
+  select.appendChild(makeOption('Прочитать главу'));
+
+  assert.equal(select.selectedIndex, 0, 'первый вариант выбран по умолчанию');
+});
+
+test('SEL-3: добавление ВТОРОГО и ТРЕТЬЕГО вариантов не меняет выбор', () => {
+  const select = makeSelectElement();
+
+  select.appendChild(makeOption('Прочитать главу'));
+  assert.equal(select.selectedIndex, 0, 'после первого варианта выбран первый');
+
+  select.appendChild(makeOption('Сделать упражнение'));
+  assert.equal(select.selectedIndex, 0, 'после второго варианта выбран первый');
+
+  select.appendChild(makeOption('Проверить результат'));
+  assert.equal(select.selectedIndex, 0, 'после третьего варианта выбран первый');
+
+  assert.equal(select.options.length, 3, 'вариантов три');
+});
+
+test('SEL-4: явный выбор третьего варианта даёт selectedIndex = 2', () => {
+  const select = makeSelectElement();
+
+  select.appendChild(makeOption('Прочитать главу'));
+  select.appendChild(makeOption('Сделать упражнение'));
+  select.appendChild(makeOption('Проверить результат'));
+
+  select.selectedIndex = 2;
+
+  assert.equal(select.selectedIndex, 2, 'выбран третий вариант');
+});
+
+test('SEL-5: явная установка selectedIndex = -1 снимает выбор', () => {
+  const select = makeSelectElement();
+
+  select.appendChild(makeOption('Прочитать главу'));
+  select.appendChild(makeOption('Сделать упражнение'));
+
+  select.selectedIndex = -1;
+
+  assert.equal(select.selectedIndex, -1, 'выбор снят');
+  assert.equal(select.options.length, 2, 'варианты при этом остались на месте');
+});
+
+test('SEL-6: очистка всех вариантов снова даёт selectedIndex = -1', () => {
+  const select = makeSelectElement();
+
+  select.appendChild(makeOption('Прочитать главу'));
+  select.appendChild(makeOption('Сделать упражнение'));
+  assert.equal(select.selectedIndex, 0, 'до очистки выбран первый');
+
+  select.textContent = '';
+
+  assert.equal(select.selectedIndex, -1, 'после очистки ничего не выбрано');
+  assert.equal(select.options.length, 0, 'вариантов не осталось');
+});
+
+test('SEL-7: повторное заполнение пустого списка снова выбирает первый вариант', () => {
+  const select = makeSelectElement();
+
+  select.appendChild(makeOption('Прочитать главу'));
+  select.textContent = '';
+  assert.equal(select.selectedIndex, -1, 'после очистки ничего не выбрано');
+
+  select.appendChild(makeOption('Прочитать главу'));
+  select.appendChild(makeOption('Сделать упражнение'));
+
+  assert.equal(select.selectedIndex, 0, 'после повторного заполнения выбран первый');
+});
+
+test('SEL-8: выбор по умолчанию работает и в репрезентативном приложении', () => {
+  const { page } = buildApp();
+
+  const select = page.registry.get('#task-choice');
+
+  assert.equal(select.options.length, 3, 'вариантов три');
+  assert.equal(select.selectedIndex, 0, 'первая задача выбрана по умолчанию');
+});
+
+test('NC-SEL-1: ПРЕЖНЯЯ модель (выбор не по умолчанию) ломает проверку SEL-2', () => {
+  // Испорченная реализация: appendChild() НЕ выбирает первый вариант —
+  // ровно то поведение, которое было в имитации до исправления.
+  const brokenAppendChild = function (child) {
+    this.options.push(child);
+    return child;
+  };
+
+  const select = makeSelectElement();
+  select.appendChild = brokenAppendChild;
+
+  select.appendChild(makeOption('Прочитать главу'));
+
+  // Прежняя модель утверждает -1 — и это НЕВЕРНО по документации.
+  assert.equal(select.selectedIndex, -1, 'прежняя модель даёт -1 после первого варианта');
+
+  // Контракт «после добавления первого варианта выбран первый» обязан сломаться.
+  assert.notEqual(
+    select.selectedIndex,
+    0,
+    'контракт «первый вариант выбран по умолчанию» должен сломаться на прежней модели'
+  );
+
+  // Исправленная модель даёт 0 для того же сценария.
+  const fixed = makeSelectElement();
+  fixed.appendChild(makeOption('Прочитать главу'));
+  assert.equal(fixed.selectedIndex, 0, 'исправленная модель даёт 0');
+});
 
 
 // ---------------------------------------------------------------------------
@@ -896,6 +1093,78 @@ test('P18: выбор не меняет данные до нажатия кно�
   );
 });
 
+test('P19: кнопка темы ПЕРЕКЛЮЧАЕТ класс dark на body (поведенческая проверка)', () => {
+  // ГРАНИЦА ДОКАЗАТЕЛЬСТВ: проверяется СОСТОЯНИЕ КЛАССА в имитации DOM
+  // (`document.body.classList.contains('dark')`). Это НЕ визуальная проверка
+  // и НЕ выполнение в настоящем браузере: ни CSS, ни layout здесь не
+  // вычисляются. Проверяется факт переключения класса, а не картинка.
+  const { page, tasks } = buildApp();
+
+  const themeButton = page.registry.get('#theme-button');
+  const body = page.document.body;
+
+  const isDark = () => body.classList.contains('dark');
+
+  // 1. Изначально тёмной темы нет.
+  assert.equal(isDark(), false, 'изначально класс dark не установлен');
+
+  // 2. Первое нажатие включает тёмную тему.
+  themeButton.click();
+  assert.equal(isDark(), true, 'после первого нажатия тема тёмная');
+
+  // 3. Второе нажатие выключает её обратно.
+  themeButton.click();
+  assert.equal(isDark(), false, 'после второго нажатия тема снова светлая');
+
+  // 4. Завершение задачи НЕ меняет состояние темы.
+  page.registry.get('#task-choice').selectedIndex = 1;
+  page.registry.get('#complete-selected-task').click();
+
+  assert.equal(tasks[1].done, true, 'выбранная задача завершена');
+  assert.equal(isDark(), false, 'завершение задачи не изменило тему');
+
+  // 5. Третье нажатие снова включает тёмную тему.
+  themeButton.click();
+  assert.equal(isDark(), true, 'после третьего нажатия тема снова тёмная');
+});
+
+test('P19b: на кнопке темы ровно один обработчик (отдельная проверка)', () => {
+  // Проверка числа подписок остаётся ОТДЕЛЬНОЙ от поведенческой:
+  // обработчик может быть зарегистрирован и не переключать тему.
+  const { page } = buildApp();
+
+  assert.equal(
+    page.registry.get('#theme-button').clickListenerCount(),
+    1,
+    'на кнопке темы один обработчик'
+  );
+});
+
+test('P20: необязательное упражнение points не меняется от завершения задачи', () => {
+  // `points` — необязательное упражнение Урока 03 (+2 за нажатие
+  // счётчика). Раньше набор Урока 11 содержал переменную `points`,
+  // но НЕ проверял её значение. Здесь состояние `points` наблюдается
+  // явно: завершение задачи не должно его трогать.
+  const { page, api, tasks } = buildApp();
+
+  const counter = page.registry.get('#click-button');
+  counter.click();
+  counter.click();
+
+  // Каноническое упражнение Урока 03: `points = points + 2` за нажатие,
+  // поэтому два нажатия дают clicks = 2 и points = 4.
+  assert.equal(api.clicks, 2, 'после двух нажатий clicks = 2');
+  assert.equal(api.points, 4, 'после двух нажатий points = 4');
+
+  page.registry.get('#task-choice').selectedIndex = 1;
+  page.registry.get('#complete-selected-task').click();
+
+  assert.equal(tasks[1].done, true, 'выбранная задача завершена');
+  assert.equal(api.points, 4, 'points не изменился от завершения задачи');
+  assert.equal(api.clicks, 2, 'clicks не изменился от завершения задачи');
+  assert.equal(page.registry.get('#click-count').textContent, '2', 'счётчик на экране прежний');
+});
+
 
 // ---------------------------------------------------------------------------
 // ОТРИЦАТЕЛЬНЫЕ КОНТРОЛИ
@@ -1146,5 +1415,48 @@ test('NC-7: оставшийся старый обработчик меняет 
     page.registry.get('#complete-selected-task').clickListenerCount(),
     1,
     'контракт «один обработчик» должен сломаться'
+  );
+});
+
+test('NC-THEME-1: обработчик темы, НЕ переключающий класс, ломает поведенческую проверку', () => {
+  // Испорченная реализация: обработчик темы зарегистрирован, но класс
+  // `dark` НЕ переключает. Именно этот дефект НЕ ловила прежняя
+  // проверка «число обработчиков на кнопке равно 1».
+  const brokenLegacy = LEGACY_SOURCE.replace(
+    "document.body.classList.toggle('dark');",
+    "console.error('Тема не переключается');"
+  );
+
+  assert.notEqual(brokenLegacy, LEGACY_SOURCE, 'переключение темы действительно сломано');
+
+  const { page } = buildApp({ legacySource: brokenLegacy });
+
+  const themeButton = page.registry.get('#theme-button');
+  const body = page.document.body;
+
+  // Прежняя проверка «число подписок» ПРОХОДИТ — дефект в ней не виден:
+  assert.equal(themeButton.clickListenerCount(), 1, 'обработчик по-прежнему зарегистрирован');
+
+  themeButton.click();
+
+  // А поведенческая проверка ОБЯЗАНА сломаться: тема не переключилась.
+  assert.equal(
+    body.classList.contains('dark'),
+    false,
+    'испорченная реализация не переключает тему'
+  );
+  assert.notEqual(
+    body.classList.contains('dark'),
+    true,
+    'контракт «после первого нажатия тема тёмная» должен сломаться'
+  );
+
+  // Канонический обработчик ту же последовательность проходит.
+  const clean = buildApp();
+  clean.page.registry.get('#theme-button').click();
+  assert.equal(
+    clean.page.document.body.classList.contains('dark'),
+    true,
+    'каноническая реализация переключает тему'
   );
 });
