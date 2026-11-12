@@ -132,12 +132,12 @@ function transitionTask(index, event) {
 Если хотите увидеть разницу **прямо сейчас**, не читая дальше, — вот он. Введите в консоли браузера:
 
 ```javascript
-const original = { title: 'Прочитать главу', status: 'new' };
+const firstTask = { title: 'Прочитать главу', status: 'new' };
 
-const result = { title: original.title, status: 'in_progress' };
+const firstResult = { title: firstTask.title, status: 'in_progress' };
 
-console.log('исходная задача:', original);
-console.log('новый результат:', result);
+console.log('исходная задача:', firstTask);
+console.log('новый результат:', firstResult);
 ```
 
 Что вы увидите: `исходная задача` по-прежнему `{ title: 'Прочитать главу', status: 'new' }` — **ничего не изменилось** — а `новый результат` — отдельный объект со `status: 'in_progress'`. Это и есть главная идея урока в **четырёх строках**: **можно посчитать новое состояние, не трогая старое**.
@@ -262,26 +262,26 @@ function transitionTask(index, event) {
 Теперь проверьте в консоли **новое** — чистоту. Выполните:
 
 ```javascript
-const before = { title: 'Прочитать главу', status: 'new' };
-const result = nextTask(before, 'START');
+const pureInput = { title: 'Прочитать главу', status: 'new' };
+const pureResult = nextTask(pureInput, 'START');
 
-console.assert(before.status === 'new', 'Исходная задача не должна измениться');
-console.assert(result.accepted === true, 'Событие должно быть принято');
-console.assert(result.task.status === 'in_progress', 'Должно получиться in_progress');
-console.assert(result.task.title === 'Прочитать главу', 'Название должно сохраниться');
+console.assert(pureInput.status === 'new', 'Исходная задача не должна измениться');
+console.assert(pureResult.accepted === true, 'Событие должно быть принято');
+console.assert(pureResult.task.status === 'in_progress', 'Должно получиться in_progress');
+console.assert(pureResult.task.title === 'Прочитать главу', 'Название должно сохраниться');
 ```
 
-> **Обратите внимание на первую проверку.** `before` — это **ваш** объект, созданный вручную. Никакой функции приложения к нему не обращалось. И после вызова `nextTask()` у него **всё ещё** `status: 'new'`. Это и есть чистота: **входные данные не изменились**.
+> **Обратите внимание на первую проверку.** `pureInput` — это **ваш** объект, созданный вручную. Никакой функции приложения к нему не обращалось. И после вызова `nextTask()` у него **всё ещё** `status: 'new'`. Это и есть чистота: **входные данные не изменились**.
 
 А теперь сравните с прежним поведением:
 
 ```javascript
-const changed = { title: 'Прочитать главу', status: 'new' };
-changed.status = 'in_progress';
-console.log(changed.status);
+const changedTask = { title: 'Прочитать главу', status: 'new' };
+changedTask.status = 'in_progress';
+console.log(changedTask.status);
 ```
 
-Здесь мы **сами** изменили объект — и теперь `changed.status` равен `in_progress`. Это **старый** способ: чтобы «получить следующее состояние», объект приходилось **переписывать**.
+Здесь мы **сами** изменили объект — и теперь `changedTask.status` равен `in_progress`. Это **старый** способ: чтобы «получить следующее состояние», объект приходилось **переписывать**.
 
 | Способ | Что происходит с исходным объектом | Как узнать результат |
 |---|---|---|
@@ -428,11 +428,11 @@ console.assert(tasks[1].status === 'done', 'Выбранная задача до
 **Что делаем.** Обновите страницу, откройте консоль и выполните:
 
 ```javascript
-const original = { title: 'Прочитать главу', status: 'new' };
-const result = nextTask(original, 'START');
+const dirtyInput = { title: 'Прочитать главу', status: 'new' };
+const dirtyResult = nextTask(dirtyInput, 'START');
 
-console.log('исходная задача:', original);
-console.log('результат:', result.task);
+console.log('исходная задача:', dirtyInput);
+console.log('результат:', dirtyResult.task);
 ```
 
 **Что наблюдаем.** `исходная задача` напечатается как `{ title: 'Прочитать главу', status: 'in_progress' }` — **изменённая**! При этом `результат` будет `in_progress` — **правильный**. То есть функция вернула **верное** значение, но **испортила** входные данные. Это **не** ошибка ответа, это **ошибка** контракта: чистая функция **не имеет права** менять то, что ей дали.
@@ -440,10 +440,10 @@ console.log('результат:', result.task);
 Проверьте это проверкой:
 
 ```javascript
-const original2 = { title: 'Прочитать главу', status: 'new' };
-nextTask(original2, 'START');
+const dirtyInput2 = { title: 'Прочитать главу', status: 'new' };
+nextTask(dirtyInput2, 'START');
 
-console.assert(original2.status === 'new', 'Исходная задача не должна измениться');
+console.assert(dirtyInput2.status === 'new', 'Исходная задача не должна измениться');
 ```
 
 `console.assert()` **напишет** сообщение — и это **правильный** результат проверки: контракт чистоты **нарушен**.
@@ -483,11 +483,11 @@ console.assert(original2.status === 'new', 'Исходная задача не �
 **Что делаем.** Обновите страницу, откройте консоль и выполните:
 
 ```javascript
-const original = { title: 'Прочитать главу', status: 'new' };
-const result = nextTask(original, 'COMPLETE');
+const wrongInput = { title: 'Прочитать главу', status: 'new' };
+const wrongResult = nextTask(wrongInput, 'COMPLETE');
 
-console.log('принято:', result.accepted);
-console.log('исходная задача:', original);
+console.log('принято:', wrongResult.accepted);
+console.log('исходная задача:', wrongInput);
 ```
 
 **Что наблюдаем.** `принято: true` — а по таблице должно быть `false`. При этом `исходная задача` — по-прежнему `{ …, status: 'new' }` — **не изменилась**. Функция **чистая**, но **неверная**.
